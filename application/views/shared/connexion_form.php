@@ -1,7 +1,13 @@
 <link rel="stylesheet" type="text/css" media="screen" href="http://localhost:9090/codentretien/assets/css/global.css">
+<?php
+if (isset($this->session->userdata['logged_in'])) {
+
+header("location: http://localhost:9090/codentretien/login/login_process");
+}
+?>
 <div id="login">
 
-	<?php echo form_open('home/login_process'); ?>
+	<?php echo form_open('login/login_process'); ?>
      <label for="username">Nom d'utilsateur:</label>
      <input type="text" size="20" id="username" name="username" placeholder="Nom d'utilisateur"/>
      <br/>

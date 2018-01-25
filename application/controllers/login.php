@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 //session_start();
-class Home extends CI_Controller {
+class Login extends CI_Controller {
 
 	function _construct(){
 		parent::_construct();
@@ -16,8 +16,8 @@ class Home extends CI_Controller {
 
 
 	public function index(){
+		$data = array();
 		//load
-		echo "test";
 		$this->load->library('layout', 'Form_validation');
 		$this->load->library('session');
 		$this->load->helper(array('url','form'));
@@ -25,7 +25,7 @@ class Home extends CI_Controller {
 		//Layout
 		$this->layout->add_css('global');
 		$this->layout->set_titre('Codentretien');
-		$this->layout->view('shared/connexion_form');
+		$this->layout->view('shared/connexion_form', $data);
 	}
 	/**
 	* @todo set_rules : xss_clean AND Trim
@@ -38,11 +38,12 @@ class Home extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password','required');
 
 		if($this->form_validation->run() == FALSE){
+
 			if(isset($this->session->userdata['logged_in'])){
-				$this->load->view('index_page');
+				$this->load->view('login/index_page');
+				
 			} else{
 				$this->load->view('shared/connexion_form');
-				echo "connexion formfdfsdfdsf";
 			}
 		} else{
 			$data = array(
@@ -51,27 +52,39 @@ class Home extends CI_Controller {
 
 			);
 			$result = $this->login_database->login($data);
-			echo $result;
 			if($result == TRUE){
 				$username = $this->input->post('username');
 				$result = $this->login_database->read_user_information($username);
 				if($result != FALSE){
 					$session_data = array(
 						'username' => $result[0]->username,
-						'email' => $result[0]->email, // facultatif
+						'email' => $result[0]->email,
 						);
 					// Add user data in session
 					$this->session->set_userdata('logged_in', $session_data);
 					echo pre($session_data);
-					$this->load->view('index_page');
+					$this->load->view('login/index_page');
 				}
 			} else{
-				$data = array('error_message' => 'Mot de passe invalide test');
-				$this->load->view('shared/connexion_form', $data);
-				echo "false";
+				$data = array('error_message' => 'Mot de passe invalide');
+				redirect('login');
+				//$this->load->view('shared/connexion_form', $data);
+				echo "false"; // debug
 			}
 		}
 	}
+/**
+* Remove session data
+*/
+		public function logout() {
+			$sess_array = array(
+				'username' => ''
+				);
+			$this->session->unset_userdata('logged_in', $sess_array);
+			$data['message_display'] = 'Successfully Logout';
+			redirect('login');
+			$this->load->view('shared/connexion_form', $data);
+		}
 }
 
 
