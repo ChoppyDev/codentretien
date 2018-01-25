@@ -6,7 +6,12 @@ header("location: http://localhost:9090/codentretien/login/login_process");
 }
 ?>
 <div id="login">
-
+	<div id="error_login">
+		<?php
+			$message = $this->session->flashdata('error_login');
+			echo $message;
+		?>
+	</div>
 	<?php echo form_open('login/login_process'); ?>
      <label for="username">Nom d'utilsateur:</label>
      <input type="text" size="20" id="username" name="username" placeholder="Nom d'utilisateur"/>

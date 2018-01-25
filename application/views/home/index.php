@@ -5,4 +5,4 @@ $email = ($this->session->userdata['logged_in']['email']);
 ?>
 <p> Bonjour <?php echo $username ?>  bienvenue sur Codentretien, votre email est <?php echo $email ?></p>
 <br>
-<b id="fd"><a href="zizi">Logout</a></b>
+<b id="logout"><a href="<?php echo base_url() ?>login/logout">Logout</a></b>

@@ -81,3 +81,8 @@ body
 	font-size:20px;
 	color:#ccc;
 }
+
+.error_login
+{
+	background-color: blue;
+}

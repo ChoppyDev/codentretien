@@ -18,8 +18,6 @@ class Login extends CI_Controller {
 	public function index(){
 		$data = array();
 		//load
-		$this->load->library('layout', 'Form_validation');
-		$this->load->library('session');
 		$this->load->helper(array('url','form'));
 		$this->load->model('login_database');
 		//Layout
@@ -27,6 +25,7 @@ class Login extends CI_Controller {
 		$this->layout->set_titre('Codentretien');
 		$this->layout->view('shared/connexion_form', $data);
 	}
+
 	/**
 	* @todo set_rules : xss_clean AND Trim
 	* @todo
@@ -40,10 +39,11 @@ class Login extends CI_Controller {
 		if($this->form_validation->run() == FALSE){
 
 			if(isset($this->session->userdata['logged_in'])){
-				$this->load->view('login/index_page');
-				
+				redirect('home');				
 			} else{
-				$this->load->view('shared/connexion_form');
+				$this->session->set_flashdata('error_login', 'Identifiant ou mot de passe invalide');
+				redirect('login');
+
 			}
 		} else{
 			$data = array(
@@ -60,16 +60,14 @@ class Login extends CI_Controller {
 						'username' => $result[0]->username,
 						'email' => $result[0]->email,
 						);
-					// Add user data in session
 					$this->session->set_userdata('logged_in', $session_data);
 					echo pre($session_data);
-					$this->load->view('login/index_page');
+					redirect("home");
 				}
 			} else{
-				$data = array('error_message' => 'Mot de passe invalide');
+				
+				$this->session->set_flashdata('error_login', 'Identifiant ou mot de passe invalide');
 				redirect('login');
-				//$this->load->view('shared/connexion_form', $data);
-				echo "false"; // debug
 			}
 		}
 	}
