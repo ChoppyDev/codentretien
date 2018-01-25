@@ -1,0 +1,4 @@
+<div id="twitch">
+<p><iframe src="https://player.twitch.tv/?channel=choppy_csgo" width="70% !important" height="550px" frameborder="0" scrolling="no" align="left" allowfullscreen="true"></iframe></p>
+<p><iframe src="https://www.twitch.tv/choppy_csgo/chat?darkpopout=" width="30%" height="550px" frameborder="0" scrolling="no" align="right"></iframe></p>
+</div>

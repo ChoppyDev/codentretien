@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/ecmascript" src="../../js/jquery.min.js"></script>    
+    <script type="text/ecmascript" src="../../js/trirand/jquery.jqGrid.min.js"></script>
+    <script type="text/ecmascript" src="../../js/trirand/i18n/grid.locale-en.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/trirand/ui.jqgrid.css" />
+    <meta charset="utf-8" />
+    <title>Hierarchy in pivot</title>
+</head>
+<body>
+
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+
+    <script type="text/javascript"> 
+    
+        jQuery(document).ready(function () {
+
+            jQuery("#jqGrid").jqGrid('jqPivot',
+            "data.json",
+            // pivot options
+            {
+                xDimension: [
+                    {
+                        dataName: 'CategoryName',
+                        width: 90
+                    }, {
+                        dataName: 'ProductName'
+                    }
+                ],
+                yDimension: [
+                    {
+                        dataName: 'Country'
+                    }
+                ],
+                aggregates: [
+                    {
+                        member: 'Price',
+                        aggregator: 'sum',
+                        width: 80,
+                        label: 'Sum',
+                        formatter: 'number',
+                        align: 'right',
+                        summaryType: 'sum'
+                    }
+                ]
+            },
+            // grid options
+            {
+                width: 780,
+                height: "200",
+                rowNum: 10,
+				rowList : ["10:10","20:20","30:30","1000:All"],
+                pager: "#jqGridPager",
+                caption: "Rows grouping"
+            });
+        });
+
+    </script>
+
+    <br />
+    <span style="font-size: 12px; font-family: Tahoma">Click on the Tabs below the see the relevant code for the example:</span>
+    <br /><br />
+    <div id="codetabs" style="width:800px;font-size:65%"></div>
+    <script type="text/ecmascript" src="../../js/jquery-ui.min.js"></script>
+    <script type="text/ecmascript" src="../../js/prettify/prettify.js"></script>
+    <link rel="stylesheet" href="../../css/prettify.css" />
+    <script type="text/ecmascript" src="../../js/codetabs.js"></script>
+    
+    
+    <script type="text/javascript">
+
+        var tabData =
+            [
+                { name: "HTML", url: "index.html", lang: "lang-html" },
+                { name: "Data", url: "data.json", lang: "lang-json" },
+				{ name: "Description", url: "description.html", lang: "lang-html" }
+            ];
+
+        codeTabs(tabData);
+
+    </script>
+
+</body>
+</html>

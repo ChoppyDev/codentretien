@@ -1,0 +1,7 @@
+{
+	"rows":[
+		{"category_id":"1","name":"ELECTRONICS","price":"0.00","qty_onhand":"0","color":"","lft":"1","rgt":"44","level":"0","uiicon":""},
+		{"category_id":"23","name":"COMPUTERS","price":"0.00","qty_onhand":"0","color":"","lft":"45","rgt":"50","level":"0","uiicon":""},
+		{"category_id":"24","name":"APPLIANCES","price":"0.00","qty_onhand":"0","color":"","lft":"51","rgt":"52","level":"0","uiicon":""}
+	]
+}

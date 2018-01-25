@@ -1,0 +1,1 @@
+﻿This example show how we can load data once from Server using the <b>loadonce: true</b> property.

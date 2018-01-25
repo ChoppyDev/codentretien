@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!-- The jQuery library is a prerequisite for all jqSuite products -->
+    <script type="text/ecmascript" src="../../../js/jquery.min.js"></script> 
+    <!-- This is the Javascript file of jqGrid -->   
+    <script type="text/ecmascript" src="../../../js/trirand/jquery.jqGrid.min.js"></script>
+    <!-- This is the localization file of the grid controlling messages, labels, etc.
+    <!-- We support more than 40 localizations -->
+    <script type="text/ecmascript" src="../../../js/trirand/i18n/grid.locale-en.js"></script>
+    <!-- A link to a jQuery UI ThemeRoller theme, more than 22 built-in and many more custom -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../../css/jquery-ui.css" />
+    <!-- The link to the CSS that the grid needs -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../../css/trirand/ui.jqgrid.css" />
+    <meta charset="utf-8" />
+    <title>jqGrid Loading Data - Dialogs - Inline Validation Client Side</title>
+</head>
+<body>
+
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+			if (!window.console) window.console = {};
+			if (!window.console.log) window.console.log = function () { };
+
+			$("#jqGrid").jqGrid({
+                url: 'data.json',
+                editurl: 'clientArray',
+                datatype: "json",
+                colModel: [
+                    {
+                        name: 'Integer',
+                        key: true,
+                        editable: true,
+                        editrules:{
+							//custom rules
+                            custom_func: validatePositive,
+                            custom: true,
+                            required: true
+                        },
+                        width: 75
+                    },
+                    {
+                        name: 'Number',
+                        width: 100,
+                        editable: true,
+                        editrules: {
+							number: true,
+                            minValue: 1000,
+                            maxValue: 10000,
+                            required: true
+                        }
+                    },
+                    {
+                        name: 'Email',
+                        width: 100,
+                        editable: true,
+                        editrules: {
+                            email: true,
+                            required: true
+                        }
+                    },
+                    {
+                        name: 'Url',
+                        width: 80,
+                        editable: true,
+                        editrules: {
+                            url: true,
+                            required: true
+                        }
+                    }
+                ],
+				loadonce : true,
+                onSelectRow: editRow,
+                width: 780,
+                height: 200,
+                rowNum: 10,
+                pager: "#jqGridPager"
+        });
+
+        var lastSelection;
+
+        function editRow(id) {
+            if (id && id !== lastSelection) {
+                var grid = $("#jqGrid");
+                grid.jqGrid('restoreRow',lastSelection);
+
+                var editParameters = {
+                    keys: true,
+                    successfunc: editSuccessful,
+                    errorfunc: editFailed
+                };
+
+                grid.jqGrid('editRow',id, editParameters);
+                lastSelection = id;
+            }
+        }
+
+        function editSuccessful() {
+            console.log("success");
+        }
+
+        function editFailed() {
+            console.log("fail");
+        }
+
+        function validatePositive(value, column) {
+            if ( isNaN(value) && value < 0)
+                return [false, "Please enter a positive value or correct value"];
+            else
+                return [true, ""];
+        }                
+    });
+
+    </script>
+
+    <!-- This code is related to code tabs -->
+    <br />
+    <span style="font-size: 12px; font-family: Tahoma">Click on the Tabs below the see the relevant code for the example:</span>
+    <br /><br />
+    <div id="codetabs" style="width:700px; height: 400px; font-size:65%;"></div>
+    <script type="text/ecmascript" src="../../../js/jquery-ui.min.js"></script>
+    <script type="text/ecmascript" src="../../../js/prettify/prettify.js"></script>
+    <link rel="stylesheet" href="../../../css/prettify.css" />
+        <script type="text/ecmascript" src="../../../js/codetabs.js"></script><script type="text/ecmascript" src="../../../js/themeswitchertool.js"></script>
+    
+    <script type="text/javascript">
+
+        var tabData =
+            [
+                { name: "HTML", url: "index.html", lang: "lang-html" },
+                { name: "Data", url: "data.json", lang: "lang-json" },
+				{ name: "Description", url: "description.html", lang: "lang-html" }
+            ];
+
+        codeTabs(tabData);
+
+    </script>
+    <!-- End of code related to code tabs -->
+</body>
+</html>

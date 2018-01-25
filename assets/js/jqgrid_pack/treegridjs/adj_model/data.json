@@ -1,0 +1,12 @@
+{
+	"rows":[
+		{"emp_id":"10","name":"Albert","salary":"1000.00","boss_id":null,"level":0,"isLeaf":"false","loaded":"true","expanded":"true"},
+		{"emp_id":"11","name":"Bert","salary":"900.00","boss_id":"10","level":1,"isLeaf":"true","loaded":"true","expanded":"true"},
+		{"emp_id":"12","name":"Chuck","salary":"900.00","boss_id":"10","level":1,"isLeaf":"false","loaded":"true","expanded":"true"},
+		{"emp_id":"13","name":"Donna","salary":"800.00","boss_id":"12","level":2,"isLeaf":"true","loaded":"true","expanded":"true"},
+		{"emp_id":"14","name":"Eddie","salary":"700.00","boss_id":"12","level":2,"isLeaf":"true","loaded":"true","expanded":"true"},
+		{"emp_id":"15","name":"Fred","salary":"600.00","boss_id":"12","level":2,"isLeaf":"true","loaded":"true","expanded":"true"}
+	],
+	"total":6,
+	"page":1
+}

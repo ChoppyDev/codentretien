@@ -1,0 +1,15 @@
+{
+	"userdata":[],
+	"rows":[
+		{"account_id":"1","name":"Cash","acc_num":"100","debit":"400.00","credit":"250.00","balance":"150.00","parent_id":null,"level":0,"isLeaf":"false","loaded":"true","expanded":"true"},
+		{"account_id":"2","name":"Cash 1","acc_num":"100-1","debit":"300.00","credit":"200.00","balance":"100.00","parent_id":"1","level":1,"isLeaf":"false","loaded":"true","expanded":"true"},
+		{"account_id":"3","name":"Sub Cash 1","acc_num":"100-1-1","debit":"300.00","credit":"200.00","balance":"100.00","parent_id":"2","level":2,"isLeaf":"true","loaded":"true","expanded":"true"},
+		{"account_id":"4","name":"Cash 2","acc_num":"100-2","debit":"100.00","credit":"50.00","balance":"50.00","parent_id":"1","level":1,"isLeaf":"true","loaded":"true","expanded":"true"},
+		{"account_id":"5","name":"Bank's","acc_num":"200","debit":"1500.00","credit":"1000.00","balance":"500.00","parent_id":null,"level":0,"isLeaf":"false","loaded":"true","expanded":"true"},
+		{"account_id":"6","name":"Bank 1","acc_num":"200-1","debit":"500.00","credit":"0.00","balance":"500.00","parent_id":"5","level":1,"isLeaf":"true","loaded":"true","expanded":"true"},
+		{"account_id":"7","name":"Bank 2","acc_num":"200-2","debit":"1000.00","credit":"1000.00","balance":"0.00","parent_id":"5","level":1,"isLeaf":"true","loaded":"true","expanded":"true"},
+		{"account_id":"8","name":"Fixed asset","acc_num":"300","debit":"0.00","credit":"1000.00","balance":"-1000.00","parent_id":null,"level":0,"isLeaf":"true","loaded":"true","expanded":"true"}
+	],
+	"total":8,
+	"page":1
+}

@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>jqGrid Inline Edit Test</title>
+<!-- cupertino, redmond, hot-sneaks, start, ui-darkness, mint-choc, smoothness -->
+<link type="text/css" rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/hot-sneaks/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="../../../css/trirand/ui.jqgrid.css" />
+<style type="text/css">
+body {
+font-family: Arial;
+}
+
+.ui-widget {
+font-size: 0.8em;
+}
+
+.ui-jqrid {
+font-family: 0.8em;
+}
+
+.ui-widget-overlay {
+opacity: 0.4 !important;
+background: inherit;
+background-color: #aaa;
+}
+</style>
+</head>
+<body>
+
+<script type="text/ecmascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> </script>
+<script type="text/ecmascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" ></script>
+<script type="text/ecmascript" src="../../../js/trirand/src/jquery.jqGrid.js"></script>
+<script type="text/ecmascript" src="../../../js/trirand/i18n/grid.locale-en.js"></script>
+
+
+<table id="dgRegions"></table>
+<table id="pgRegions"></table>
+
+<button id="btnShowData" style="display: none;">Show Data</button>
+<script type="text/javascript">
+var data = {};
+var lastSel;
+
+function cancelEditing(myGrid) {
+if (lastSel != null) {
+$(myGrid).jqGrid('restoreRow', lastSel);
+var lrid = $.jgrid.jqID(lastSel);
+$("tr#" + lrid + " div.ui-inline-edit, " + "tr#" + lrid + " div.ui-inline-del").show();
+$("tr#" + lrid + " div.ui-inline-save, " + "tr#" + lrid + " div.ui-inline-cancel").hide();
+}
+}
+
+function LoadGrid(data) {
+if ($('#dgRegions')[0].grid) {
+$('#dgRegions').jqGrid('GridUnload');
+}
+var dgRegions = $('#dgRegions').jqGrid({
+datatype: 'local',
+data: data.rows,
+cmTemplate: {
+searchoptions: { sopt: ['bw', 'cn', 'nc', 'eq', 'ne', 'lt', 'le', 'gt', 'ge', 'bn', 'in', 'ni', 'ew', 'en'] }
+},
+colModel: [
+{ name: 'RegionID', hidden: true, key: true },
+{
+label: 'Region', name: 'RegionDescription', index: 'RegionDescription', editable: true, editoptions: { size: 40, maxlength: 50 }, editrules: {
+custom: true,
+custom_func: function (value, label) {
+if (value.trim().length === 0)
+return [false, $.validator.format('{0}: Field is required', label)];
+else if (value.substr(0, 1) === ' ')
+return [false, $.validator.format('{0}: Field cannot begin with space', label)];
+else
+return [true,""];
+}
+}
+},
+{
+label: ' ', formatter: 'actions', width: 60, fixed: true, search: false,
+formatoptions: {
+url: 'clientArray',
+keys: true,
+delbutton: false,
+onEdit: function (rowid) {
+if (lastSel != null && rowid !== lastSel) {
+cancelEditing($(this));
+}
+lastSel = rowid;
+},
+afterSave: function (rowid) {
+var row = $(this).getRowData(rowid);
+$.each(data.rows, function (i, drow) {
+if (drow.RegionID === row.RegionID) {
+drow.RegionDescription = row.RegionDescription;
+return false;
+}
+});
+}
+}
+}
+],
+caption: 'R e g i o n s',
+pager: '#pgRegions',
+sortname: 'RegionDescription',
+sortorder: 'asc',
+width: 500,
+height: '100%',
+pginput: true,
+pgbuttons: true,
+rowNum: 15,
+rowList: [10, 15, 20, 25],
+viewrecords: true,
+shrinkToFit: true,
+onSelectRow: function (rowid) {
+if (lastSel != null && rowid !== lastSel) {
+cancelEditing(this);
+}
+lastSel = rowid;
+}
+});
+dgRegions
+.jqGrid('filterToolbar', {
+searchOperators: true,
+stringResult: true
+})
+.jqGrid('navGrid', '#pgRegions', { search: false, refresh: false, edit: false },
+{ width: 400 },
+{ width: 400 },
+{ width: 400 }
+);
+}
+
+$().ready(function () {
+/* jqGrid 5.0.0 introduced a change that propagated the Enter key up the DOM outside the grid — code below cancels this behavior */
+//$(document).on('keydown', '.ui-jqgrid .editable', function (e, ui) {
+// if (e.which === $.ui.keyCode.ENTER) {
+// e.preventDefault();
+// }
+//});
+
+$('#btnShowData').button().click(function (e, ui) {
+alert(JSON.stringify(data));
+e.preventDefault();
+});
+
+data.rows = [
+{ RegionID: 1, RegionDescription: 'Eastern' },
+{ RegionID: 2, RegionDescription: 'Northern' },
+{ RegionID: 3, RegionDescription: 'Southern' },
+{ RegionID: 5, RegionDescription: 'Testing' },
+{ RegionID: 4, RegionDescription: 'Western' }
+];
+
+LoadGrid(data);
+$('#btnShowData').show();
+});
+</script>
+</form>
+</body>
+</html>

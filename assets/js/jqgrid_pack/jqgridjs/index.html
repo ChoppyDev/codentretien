@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Trirand jqGrid - jQuery based grid HTML5 component for Javascript</title>
+<!--    <%--<site:head ID="head" runat="server" />--%> -->
+    <!-- Temporary fix -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+<!--
+    <script src="/script/trirand.js" type="text/javascript"></script>
+ -->
+    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.1/themes/start/jquery-ui.css" media="screen" />
+<!--
+    <link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="/style/style.css" rel="stylesheet" type="text/css" media="all" />
+-->
+<style type="text/css">
+	.examples {padding-left: 10px;}
+</style>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            $("#accordion").accordion();
+            $("#demoFrame").attr("src", "loading_data/rest_million/index.html");
+        });
+    </script>
+</head>
+<body>
+	<h3 style="text-align: center;"> Guriddo jqGrid JavaScript Demo</h3>
+<div style="text-align: center;font-size: 12px">
+	<span ><img alt="" src="../css/control_icon.png">  More Demos </span> &nbsp;	
+	<a href="http://www.guriddo.net/demo/bootstrap/" ><img alt="" src="../css/control_icon.png">  Bootstrap jqGrid JS</a> &nbsp;
+	<a href="http://www.guriddo.net/demo/treegridjs/" ><img alt="" src="../css/control_icon.png">  TreeGrid JS </a> &nbsp;
+	<a href="http://www.guriddo.net/demo/pivotgridjs/" ><img alt="" src="../css/control_icon.png">  PivotGrid JS </a> &nbsp;
+	<a href="http://www.guriddo.net/demo/jqgridphp/" ><img alt="" src="../css/control_icon.png">  PHP jqGrid</a> &nbsp;
+	<a href="http://www.guriddo.net/demo/schedulerphp/" ><img alt="" src="../css/control_icon.png"> Scheduler </a> &nbsp;
+	<a href="http://www.guriddo.net/demo/formphp/" ><img alt="" src="../css/control_icon.png"> PHP Form </a> &nbsp;
+</div>
+    <form id="Form1">
+        <div id="wrap">
+			<!--
+            <site:header ID="header" runat="server" />
+            <site:demoNavigation ID="demoNavigation" runat="server" />
+			-->
+            <!-- Content -->
+
+            <table cellspacing="10" cellpadding="10">
+                <tr>
+                    <td width="250px" style="vertical-align: top">
+                        <div id="accordion" style="font-size: 75%; height: 600px; width: 240px;">
+                            <h3><a href="#">Loading Data </a></h3>
+                            <div>
+                                <ul class="examples">
+                                    <li>
+                                        <a href="loading_data/scrollbar_view/index.html" target="demoFrame">Virtual Load On Demand - with pager info view <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="loading_data/rest_million/index.html" target="demoFrame">Load <span style="color: red">1 million</span> rows from JSONP</a>
+                                    </li>
+                                     <li>
+                                        <a href="loading_data/json_web/index.html" target="demoFrame">Load from <span style="color: red">live</span> JSON API (<span style="color: red">StackOverflow</span>)</a>
+                                    </li>
+                                    <li>
+                                        <a href="loading_data/xml/index.html" target="demoFrame">Load from XML</a>
+                                    </li>
+                                    <li>
+                                        <a href="loading_data/json/index.html" target="demoFrame">Load from JSON</a>
+                                    </li>
+                                    <li>
+                                        <a href="loading_data/array/index.html" target="demoFrame">Load from Javascript Array</a>
+                                    </li>
+                                    <li>
+                                        <a href="loading_data/loadonce/index.html" target="demoFrame">Load Once</a>
+                                    </li>
+                                    <li>
+                                        <a href="loading_data/scrollbar/index.html" target="demoFrame">Virtual Load On Demand Mode - scrollbar paging</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h3><a href="#">Export to Excel,Pdf, Csv  <sup style="color:red">New</sup></a></h3>
+                            <div>
+                                <ul class="examples">
+                                    <li>
+                                        <a href="export/exporttocsv/index.html" target="demoFrame">Export to CSV <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="export/exporttoexcel/index.html" target="demoFrame">Export to Excel <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="export/exporttopdf/index.html" target="demoFrame">Export to PDF <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="export/grouping/index.html" target="demoFrame">Grouping Export <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="export/pivotexport/index.html" target="demoFrame">Pivot Grid Export <sup style="color:red">New</sup></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h3><a href="#">Functionality</a></h3>
+                            <div>
+                                <ul class="examples">
+                                    <li>
+                                        <a href="functionality/column_menu/index.html" target="demoFrame">Colmenu with actions <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/saveloadstate/index.html" target="demoFrame">Save and load jqGrid State <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/localization/index.html" target="demoFrame">Dynamic Localization <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/frozen_columns/index.html" target="demoFrame">Frozen Columns</a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/rtl/index.html" target="demoFrame">Right-To-Left (RTL) Support</a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/customize_footer/index.html" target="demoFrame">Customize Footer</a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/formatters_built_in/index.html" target="demoFrame">Cell formatters (built-in)</a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/formatters_custom/index.html" target="demoFrame">Cell formatters (custom)</a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/column_reorder/index.html" target="demoFrame">Column Reordering</a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/context_menu/index.html" target="demoFrame">Context Menu for Rows</a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/toolbar_settings/index.html" target="demoFrame">Toolbar Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/custom_toolbar_button/index.html" target="demoFrame">Custom Toolbar Button</a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/group_column_headers/index.html" target="demoFrame">Group Column Headers</a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/row_numbers/index.html" target="demoFrame">Show Row Numbers</a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/highlight_on_hover/index.html" target="demoFrame">Highlight Rows On Hover</a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/alternate_row_background/index.html" target="demoFrame">Alternate Row Background</a>
+                                    </li>
+                                    <li>
+                                        <a href="functionality/custom_grid_caption/index.html" target="demoFrame">Custom Grid Caption</a>
+                                    </li>
+                                     <li>
+                                        <a href="functionality/keyboard_support/index.html" target="demoFrame">Keyboard Support</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h3><a href="#">Editing, Adding, Deleting rows</a></h3>
+                            <div>
+                                <ul class="examples">
+                                    <li>
+                                        <a href="edit_add_delete/edit_template/index.html" target="demoFrame">Edit form with custom template <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/editcachurl/index.html" target="demoFrame">Cache dataUrl <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/dialogs_edit_controls/index.html" target="demoFrame">Dialogs: edit Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/dialogs/index.html" target="demoFrame">Dialogs: Edit, Add, Delete</a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/dialogs_custom_layout/index.html" target="demoFrame">Dialogs: Custom Layout</a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/dialogs_dependent_dropdowns/index.html" target="demoFrame">Dialogs: Linked / Dependent dropdowns</a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/dialogs_validation_clientside/index.html" target="demoFrame">Dialogs: Validation - client-side</a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/dialogs_validation_serverside/index.html" target="demoFrame">Dialogs: Validation - server-side</a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/dialogs_context_menu/index.html" target="demoFrame">Dialogs: Context Menu triggers Edit/Add/Delete</a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/inline_batch/index.html" target="demoFrame">Inline: Batch Editing</a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/inline_edit_controls/index.html" target="demoFrame">Inline: edit Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/inline_toolbar_buttons/index.html" target="demoFrame">Inline: Toolbar Control Buttons</a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/inline_row_buttons/index.html" target="demoFrame">Inline: Row Control Buttons</a>
+                                    </li>
+                                     <li>
+                                        <a href="edit_add_delete/inline_on_click/index.html" target="demoFrame">Inline: On Row Click</a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/inline_validation_clientside/index.html" target="demoFrame">Inline: Validation - client-side</a>
+                                    </li>
+                                    <li>
+                                        <a href="edit_add_delete/inline_validation_serverside/index.html" target="demoFrame">Inline: Validation - server-side</a>
+                                    </li>                                   
+                                </ul>
+                            </div>
+                            <h3><a href="#">Hierarchy</a></h3>
+                            <div>
+                                <ul class="examples">
+                                    <li>
+                                        <a href="hierarchy/dynamic_subgrid/index.html" target="demoFrame">Dynamically disable subgrid <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="hierarchy/simple/index.html" target="demoFrame">Simple</a>
+                                    </li>
+                                    <li>
+                                        <a href="hierarchy/custom_row_details/index.html" target="demoFrame">Custom Row Details</a>
+                                    </li>
+                                    <li>
+                                        <a href="hierarchy/custom_icons/index.html" target="demoFrame">Custom Icons</a>
+                                    </li>
+                                    <li>
+                                        <a href="hierarchy/expand_all/index.html" target="demoFrame">Expand on Load </a>
+                                    </li>
+                                    <li>
+                                        <a href="hierarchy/subgrid_once/index.html" target="demoFrame">Load Subgrid Once</a>
+                                    </li>
+                                    <li>
+                                        <a href="hierarchy/two_level/index.html" target="demoFrame">Two level hierarchy</a>
+                                    </li>
+                                    <li>
+                                        <a href="hierarchy/three_level/index.html" target="demoFrame">Three level hierarchy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h3><a href="#">Selection</a></h3>
+                            <div>
+                                <ul class="examples">
+                                    <li>
+                                        <a href="selection/get_set_selected_row/index.html" target="demoFrame">Get / Set selected row</a>
+                                    </li>
+                                     <li>
+                                        <a href="selection/master_detail/index.html" target="demoFrame">Master / Detail</a>
+                                    </li>
+                                     <li>
+                                        <a href="selection/checkbox/index.html" target="demoFrame">CheckBox selection</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h3><a href="#">Paging</a></h3>
+                            <div>
+                                <ul class="examples">
+                                    <li>
+                                       <a href="http://www.trirand.net/demo/javascript/jqgrid/loading_data/rest_million/index.html" target="demoFrame">Paging on the server</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.trirand.net/demo/javascript/jqgrid/loading_data/scrollbar/index.html" target="demoFrame">Virtual Load On Demand Mode - scrollbar paging</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h3><a href="#">Sorting</a></h3>
+                            <div style="height:100%">
+                                <ul class="examples">
+                                    <li>
+                                        <a href="sorting/client_side/index.html" target="demoFrame">Sorting (client-side)</a>
+                                    </li>
+                                    <li>
+                                        <a href="sorting/server_side/index.html" target="demoFrame">Sorting (server-side)</a>
+                                    </li>
+                                    <li>
+                                        <a href="sorting/multiple_collumns/index.html" target="demoFrame">Sorting by multiple columns</a>
+                                    </li>
+                                     <li>
+                                        <a href="sorting/custom/index.html" target="demoFrame">Custom Sorting Function</a>
+                                    </li>                                    
+                                </ul>
+                            </div>
+                            <h3><a href="#">Searching / Filtering</a></h3>
+                            <div style="height:100%">
+                                <ul class="examples">
+                                    <li>
+                                        <a href="searching/search_all/index.html" target="demoFrame">Search on all fields in grid <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="searching/dialog_unique/index.html" target="demoFrame">Unique field  in search list <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="searching/toolbar_multiselect/index.html" target="demoFrame">Multiselect in Toolbar search <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="searching/search_between/index.html" target="demoFrame">Between operator in  Toolbar search <sup style="color:red">New</sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="searching/toolbar/index.html" target="demoFrame">Search Toolbar: Search Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+                                    </li>
+                                    <li>
+                                        <a href="searching/toolbar_options/index.html" target="demoFrame">Search Toolbar with search options</a>
+                                    </li>
+                                    <li>
+                                        <a href="searching/search_validation/index.html" target="demoFrame">Validate client input on search</a>
+                                    </li>
+                                    <li>
+                                        <a href="searching/search_templates/index.html" target="demoFrame">Custom search templates</a>
+                                    </li>
+                                    <li>
+                                        <a href="searching/dialog/index.html" target="demoFrame">Search Dialog Single Field Search: Search Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+                                    </li>
+                                    <li>
+                                        <a href="searching/dialog_multiple/index.html" target="demoFrame">Search Dialog Multiple Field Search: Search Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h3><a href="#">Grouping</a></h3>
+                            <div>
+                                <ul class="examples">
+                                    <li>
+                                       <a href="grouping/basic/index.html" target="demoFrame">Basic grouping</a>
+                                    </li>
+                                    <li>
+                                       <a href="grouping/summary/index.html" target="demoFrame">Grouping with Summary Footers</a>
+                                    </li>
+                                    <li>
+                                       <a href="grouping/summary_and_grand_total/index.html" target="demoFrame">Grouping with Summaries and Grand Total</a>
+                                    </li>
+                                    <li>
+                                       <a href="grouping/multiple_columns/index.html" target="demoFrame">Grouping by Multiple Columns</a>
+                                    </li>
+                                     <li>
+                                       <a href="grouping/multiple_columns_footer/index.html" target="demoFrame">Grouping by Multiple Columns with Footer Summaries</a>
+                                    </li>
+                                    <li>
+                                       <a href="grouping/multiple_columns_header/index.html" target="demoFrame">Grouping by Multiple Columns with Header Summaries</a>
+                                    </li>
+                                    <li>
+                                       <a href="grouping/dynamic/index.html" target="demoFrame">Dynamic grouping</a>
+                                    </li>
+                                </ul>
+                            </div>
+                             <h3><a href="#">Integrations</a></h3>
+                            <div>
+                                <ul class="examples">
+                                    <li>
+                                        <a href="integrations/amdsupport/index.html" target="demoFrame">Support for AMD <sup style="color:red"> New </sup></a>
+                                    </li>
+                                    <li>
+                                        <a href="integrations/bootstrap/index.html" target="demoFrame">Bootstrap Integration</a>
+                                    </li>
+                                    <li>
+                                        <a href="integrations/column_chooser/index.html" target="demoFrame">Column Chooser</a>
+                                    </li>
+                                    <li>
+                                        <a href="integrations/sortable_rows/index.html" target="demoFrame">Sortable rows in grid</a>
+                                    </li>
+                                    <li>
+                                        <a href="integrations/drag_drop_rows/index.html" target="demoFrame">Drag and drop rows between grids</a>
+                                    </li>
+                                    <li>
+                                        <a href="integrations/resizing_grid/index.html" target="demoFrame">Resizing the grid</a>
+                                    </li>
+									
+                                    <li>
+                                        <a href="integrations/context_menu/index.html" target="demoFrame">Context Menu for Rows</a>
+                                    </li>
+                                     <li>
+                                        <a href="integrations/toolbar/index.html" target="demoFrame">Search Toolbar: Search Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+                                    </li>
+                                    <li>
+                                        <a href="integrations/dialog/index.html" target="demoFrame">Search Dialog Single Field Search: Search Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+                                    </li>
+                                    <li>
+                                        <a href="integrations/dialogs_edit_controls/index.html" target="demoFrame">Dialogs: Edit Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+                                    </li>
+                                    <li>
+                                        <a href="integrations/inline_edit_controls/index.html" target="demoFrame">Inline: Edit Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                    <td width="800px" valign="top">
+                        <iframe id="demoFrame"
+                            name="demoFrame"
+                            style="width: 800px; height: 1000px; border-width: 0;"></iframe>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Content -->
+
+            <!-- <site:footer ID="footer" runat="server" /> -->
+        </div>
+    </form>
+</body>
+</html>

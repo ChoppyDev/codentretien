@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Guriddo jqGrid - jQuery based grid HTML5 component for Javascript</title>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
+	<style type="text/css">
+	.examples {padding-left: 10px;}
+    .wrp { width: 100%; text-align: center; margin-top:15px;}
+    .frm { text-align: left; width: 1050px; margin: auto;  }
+    .fldLbl { white-space: nowrap; } 
+	.panel-body {
+		font-size: 85%; 
+		height: 300px; 
+		overflow: auto;
+	}
+	</style>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            $("#accordion").collapse();
+            $("#demoFrame").attr("src", "loading_data/rest_million/index.html");
+			$(".list-group-item").on("click", function(){
+				$("span",".gheader").html( $(this).text());
+			});
+			$("span",".gheader").html( 'Load 1 million rows from JSONP');
+        });
+    </script>
+</head>
+<body>
+	<h4 style="text-align: center;" class ="gheader"> Guriddo jqGrid Bootstrap Demo:: <span style="font-size: medium"></span></h4>
+	<div id="Form1" class="wrap">
+        <div id="wrap" class="frm">
+			<div class="btn-group btn-group-justified" role="group" style="margin-bottom:25px;">
+				<div class="btn-group" role="group">
+					<button class="btn btn-default" > More Demos <span class ="glyphicon glyphicon-hand-right"></span></button>	
+				</div>
+				<div class="btn-group" role="group">
+					<a class="btn btn-default" href="http://www.guriddo.net/demo/treegridjs/" >  TreeGrid JS </a>
+				</div>
+				<div class="btn-group" role="group">
+					<a class="btn btn-default" href="http://www.guriddo.net/demo/pivotgridjs/" >  PivotGrid JS </a>
+				</div>
+				<div class="btn-group" role="group">
+					<a class="btn btn-default" href="http://www.guriddo.net/demo/jqgridphp/" > PHP jqGrid</a>
+				</div>
+				<div class="btn-group" role="group">
+					<a class="btn btn-default" href="http://www.guriddo.net/demo/schedulerphp/" > Scheduler </a>
+				</div>
+				<div class="btn-group" role="group">
+					<a class="btn btn-default" href="http://www.guriddo.net/demo/formphp/" > PHP Form </a>
+				</div>
+				<div class="btn-group" role="group">
+					<a class="btn btn-default" href="http://www.guriddo.net/demo/formphpvb/" > PHP Form  Builder</a>
+				</div>
+			</div>
+
+            <!-- Content -->
+            <table cellspacing="10" cellpadding="10">
+                <tr>
+                    <td style="vertical-align: top;width:250px;">
+						<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Loading Data</a>
+									</h4>
+								</div>
+								<div id="collapse1" class="panel-collapse collapse in">
+									<div class="panel-body">
+										<div class="examples list-group">
+											<a href="loading_data/scrollbar_view/index.html" class="list-group-item" target="demoFrame">Virtual Load On Demand - with pager info view <sup style="color:red">New</sup></a>
+											<a href="loading_data/rest_million/index.html" class="list-group-item" target="demoFrame">Load <span style="color: red">1 million</span> rows from JSONP</a>
+											<a href="loading_data/json_web/index.html" class="list-group-item" target="demoFrame">Load from <span style="color: red">live</span> JSON API (<span style="color: red">StackOverflow</span>)</a>
+											<a href="loading_data/xml/index.html" class="list-group-item" target="demoFrame">Load from XML</a>
+											<a href="loading_data/json/index.html" class="list-group-item" target="demoFrame">Load from JSON</a>
+											<a href="loading_data/array/index.html" class="list-group-item" target="demoFrame">Load from Javascript Array</a>
+											<a href="loading_data/loadonce/index.html" class="list-group-item" target="demoFrame">Load Once</a>
+											<a href="loading_data/scrollbar/index.html" class="list-group-item" target="demoFrame">Virtual Load On Demand Mode - scrollbar paging</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Functionality</a>
+									</h4>
+								</div>
+								<div id="collapse2" class="panel-collapse collapse">
+									<div class="panel-body">
+										<div class="examples list-group">
+											<a href="functionality/saveloadstate/index.html" class="list-group-item" target="demoFrame">Save and load jqGrid State <sup style="color:red">New</sup></a>
+											<a href="functionality/localization/index.html" class="list-group-item" target="demoFrame">Dynamic Localization <sup style="color:red">New</sup></a>
+											<a href="functionality/frozen_columns/index.html" class="list-group-item" target="demoFrame">Frozen Columns</a>
+											<a href="functionality/rtl/index.html" class="list-group-item" target="demoFrame">Right-To-Left (RTL) Support</a>
+											<a href="functionality/customize_footer/index.html" class="list-group-item" target="demoFrame">Customize Footer</a>
+											<a href="functionality/formatters_built_in/index.html" class="list-group-item" target="demoFrame">Cell formatters (built-in)</a>
+											<a href="functionality/formatters_custom/index.html" class="list-group-item" target="demoFrame">Cell formatters (custom)</a>
+		                                    <a href="functionality/column_reorder/index.html" class="list-group-item" target="demoFrame">Column Reordering</a>
+	                                        <a href="functionality/context_menu/index.html" class="list-group-item" target="demoFrame">Context Menu for Rows</a>
+			                                <a href="functionality/toolbar_settings/index.html" class="list-group-item" target="demoFrame">Toolbar Settings</a>
+				                            <a href="functionality/custom_toolbar_button/index.html" class="list-group-item" target="demoFrame">Custom Toolbar Button</a>
+					                        <a href="functionality/group_column_headers/index.html" class="list-group-item" target="demoFrame">Group Column Headers</a>
+						                    <a href="functionality/row_numbers/index.html" class="list-group-item" target="demoFrame">Show Row Numbers</a>
+							                <a href="functionality/highlight_on_hover/index.html" class="list-group-item" target="demoFrame">Highlight Rows On Hover</a>
+								            <a href="functionality/alternate_row_background/index.html" class="list-group-item" target="demoFrame">Alternate Row Background</a>
+									        <a href="functionality/custom_grid_caption/index.html" class="list-group-item" target="demoFrame">Custom Grid Caption</a>
+										    <a href="functionality/keyboard_support/index.html" class="list-group-item" target="demoFrame">Keyboard Support</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Editing, Adding, Deleting rows</a>
+									</h4>
+								</div>
+								<div id="collapse3" class="panel-collapse collapse">
+									<div class="panel-body">
+										<div class="examples list-group">
+	                                        <a href="edit_add_delete/edit_template/index.html" class="list-group-item" target="demoFrame">Edit form with custom template <sup style="color:red">New</sup></a>
+		                                    <a href="edit_add_delete/editcachurl/index.html" class="list-group-item" target="demoFrame">Cache dataUrl <sup style="color:red">New</sup></a>
+			                                <a href="edit_add_delete/dialogs_edit_controls/index.html" class="list-group-item" target="demoFrame">Dialogs: edit Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+				                            <a href="edit_add_delete/dialogs/index.html" class="list-group-item" target="demoFrame">Dialogs: Edit, Add, Delete</a>
+					                        <a href="edit_add_delete/dialogs_custom_layout/index.html" class="list-group-item" target="demoFrame">Dialogs: Custom Layout</a>
+						                    <a href="edit_add_delete/dialogs_dependent_dropdowns/index.html" class="list-group-item" target="demoFrame">Dialogs: Linked / Dependent dropdowns</a>
+							                <a href="edit_add_delete/dialogs_validation_clientside/index.html" class="list-group-item" target="demoFrame">Dialogs: Validation - client-side</a>
+								            <a href="edit_add_delete/dialogs_validation_serverside/index.html" class="list-group-item" target="demoFrame">Dialogs: Validation - server-side</a>
+									        <a href="edit_add_delete/dialogs_context_menu/index.html" class="list-group-item" target="demoFrame">Dialogs: Context Menu triggers Edit/Add/Delete</a>
+										    <a href="edit_add_delete/inline_batch/index.html" class="list-group-item" target="demoFrame">Inline: Batch Editing</a>
+											<a href="edit_add_delete/inline_edit_controls/index.html" class="list-group-item" target="demoFrame">Inline: edit Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+	                                        <a href="edit_add_delete/inline_toolbar_buttons/index.html" class="list-group-item" target="demoFrame">Inline: Toolbar Control Buttons</a>
+		                                    <a href="edit_add_delete/inline_row_buttons/index.html" class="list-group-item" target="demoFrame">Inline: Row Control Buttons</a>
+			                                <a href="edit_add_delete/inline_on_click/index.html" class="list-group-item" target="demoFrame">Inline: On Row Click</a>
+				                            <a href="edit_add_delete/inline_validation_clientside/index.html" class="list-group-item" target="demoFrame">Inline: Validation - client-side</a>
+					                        <a href="edit_add_delete/inline_validation_serverside/index.html" class="list-group-item" target="demoFrame">Inline: Validation - server-side</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Hierarchy</a>
+									</h4>
+								</div>
+								<div id="collapse4" class="panel-collapse collapse">
+									<div class="panel-body">
+										<div class="examples list-group">
+											<a href="hierarchy/simple/index.html" class="list-group-item" target="demoFrame">Simple</a>
+											<a href="hierarchy/custom_row_details/index.html" class="list-group-item" target="demoFrame">Custom Row Details</a>
+											<a href="hierarchy/custom_icons/index.html" class="list-group-item" target="demoFrame">Custom Icons</a>
+	                                        <a href="hierarchy/expand_all/index.html" class="list-group-item" target="demoFrame">Expand on Load </a>
+		                                    <a href="hierarchy/subgrid_once/index.html" class="list-group-item" target="demoFrame">Load Subgrid Once</a>
+			                                <a href="hierarchy/two_level/index.html" class="list-group-item" target="demoFrame">Two level hierarchy</a>
+				                            <a href="hierarchy/three_level/index.html" class="list-group-item" target="demoFrame">Three level hierarchy</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Selection</a>
+									</h4>
+								</div>
+								<div id="collapse5" class="panel-collapse collapse">
+									<div class="panel-body" style="height:100%;">
+										<div class="examples list-group">
+											<a href="selection/get_set_selected_row/index.html" class="list-group-item" target="demoFrame">Get / Set selected row</a>
+											<a href="selection/master_detail/index.html" class="list-group-item" target="demoFrame">Master / Detail</a>
+											<a href="selection/checkbox/index.html" class="list-group-item" target="demoFrame">CheckBox selection</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Paging</a>
+									</h4>
+								</div>
+								<div id="collapse6" class="panel-collapse collapse">
+									<div class="panel-body" style="height:100%;">
+										<div class="examples list-group">
+											<a href="loading_data/rest_million/index.html" class="list-group-item" target="demoFrame">Paging on the server</a>
+											<a href="loading_data/scrollbar/index.html" class="list-group-item" target="demoFrame">Virtual Load On Demand Mode - scrollbar paging</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse7">Sorting</a>
+									</h4>
+								</div>
+								<div id="collapse7" class="panel-collapse collapse">
+									<div class="panel-body" style="height:100%;">
+										<div class="examples list-group">
+	                                        <a href="sorting/client_side/index.html" class="list-group-item" target="demoFrame">Sorting (client-side)</a>
+		                                    <a href="sorting/server_side/index.html" class="list-group-item" target="demoFrame">Sorting (server-side)</a>
+			                                <a href="sorting/multiple_collumns/index.html" class="list-group-item" target="demoFrame">Sorting by multiple columns</a>
+				                            <a href="sorting/custom/index.html" class="list-group-item" target="demoFrame">Custom Sorting Function</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse8">Searching / Filtering</a>
+									</h4>
+								</div>
+								<div id="collapse8" class="panel-collapse collapse">
+									<div class="panel-body">
+										<div class="examples list-group">
+	                                        <a href="searching/toolbar/index.html" class="list-group-item" target="demoFrame">Search Toolbar: Search Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+		                                    <a href="searching/toolbar_options/index.html" class="list-group-item" target="demoFrame">Search Toolbar with search options</a>
+			                                <a href="searching/search_validation/index.html" class="list-group-item" target="demoFrame">Validate client input on search</a>
+				                            <a href="searching/search_templates/index.html" class="list-group-item" target="demoFrame">Custom search templates</a>
+					                        <a href="searching/dialog/index.html" class="list-group-item" target="demoFrame">Search Dialog Single Field Search: Search Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+						                    <a href="searching/dialog_multiple/index.html" class="list-group-item" target="demoFrame">Search Dialog Multiple Field Search: Search Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse9">Grouping</a>
+									</h4>
+								</div>
+								<div id="collapse9" class="panel-collapse collapse">
+									<div class="panel-body" style="height:100%;">
+										<div class="examples list-group">
+			                               <a href="grouping/custom_summary/index.html" class="list-group-item" target="demoFrame">Custom calculations <sup style="color:red">New</sup></a>
+			                               <a href="grouping/basic/index.html" class="list-group-item" target="demoFrame">Basic grouping</a>
+				                           <a href="grouping/summary/index.html" class="list-group-item" target="demoFrame">Grouping with Summary Footers</a>
+					                       <a href="grouping/summary_and_grand_total/index.html" class="list-group-item" target="demoFrame">Grouping with Summaries and Grand Total</a>
+						                   <a href="grouping/multiple_columns/index.html" class="list-group-item" target="demoFrame">Grouping by Multiple Columns</a>
+							               <a href="grouping/multiple_columns_footer/index.html" class="list-group-item" target="demoFrame">Grouping by Multiple Columns with Footer Summaries</a>
+								           <a href="grouping/multiple_columns_header/index.html" class="list-group-item" target="demoFrame">Grouping by Multiple Columns with Header Summaries</a>
+									       <a href="grouping/dynamic/index.html" class="list-group-item" target="demoFrame">Dynamic grouping</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse10">Integrations</a>
+									</h4>
+								</div>
+								<div id="collapse10" class="panel-collapse collapse">
+									<div class="panel-body">
+										<div class="examples list-group">
+											<a href="integrations/amdsupport/index.html" class="list-group-item" target="demoFrame">Support for AMD <sup style="color:red"> New </sup></a>
+								            <a href="integrations/sortable_rows/index.html" class="list-group-item" target="demoFrame">Sortable rows in grid</a>
+							                <a href="integrations/drag_drop_rows/index.html" class="list-group-item" target="demoFrame">Drag and drop rows between grids</a>
+					                        <a href="integrations/context_menu/index.html" class="list-group-item" target="demoFrame">Context Menu for Rows</a>
+				                            <a href="integrations/toolbar/index.html" class="list-group-item" target="demoFrame">Search Toolbar: Search Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+			                                <a href="integrations/dialog/index.html" class="list-group-item" target="demoFrame">Search Dialog Single Field Search: Search Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+		                                    <a href="integrations/dialogs_edit_controls/index.html" class="list-group-item" target="demoFrame">Dialogs: Edit Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+	                                        <a href="integrations/inline_edit_controls/index.html" class="list-group-item" target="demoFrame">Inline: Edit Controls (datepicker, autocomplete, dropdown, checkbox, custom, etc)</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+                    </td>
+                    <td style="vertical-align: top;width:800px;">
+                        <iframe id="demoFrame"
+                            name="demoFrame"
+                            style="width: 803px; height: 1000px; border-width: 0;"></iframe>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

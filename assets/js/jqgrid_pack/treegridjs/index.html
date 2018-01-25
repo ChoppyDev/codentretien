@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Trirand jqTreeGrid - jQuery based tree grid HTML5 component for Javascript</title>
+    <!-- Temporary fix -->
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.css" media="screen" />
+ <style type="text/css">
+	.examples {padding-left: 10px;}
+	#loading { height: 150px !important}
+</style>   
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            $("#accordion").accordion();
+            $("#demoFrame").attr("src", "nested_model_1/index.html");
+        });
+    </script>
+</head>	
+<body>
+    <form id="Form1">
+        <div id="wrap">
+            <!-- Content -->            
+            
+            <table cellspacing="10" cellpadding="10">
+                <tr>
+                    <td width="250px" style="vertical-align:top">
+                         <div id="accordion" style="font-size: 75%; height: 600px; width: 240px;">
+                            <h3><a href="#">Tree Models</a></h3>
+                            <div>
+                                <ul class="examples">
+                                    <li>
+                                        <a href="nested_model_1/index.html" target="demoFrame">Nested Set Model</a>
+                                    </li>
+                                    <li>
+                                        <a href="adj_model/index.html" target="demoFrame">Adjacency model</a>
+                                    </li>
+                                </ul>
+                            </div>
+							 <h3><a href="#">Loading</a></h3>
+                            <div id="loading">
+                                <ul class="examples">
+                                    <li>
+                                        <a href="ajax/index.html" target="demoFrame">Load Rows On Demand (AJAX)</a>
+                                    </li>
+                                    <li>
+                                        <a href="loadonce_collapsed/index.html" target="demoFrame">Load All Rows At Once Collapsed</a>
+                                    </li>
+                                    <li>
+                                        <a href="loadonce_expanded/index.html" target="demoFrame">Load All Rows At Once Expanded</a>
+                                    </li>
+                                </ul>
+                            </div>
+							 <h3><a href="#">Look and Feel</a></h3>
+                            <div>
+                                <ul class="examples">
+                                    <li>
+                                        <a href="expand_col_click/index.html" target="demoFrame">Expand a node by click the name</a>
+                                    </li>
+                                    <li>
+                                        <a href="fixed_height/index.html" target="demoFrame">Fixed height</a>
+                                    </li>
+                                    <li>
+                                        <a href="icon_change/index.html" target="demoFrame">Icon can be changed</a>
+                                    </li>
+									<li>
+                                        <a href="icon_change_data/index.html" target="demoFrame">Icon from data field</a>
+                                    </li>
+                                </ul>
+                            </div>                                                        
+							 <h3><a href="#">Functionalities</a></h3>
+                            <div>
+                                <ul class="examples">
+                                    <li>
+                                        <a href="searching/index.html" target="demoFrame">Search in TreeGrid</a>
+                                    </li>
+                                    <li>
+                                        <a href="key_nav/index.html" target="demoFrame">Navigation with keyboard</a>
+                                    </li>
+                                    <li>
+                                        <a href="onselect_event/index.html" target="demoFrame"> Action on selecting node</a>
+                                    </li>
+                                    <li>
+                                        <a href="simple_tree/index.html" target="demoFrame">Simulate simple tree</a>
+                                    </li>
+                                </ul>
+                            </div>                                                        
+							 <h3><a href="#">Add/Update/Delete  Nodes</a></h3>
+                            <div>
+                                <ul class="examples">
+                                    <li>
+                                        <a href="add_node/index.html" target="demoFrame">Add Node</a>
+                                    </li>
+                                    <li>
+                                        <a href="delete_node/index.html" target="demoFrame"> Delete Node</a>
+                                    </li>
+                                    <li>
+                                        <a href="all_crud/index.html" target="demoFrame">Add, Edit, Delete Nodes</a>
+                                    </li>
+                                </ul>
+                            </div>                                                        
+                        </div> 
+                    </td>
+                    <td width="800px" valign="top">
+                        <iframe id="demoFrame"
+                            name="demoFrame"
+                            style="width: 800px; height: 1000px; border-width: 0;"></iframe>
+                    </td>
+                </tr>
+            </table>  
+
+            <!-- Content -->
+        </div>
+    </form>
+</body>
+</html>

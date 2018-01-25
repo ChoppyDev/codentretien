@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The jQuery library is a prerequisite for all jqSuite products -->
+    <script type="text/ecmascript" src="../../../js/jquery.min.js"></script> 
+    <!-- This is the Javascript file of jqGrid -->   
+    <script type="text/ecmascript" src="../../../js/trirand/src/grid.base.js"></script>
+    <script type="text/ecmascript" src="../../../js/trirand/src/grid.common.js"></script>
+    <script type="text/ecmascript" src="../../../js/trirand/src/grid.celledit.js"></script>
+    <script type="text/ecmascript" src="../../../js/trirand/src/grid.inlinedit.js"></script>
+    <script type="text/ecmascript" src="../../../js/trirand/src/grid.formedit.js"></script>
+    <script type="text/ecmascript" src="../../../js/trirand/src/grid.grouping.js"></script>
+    <script type="text/ecmascript" src="../../../js/trirand/src/grid.filter.js"></script>
+    <script type="text/ecmascript" src="../../../js/trirand/src/jqModal.js"></script>	
+    <script type="text/ecmascript" src="../../../js/trirand/src/jqDnR.js"></script>
+	
+    <!-- This is the localization file of the grid controlling messages, labels, etc.
+    <!-- We support more than 40 localizations -->
+    <script type="text/ecmascript" src="../../../js/trirand/i18n/grid.locale-en.js"></script>
+    <!-- A link to a jQuery UI ThemeRoller theme, more than 22 built-in and many more custom -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- The link to the CSS that the grid needs -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../../css/trirand/ui.jqgrid-bootstrap.css" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <meta charset="utf-8" />
+    <title>jqGrid Loading Data - Virtual mode - paging with scrollbar</title>
+
+</head>
+<body>
+	<div class="container" style="margin: 30px 30px;">
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+	</div>
+
+<button type="button" data-toggle="modal" data-target="#myModal">Launch modal</button>
+
+<div class="modal fade" id="myModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...ggggggg
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <script type="text/javascript"> 
+    
+        $(document).ready(function () {
+			
+            $("#jqGrid").jqGrid({
+                url: 'http://trirand.com/blog/phpjqgrid/examples/jsonp/getjsonp.php?callback=?&qwery=orders',
+                mtype: "GET",
+                datatype: "json",
+                colModel: [
+                    { label: 'OrderID', name: 'OrderID', key: true, width: 95 },
+                    { label: 'Customer ID', name: 'CustomerID', width: 150, editable:true },
+                    { label: 'Order Date', name: 'OrderDate', width: 150, editable : true },
+                    { label: 'Freight', name: 'Freight', align:'right', width: 150, editable: true,
+						formatter: 'number',
+                        summaryTpl: "<b>Sum:</b> {0}", // set the summary template to show the group summary
+                        summaryType: "sum" // set the formula to calculate the summary type
+					},
+                    { label:'Ship Name', name: 'ShipName', width: 150, editable: true, searchoptions: { sopt : ['bw', 'eq', 'ne'] } }
+                ],
+				styleUI: "Bootstrap",
+				page: 1,
+				//cellEdit : true,
+                width: 780,
+				sortname : 'OrderID',
+				viewsortcols: [ false, 'vertical', true],
+                height: 250,
+                rowNum: 20,
+				scrollPopUp : true,
+				scroll: false,
+				footerrow: true,
+				//cellEdit : true,
+				caption:"test",
+				autowidth : true,
+				loadui :"enable",
+				//toolbar: [true,"both"],
+				rowList : [10,20,50],
+				rownumbers : true,
+				//multiselect : true,
+				altRows : true,
+				//toppager : true,
+				viewrecords: true,
+				//deepempty : true,
+				//onSelectRow : editRow,
+                grouping: true,
+                groupingView: {
+                    groupField: ["CustomerID"],
+                    groupColumnShow: [true],
+                    groupText: ["<b>{0}</b>"],
+                    groupOrder: ["asc"],
+                    groupSummary: [true],
+                    groupCollapse: false
+                    
+                },
+                emptyrecords: 'Scroll to bottom to retrieve new page', // the message will be displayed at the bottom 
+                pager: "#jqGridPager"
+            });
+            var lastSelection;
+
+            function editRow(id) {
+                if (id && id !== lastSelection) {
+                    var grid = $("#jqGrid");
+                    grid.jqGrid('restoreRow',lastSelection);
+                    grid.jqGrid('editRow',id, {keys:true, focusField: 4});
+                    lastSelection = id;
+                }
+            }
+
+            $('#jqGrid').navGrid("#jqGridPager", {edit: true, add: true, del: true, refresh: true, view: true},{modal:true, checkOnUpdate: true, focusField : 2},{},{},{showQuery: true, multipleSearch: true, multipleGroup : true});
+			$('#jqGrid').jqGrid('filterToolbar',{searchOperators:true});
+			/*
+            $('#jqGrid').inlineNav('#jqGridPager',
+                // the buttons to appear on the toolbar of the grid
+                { 
+                    edit: true, 
+                    add: true, 
+					save: true, 
+                    cancel: true,
+                    editParams: {
+                        keys: true,
+                    },
+                    addParams: {
+                        keys: true
+                    }
+                });
+				*/
+				//$(".modal-footer").append("<div class='jqResize ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se'>res</div>");
+				//$(".modal-content").jqResize(".jqResize",".modal-body");
+
+        });
+
+    </script>
+
+    <!-- This code is related to code tabs -->
+    <br />
+    <span style="font-size: 12px; font-family: Tahoma">Click on the Tabs below the see the relevant code for the example:</span>
+    <br /><br />
+    <div id="codetabs" style="width:700px; height: 400px; font-size:65%;"></div>
+    <script type="text/ecmascript" src="../../../js/jquery-ui.min.js"></script>
+    <script type="text/ecmascript" src="../../../js/prettify/prettify.js"></script>
+    <link rel="stylesheet" href="../../../css/prettify.css" />
+        <script type="text/ecmascript" src="../../../js/codetabs.js"></script><script type="text/ecmascript" src="../../../js/themeswitchertool.js"></script>
+    
+    <script type="text/javascript">
+
+        var tabData =
+            [
+                { name: "HTML", url: "index.html", lang: "lang-html" },
+				{ name: "Description", url: "description.html", lang: "lang-html" }
+            ];
+
+        codeTabs(tabData);
+
+    </script>
+    <!-- End of code related to code tabs -->
+</body>
+</html>

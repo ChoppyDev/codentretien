@@ -1,0 +1,3 @@
+﻿A custom function can be executed for each column to calculate the sorting algorithm for the respective column (if it is different from the default).
+Just specify <b>sorttype</b> function that should return the value to use for sorting and this is all you need. The <b>sorttype</b> function receives two parameters
+cell value and rowData - rowData contains all the cell values for the respective row, e.g. <b>rowData.Price</b>

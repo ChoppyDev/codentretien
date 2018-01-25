@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+	<head>
+		<title>TODO supply a title</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div>
+jqGrid support search toolbar mode, where you can have search toolbar on top of each column of the grid. To use, call the filterToolbar method. You can exclude certain columns from appearing in the search options by setting the search property of the respective column to false.
+<br><br>
+Another property that plays role in searching is the sopt property of each column, to specify how the grid treats searching. Default is begin with.
+<br><br>
+When a column is searchable, you can select how end-users will edit it. This is controlled by the stype property and current has two different options - text and select.
+<br><br>
+In addition to that, you can specify the values end-users will see in value:name pairs in the of Columns - this is especially useful for EditType select.
+<br><br>
+When searching is performed the grid triggers Searching / Searched event which you can use to customize this behaviour.<br/> If the data is loaded via array or string - i.e local data - the search is performed automatically. If you use server side data you will need to build your own search procedure at the server.
+		</div>
+	</body>
+</html>
