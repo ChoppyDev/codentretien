@@ -5,7 +5,7 @@ class Home extends CI_Controller {
 
 	function _construct(){
 		parent::_construct();
-		
+
 
 	}
 
@@ -17,6 +17,7 @@ class Home extends CI_Controller {
 
 	public function index(){
 		//load
+		echo "test";
 		$this->load->library('layout', 'Form_validation');
 		$this->load->library('session');
 		$this->load->helper(array('url','form'));
@@ -28,23 +29,23 @@ class Home extends CI_Controller {
 	}
 	/**
 	* @todo set_rules : xss_clean AND Trim
-	* @todo 
+	* @todo
 	*/
 	public function login_process(){
 
 		$this->load->model('login_database');
-		$this->form_validation->set_rules('username', 'Username','required'); 
+		$this->form_validation->set_rules('username', 'Username','required');
 		$this->form_validation->set_rules('password', 'Password','required');
 
-		if($this->form_validation->run() == FALSE){ 
-			if(isset($this->session->userdata['logged_in'])){ 
-				$this->load->view('index_page'); 
+		if($this->form_validation->run() == FALSE){
+			if(isset($this->session->userdata['logged_in'])){
+				$this->load->view('index_page');
 			} else{
-				$this->load->view('shared/connexion_form'); 
+				$this->load->view('shared/connexion_form');
 				echo "connexion formfdfsdfdsf";
 			}
-		} else{ 
-			$data = array( 
+		} else{
+			$data = array(
 				'username' => $this->input->post('username'),
 				'password' => $this->input->post('password')
 
