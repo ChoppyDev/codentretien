@@ -2,6 +2,8 @@
 <?php 
 $username = ($this->session->userdata['logged_in']['username']);
 $email = ($this->session->userdata['logged_in']['email']);
+$ip = $this->input->id_adress();
+echo $ip;
 ?>
 <p> Bonjour <?php echo $username ?>  bienvenue sur Codentretien, votre email est <?php echo $email ?></p>
 <br>

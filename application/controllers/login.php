@@ -3,10 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //session_start();
 class Login extends CI_Controller {
 
-	function _construct(){
-		parent::_construct();
-
-
+	function __construct(){
+		parent::__construct();
 	}
 
 
@@ -26,7 +24,8 @@ class Login extends CI_Controller {
 		$this->layout->view('shared/connexion_form', $data);
 	}
 
-	/**
+	/** 
+	* Simple login process
 	* @todo set_rules : xss_clean AND Trim
 	* @todo
 	*/
@@ -49,7 +48,6 @@ class Login extends CI_Controller {
 			$data = array(
 				'username' => $this->input->post('username'),
 				'password' => $this->input->post('password')
-
 			);
 			$result = $this->login_database->login($data);
 			if($result == TRUE){
@@ -59,6 +57,7 @@ class Login extends CI_Controller {
 					$session_data = array(
 						'username' => $result[0]->username,
 						'email' => $result[0]->email,
+						'id'=> $result[0]->id
 						);
 					$this->session->set_userdata('logged_in', $session_data);
 					echo pre($session_data);
@@ -71,23 +70,13 @@ class Login extends CI_Controller {
 			}
 		}
 	}
-/**
-* Remove session data
-*/
-		public function logout() {
-			$sess_array = array(
-				'username' => ''
-				);
-			$this->session->unset_userdata('logged_in', $sess_array);
-			$data['message_display'] = 'Successfully Logout';
-			redirect('login');
-			$this->load->view('shared/connexion_form', $data);
-		}
+		/**
+		* Remove session data and redirect to login page
+		*/
+	public function logout() {
+		$sess_array = array('username' => '');
+		$this->session->unset_userdata('logged_in', $sess_array);
+		redirect('login');
+		$this->load->view('shared/connexion_form');
+	}
 }
-
-
-
-		//$this->layout->add_js('jquery-3.2.1.min');
-		//$this->layout->add_js('jquery.jqGrid.min');
-		//$this->layout->add_js('jqgrid_pack/js/trirand/i18n/grid.locale-en');
-		//$this->layout->add_js('grid'); // remplacer par une arraylist et changer la racine des js + css

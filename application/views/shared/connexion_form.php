@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:9090/codentretien/assets/css/global.css">
+<!--<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:9090/codentretien/assets/css/global.css"> -->
 <?php
 if (isset($this->session->userdata['logged_in'])) {
 
@@ -17,7 +17,7 @@ header("location: http://localhost:9090/codentretien/login/login_process");
      <input type="text" size="20" id="username" name="username" placeholder="Nom d'utilisateur"/>
      <br/>
      <label for="password">Mot de passe:</label>
-     <input type="password" size="20" id="passowrd" name="password" placeholder="**************">
+     <input type="password" size="20" id="passowrd" name="password" placeholder="Mot de passe">
      <br/>
      <input type="submit" value="Login" name="submit"/>
 

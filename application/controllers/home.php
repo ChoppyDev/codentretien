@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
 
 
-	function _construct(){
-		parent::_construct();
+	function __construct(){
+		parent::__construct();
 	}
 	/**
 	* @todo faire une page d'erreur pour les permissions
@@ -17,7 +17,5 @@ class Home extends CI_Controller {
 		} else{
 			redirect('login'); // solution temporaire
 		}
-	}
-	
-	
+	}	
 }
