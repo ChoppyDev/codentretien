@@ -5,11 +5,11 @@
 		<title><?php echo $titre; ?></title>
 
 		<meta http-equiv="Content-Type" content="text/html; charset= <?php echo $charset; ?>"/>
-
 		<!-- Style import -->
 		<?php foreach ($css as $url): ?>
 				<link rel="stylesheet" type="text/css" media="screen" href='<?php echo $url ?>'/>
 		<?php endforeach; ?>
+		<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:9090/codentretien/assets/css/global.css">
 
 		<!-- Js import-->
 		<?php foreach ($js as $url):?>

@@ -3,7 +3,7 @@ Class Login_Database extends CI_model{
 	
 	public function login($data){
 
-		$condition = "username="."'".$data['username']."' AND password= '".$data['password']."' ";
+		$condition = "user_login="."'".$data['username']."' AND user_password= '".$data['password']."' ";
 		$this->db->select('*');
 		$this->db->from('users');
 		$this->db->where($condition);
@@ -19,7 +19,7 @@ Class Login_Database extends CI_model{
 
 	public function read_user_information($username){
 
-		$condition = "username=" . "'".$username."'";
+		$condition = "user_login=" . "'".$username."'";
 		$this->db->select('*');
 		$this->db->from("users");
 		$this->db->where($condition);
@@ -32,6 +32,15 @@ Class Login_Database extends CI_model{
 		if($query->num_rows() == 1){
 			return $query->result();
 		} else{
+			return false;
+		}
+	}
+
+	public function user_registration($data){
+		$this->db->insert('users', $data);
+		if ($this->db->affected_rows() > 0) {
+			return true;
+		}else {
 			return false;
 		}
 	}

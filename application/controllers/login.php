@@ -55,9 +55,9 @@ class Login extends CI_Controller {
 				$result = $this->login_database->read_user_information($username);
 				if($result != FALSE){
 					$session_data = array(
-						'username' => $result[0]->username,
-						'email' => $result[0]->email,
-						'id'=> $result[0]->id
+						'username' => $result[0]->user_username,
+						'email' => $result[0]->user_email,
+						'id'=> $result[0]->user_id
 						);
 					$this->session->set_userdata('logged_in', $session_data);
 					echo pre($session_data);

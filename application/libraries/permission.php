@@ -40,8 +40,8 @@ class Permission{
 		$this->CI->db->select('Permissions.idPermission');
 		$this->CI->db->from('permissions');
 		$this->CI->db->join('map_permissions', 'map_permissions.idPermission = permissions.idPermission');
-		$this->CI->db->join('users', 'users.iDgroup = map_permissions.idGroup');
-		$this->CI->db->where('id', $userID);
+		$this->CI->db->join('users', 'users.user_iDgroup = map_permissions.idGroup');
+		$this->CI->db->where('user_id', $userID);
 
 		$query = $this->CI->db->get();
 		$result = $query->result_array();
@@ -52,6 +52,12 @@ class Permission{
 			}
 		}
 		return false;
+	}
+
+	function add_permission_to_group($groupID, $permissionID){
+		$this->CI->db->insert('map_permissions', $permissionID);
+		$this->CI->db->from('');
+		$this->CI->db->where('groupID', $groupID);
 	}
 }
 
