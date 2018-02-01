@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+
+#canvas
+{
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  border: 1px solid black;
+}
