@@ -38,7 +38,8 @@
 			<label for="datepicker">Date de Naissance(AAAA-MM-JJ): </label>
 			<input type="text" id="datepicker">
 			<br>
-			<label for="gender"> Sexe</label>
+			<label for="gender"> Sexe:</label>
+			<br>
 			<input name="gender" type="radio" id="gender1" value="1"> Masculin	<br>
 	  		<input  name="gender" type="radio" id="gender2" value="2"> Féminin	<br>
 	  		<input  name="gender" type="radio" id="gender3" value="3"> Autre

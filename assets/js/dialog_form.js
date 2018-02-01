@@ -70,7 +70,7 @@ $( function() {
       data = {username: $( "#username" ).val(), password: $("#password").val(), email: $("#email").val(), birthdate: $("#datepicker").val(),
       gender : $('input[name=gender]:checked').val(), numberphone: $("#numberPhone").val(), firstname: $("#firstName").val(),lastname: $("#lastName").val(),group: $("#groupList" ).val()};
       var valid = true;
-      url = "http://localhost:9090/codentretien/administration/newUser";
+      url = "http://localhost:9090/codentretien/administration/newUser"; //rendre dynamique
       
 
       allFields.removeClass( "ui-state-error" );
@@ -92,8 +92,8 @@ $( function() {
       valid = valid && checkLength( firstname, "Prénom", 1, 50);
       valid = valid && checkLength( lastname, "Nom", 1, 50);
 
-      valid = valid && checkRegexp( username, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
-      valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+      valid = valid && checkRegexp( username, /^[a-z]([0-9a-z_\s])+$/i, "Votre Nom d'utilisateur doit commencer par une lettre et peut contenir des nombres, underscores et lettres" );
+      valid = valid && checkRegexp( password, /^([0-9A-Za-z_\s])+$/, "Le mot de passe doit contenir uniquement des  : a-z 0-9" );
       valid = valid && checkRegexp( email, emailRegex, "Email invalide! Exemple" );
       valid = valid && checkRegexp( numberphone, /^([0-9])+$/, "Votre numéro de téléphone doit comporter que des nombres");
       valid = valid && checkRegexp( firstname, /^([a-zA-Z])+$/, "Votre prénom ne doit contenir que des lettres");
@@ -106,7 +106,7 @@ $( function() {
             dataType: 'json',
             success: function(data){
               alert("Compte créé");
-               diag.dialog("close");
+               dialog.dialog("close");
                },
             error: function(data, status){
               alert("Erreur dans le requete ajax, veuillez contacter un admnistrateur");
@@ -120,12 +120,14 @@ $( function() {
  
     dialog = $( "#newUserForm" ).dialog({
       autoOpen: false,
-      height: 400,
-      width: 350,
+      title: 'Nouvel Utilisateur',
+      autoResize: true,
+      height: 'auto',
+      width: 'auto',
       modal: true,
       buttons: {
         "Créer un compte": addUser,
-        Cancel: function() {
+        "Annuler": function() {
           dialog.dialog( "close" );
         }
       },

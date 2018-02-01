@@ -25,7 +25,7 @@
 		<div id='footer3'> 
 		</div>
 		<div id="text_footer">
-			<p>Maxence Chauvet - Nicolas Klein - Tayfun Yilmaz© 2017</p>
+			<p>Maxence Chauvet - Nicolas Klein - Tayfun Yilmaz © 2017</p>
 		</div>
 	</body>
 </html>
