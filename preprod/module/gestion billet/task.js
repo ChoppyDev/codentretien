@@ -45,11 +45,15 @@ var Task = (function (_super) {
         {
           var color = this.__color.brighter(100);
           context.fillStyle = 'rgba(' + color.r() +',' + color.g() + ',' + color.b() + ',' + color.a() + ')';
-          context.fillRect(this.__position.x(), this.__position.y() + this.__size.y(), this.__size.x(), this.__size.y() + 200);
+          context.fillRect(this.__position.x(), this.__position.y() + this.__size.y(), this.__size.x(), this.__size.y() + context.textHeight(this.__details,this.__size.x() - 8, 20));
 
           var color = this.__color.darker(100);
           context.strokeStyle = 'rgba(' + color.r() +',' + color.g() + ',' + color.b() + ',' + color.a() + ')';
-          context.strokeRect(this.__position.x()-1, this.__position.y()-1, this.__size.x() + 2, this.__size.y()*2 + 200 + 2);
+          context.strokeRect(this.__position.x()-1, this.__position.y()-1, this.__size.x() + 2, this.__size.y()*2 + context.textHeight(this.__details,this.__size.x() - 8, 20) + 2);
+
+          context.fillStyle = 'rgb(20,20,20)';
+          context.font="20px Didact Gothic";
+          context.wrapText(this.__details, this.__position.x() + 4, this.__position.y() + this.__size.y() + 20, this.__size.x() - 8, 20);
         }
 
     };
@@ -84,7 +88,7 @@ var Task = (function (_super) {
       {
         if(!this.__moved && this.__grabed )
         {
-          this.__showContent = true;
+          this.__showContent = this.__showContent ? false : true;
         }
 
         this.__moved = false;
@@ -104,7 +108,7 @@ var Task = (function (_super) {
     Task.prototype.status = function ()   {return this.__status;};
     Task.prototype.agent = function ()    {return this.__agent;};
     Task.prototype.isGrabed = function()  {return this.__grabed;};
-    
+
     Task.prototype.setStatus = function(status){this.__status = status;this._intern_update();};
 
     return Task;
