@@ -8,6 +8,9 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->username = $this->session->userdata["logged_in"]['username'];
 		$this->infos = $this->login_database->read_user_information($this->username);
+		if(isset($this->session->userdata['logged_in'])){
+			$this->userID = $this->session->userdata['logged_in']['id'];
+		}
 	}
 	/**
 	* @todo faire une page d'erreur pour les permissions
