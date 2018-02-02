@@ -5,8 +5,7 @@ Class Read_Database extends CI_model{
 		$this->db->select('*');
 		$this->db->from('users');
 		$result = $this->db->get();
-		echo json_encode($result->result());
-		
+		echo json_encode($result->result());	
 	}
 
 	public function user_grid_data(){
