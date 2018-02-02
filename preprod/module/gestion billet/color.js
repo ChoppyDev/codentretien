@@ -20,6 +20,11 @@ var Color = (function () {
         return new Color(this.__r + value, this.__g + value, this.__b + value, this.__a);
     };
 
+    Color.prototype.darker = function(value)
+    {
+        return new Color(this.__r - value, this.__g - value, this.__b - value, this.__a);
+    };
+
     Color.prototype.r = function ()     {return this.__r;};
     Color.prototype.setR = function (r) {this.__r = r;};
     Color.prototype.g = function ()     {return this.__g;};

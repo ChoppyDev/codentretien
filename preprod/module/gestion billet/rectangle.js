@@ -8,7 +8,7 @@ var Rectangle = (function ()
         this.__size     = size;
     }
 
-    Rectangle.prototype.render = function (context)
+    Rectangle.prototype.render = function(context)
     {
         context.fillRect(this.__position.x(), this.__position.y(), this.__size.x(), this.__size.y());
     };

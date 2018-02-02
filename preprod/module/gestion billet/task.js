@@ -10,7 +10,10 @@ var Task = (function (_super) {
         _this.__agent         = null;
         _this.__color         = null;
         _this.__grabed        = null;
+        _this.__moved         = null;
+        _this.__showContent   = null;
         _this.__lastMousePos  = null;
+        _this.__lastTaskPos   = null;
         _this.__name          = name;
         _this.__details       = details;
         _this.__room          = room;
@@ -19,7 +22,10 @@ var Task = (function (_super) {
         _this.__agent         = agent;
         _this.__color         = Converter.statusToColor(this.__status);
         _this.__grabed        = false;
+        _this.__moved         = false;
+        _this.__showContent   = false;
         _this.__lastMousePos  = new Vector2f(0,0);
+        _this.__lastTaskPos   = new Vector2f(0,0);
         return _this;
     }
 
@@ -34,6 +40,18 @@ var Task = (function (_super) {
         context.fillStyle = 'rgb(20,20,20)';
         context.font="20px Didact Gothic";
         context.fillText(this.__name.cutByPixelLength(context.measureText(this.__name).width, this.__size.x(), "..."), this.__position.x()+10, this.__position.y() + 20);
+
+        if(this.__showContent)
+        {
+          var color = this.__color.brighter(100);
+          context.fillStyle = 'rgba(' + color.r() +',' + color.g() + ',' + color.b() + ',' + color.a() + ')';
+          context.fillRect(this.__position.x(), this.__position.y() + this.__size.y(), this.__size.x(), this.__size.y() + 200);
+
+          var color = this.__color.darker(100);
+          context.strokeStyle = 'rgba(' + color.r() +',' + color.g() + ',' + color.b() + ',' + color.a() + ')';
+          context.strokeRect(this.__position.x()-1, this.__position.y()-1, this.__size.x() + 2, this.__size.y()*2 + 200 + 2);
+        }
+
     };
 
     Task.prototype.update = function(input)
@@ -41,6 +59,11 @@ var Task = (function (_super) {
       if(this.__grabed)
       {
         this.__position.setValues(input.position().x() - this.__lastMousePos.x(), input.position().y() - this.__lastMousePos.y());
+        if( !this.__lastTaskPos.equals(this.__position) )
+        {
+          this.__moved = true;
+          this.__showContent = false;
+        }
       }
 
       if(input.isButtonLeftDown())
@@ -51,14 +74,20 @@ var Task = (function (_super) {
           v.add(this.__size);
           if(input.position().isBetween(this.__position,v))
           {
-            console.log("[" + this.__name + "] - Clicked");
             this.__grabed = true;
+            this.__lastTaskPos.set(this.__position);
             this.__lastMousePos = new Vector2f(input.position().x() - this.__position.x(), input.position().y() - this.__position.y() );
           }
         }
       }
       else
       {
+        if(!this.__moved && this.__grabed )
+        {
+          this.__showContent = true;
+        }
+
+        this.__moved = false;
         this.__grabed = false;
       }
     };
@@ -69,6 +98,7 @@ var Task = (function (_super) {
     Task.prototype.date = function ()     {return this.__date;};
     Task.prototype.status = function ()   {return this.__status;};
     Task.prototype.agent = function ()    {return this.__agent;};
+    Task.prototype.isGrabed = function()  {return this.__grabed;};
 
     return Task;
 }(Rectangle));
