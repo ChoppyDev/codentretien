@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:9090/codentretien/assets/css/global.css">
+<!--<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:9090/codentretien/assets/css/global.css"> -->
 <?php 
 $username = ($this->session->userdata['logged_in']['username']);
 $email = ($this->session->userdata['logged_in']['email']);
