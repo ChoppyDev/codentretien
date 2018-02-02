@@ -29,7 +29,7 @@
             <img class="image" src="<?php echo base_url()?>/assets/images/gestion-administration.png" alt="logo">
           </div>
         </header>
-
+<?php if(isset($this->session->userdata['logged_in'])){ ?>
         <div id="bordure">
           <div id="menu">
             <a href="home"><div class="onglets"><p>ACCUEIL</p></div></a>
@@ -41,20 +41,19 @@
             <a href="#"><div class="onglets"><p>AIDE</p></div></a>
           </div>
         </div> 
-
-        <div id="information">
-          <div id="left">
-            <img id="profil" src="<?php echo base_url()?>/assets/images/profile_picture.png" alt="login">
-          </div>
-          <div id="top-right">
-            <p>TEST</p>
-          </div>
-          <div id="bot-right">
-            <a href="login/logout"><p>Déconnexion</p></a>
-          </div>
-
-        </div>
-
+        
+	        <div id="information">
+	          <div id="left">
+	            <img id="profil" src="<?php echo base_url()?>/assets/images/profile_picture.png" alt="login">
+	          </div>
+	          <div id="top-right">
+	            <p><?php echo $this->session->userdata['logged_in']['firstname']?> <?php echo $this->session->userdata['logged_in']['lastname']." "; ?></p>
+	          </div>
+	          <div id="bot-right">
+	            <a href="login/logout"><p>Déconnexion</p></a>
+	          </div>
+	        </div>
+  		<?php }?>
         <div id="content">
 			<?php echo $output;?>	
 		</div>
@@ -66,18 +65,3 @@
        <canvas id = "canvas" width="600" height="600">
          <p>Veuillez activer le javaScript sur votre navigateur</p>
        </canvas>
-
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" > 
-	<body>
-		
-		<div id='footer3'> 
-		</div>
-		<div id="text_footer">
-			<p>Maxence Chauvet - Nicolas Klein - Tayfun Yilmaz © 2017</p>
-		</div>
-	</body>
-</html>

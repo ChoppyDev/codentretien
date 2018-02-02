@@ -6,6 +6,8 @@ class Home extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+		$this->username = $this->session->userdata["logged_in"]['username'];
+		$this->infos = $this->login_database->read_user_information($this->username);
 	}
 	/**
 	* @todo faire une page d'erreur pour les permissions
@@ -14,6 +16,7 @@ class Home extends CI_Controller {
 
 		if(isset($this->session->userdata['logged_in'])){
 			$this->layout->view('home/index');
+			print_r($this->infos);
 		} else{
 			redirect('login'); // remplacer par page erreur permissions
 		}
