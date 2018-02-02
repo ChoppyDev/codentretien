@@ -121,6 +121,9 @@ $( function() {
     dialog = $( "#newUserForm" ).dialog({
       autoOpen: false,
       title: 'Nouvel Utilisateur',
+      modal: true,
+      show: 'blind',
+      hide:'explode',
       autoResize: true,
       height: 'auto',
       width: 'auto',

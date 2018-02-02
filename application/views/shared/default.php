@@ -4,6 +4,12 @@
 	<head>	
 		<title><?php echo $titre; ?></title>
 
+		<noscript>
+			<div id="noscript">
+				Cette page requiert l'activation de Javascript
+			</div>
+		</noscript>
+
 		<meta http-equiv="Content-Type" content="text/html; charset= <?php echo $charset; ?>"/>
 		<!-- Style import -->
 		<?php foreach ($css as $url): ?>
