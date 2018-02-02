@@ -14,7 +14,7 @@ class Administration extends CI_Controller{
 	}
 
 	public function index(){
-			if($this->permission->user_as_permission($this->userID, 1)){
+			if($this->permission->user_as_permission($this->userID, 1)){ //permission administration
 				$this->layout->view('administration/index');
 			}else{
 				echo 'accès refusé';
@@ -47,7 +47,7 @@ class Administration extends CI_Controller{
 	}
 
 	public function getGroups(){
-		print_r($this->groups);
+		//print_r($this->groups);
 		
 	}
 }

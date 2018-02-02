@@ -11,7 +11,11 @@
 	    $( "#datepicker" ).datepicker({
 	      changeMonth: true,
 	      changeYear: true,
-	      dateFormat: 'yy-mm-dd'
+	      dateFormat: 'yy-mm-dd',
+	      yearRange: "c-100:c",
+	      monthNames: ["Janvier", "Février", "Mars", "Avril", 'Mai', "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"],
+	      monthNamesShort:["Janvier", "Février", "Mars", "Avril", 'Mai', "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"],
+	      dayNamesMin: [ "Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa" ]
 	    });
 	  } );
   </script>
@@ -59,8 +63,6 @@
 	  				<option value="<?php echo $this->groups[$i]->idGroup?>"><?php echo $this->groups[$i]->labelGroup ?> </option>
 	  		<?php } ?>
 	  		</select>
-
 		</fieldset>
-
 	</form>
 </div>
