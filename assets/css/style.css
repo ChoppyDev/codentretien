@@ -185,3 +185,12 @@ a:visited
   top: 200px;
   left:400px;
 }
+
+#content
+{
+  position: absolute;
+  top: 120px;
+  left:200px;
+  border: 1px solid black;
+  background-color: red;
+}

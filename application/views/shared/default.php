@@ -32,31 +32,31 @@
 
         <div id="bordure">
           <div id="menu">
-            <a href="#"><div class="onglets"><p>ACCUEIL</p></div></a>
+            <a href="home"><div class="onglets"><p>ACCUEIL</p></div></a>
             <a href="#"><div class="onglets"><p>GESTION BILLET</p></div></a>
             <a href="#"><div class="onglets"><p>GESTION DES AGENTS</p></div></a>
-            <a href="#"><div class="onglets"><p>GESTION UTILISATEUR</p></div></a>
+            <a href="administration"><div class="onglets"><p>GESTION UTILISATEURS</p></div></a>
             <a href="#"><div class="onglets"><p>HISTORIQUE</p></div></a>
             <a href="#"><div class="onglets"><p>PARAMETRE</p></div></a>
             <a href="#"><div class="onglets"><p>AIDE</p></div></a>
           </div>
-        </div>
+        </div> 
 
         <div id="information">
           <div id="left">
             <img id="profil" src="<?php echo base_url()?>/assets/images/profile_picture.png" alt="login">
           </div>
           <div id="top-right">
-            <p>KLEIN ssss</p>
+            <p>TEST</p>
           </div>
           <div id="bot-right">
-            <a href="#"><p>Déconnexion</p></a>
+            <a href="login/logout"><p>Déconnexion</p></a>
           </div>
 
         </div>
 
         <div id="content">
-			<?php echo $output; echo "bite" ?>	
+			<?php echo $output;?>	
 		</div>
        <div id="copyright">
          <p>Copyright</p>
