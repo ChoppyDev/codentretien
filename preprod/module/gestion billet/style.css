@@ -7,3 +7,74 @@ body
   top: 0;
   left: 0;
 }
+
+#canvas
+{
+  position:relative;
+  top:100px;
+  left:100px;
+  border: 1px solid black;
+}
+
+#user_info
+{
+  z-index: 999;
+  position: fixed;
+  top:5px;
+  left:5px;
+  background-color: rgba(200,200,200,0.7);
+  /*border: 1px solid rgb(200,200,200);*/
+  -webkit-box-shadow: inset 0px 0px 3px 0px rgba(100,100,100,1);
+  -moz-box-shadow: inset 0px 0px 3px 0px rgba(100,100,100,1);
+  box-shadow: inset 0px 0px 3px 0px rgba(100,100,100,1);
+  border-radius: 3px 3px 30px 3px;
+  -moz-border-radius: 3px 3px 30px 3px;
+  -webkit-border-radius: 3px 3px 30px 3px;
+}
+
+#user_profil
+{
+  width: 32px;
+  height: auto;
+  vertical-align: middle;
+}
+
+#user_hello
+{
+  font-family: "Didact Gothic";
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+a
+{
+  text-decoration: none;
+  color:black;
+}
+
+#logout
+{
+  margin-top: -10px;
+  text-align: center;
+  font-family: "Didact Gothic";
+}
+
+#logout p
+{
+
+}
+
+/*
+<div id="information">
+ <div id="left">
+   <img id="profil" src="<?php echo base_url()?>/assets/images/profile_picture.png" alt="login">
+ </div>
+ <div id="top-right">
+   <p><?php echo $this->session->userdata['logged_in']['firstname']?> <?php echo $this->session->userdata['logged_in']['lastname']." "; ?></p>
+ </div>
+ <div id="bot-right">
+   <a href="login/logout"><p>Déconnexion</p></a>
+ </div>
+</div>
+
+*/
