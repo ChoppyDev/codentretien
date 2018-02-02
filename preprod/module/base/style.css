@@ -1,0 +1,187 @@
+@font-face {
+  font-family: "KeepCalm";
+  src: url('KeepCalm-Medium.ttf');
+}
+
+
+body
+{
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  font-family: serif, arial;
+}
+
+header
+{
+  width: 100%;
+  height: 100px;
+  margin: 0;
+  top: 0;
+  position: fixed;
+  left: 0;
+  background-color: #A52A2A;
+
+}
+
+#bordure
+{
+  position: absolute;
+  background-color: #FFE4BA;
+  top: 100px;
+  height: auto;
+  bottom:25px;
+  border-right: 1px solid #d4d4d4;
+
+}
+
+.titreprinc
+{
+    margin: 13px;
+    display: flex;
+}
+
+.image
+{
+    width:180px;
+    height:80px;
+    margin-left: 500px;
+}
+
+.liens
+{
+  margin-left: 35px
+}
+
+.onglets
+{
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #D2691E;
+  margin-top: -3px;
+  margin-bottom: -3px;
+  transition: padding 0.5s, background-color 0.5s;
+  font-family: "KeepCalm";
+}
+
+.onglets p
+{
+  padding-top: 4px;
+  padding-bottom: 2.3px;
+}
+
+.onglets:hover
+{
+  background-color: #FFDAB9;
+  padding-right: 20px;
+
+}
+
+.onglets:hover p
+{
+  margin-left: 20px;
+
+}
+
+a
+{
+  text-decoration: none;
+}
+
+a:visited
+{
+  color : #320001;
+}
+
+
+#menu
+
+{
+
+  margin-left: 10px;
+  border:0.5px solid #842E1B;
+  background-color: #842E1B;
+  color: #222;
+  margin-top: 10px;
+  top: 150px;
+  margin-right: 10px;
+
+}
+
+
+#information
+{
+  position: absolute;
+  background-color: #D1807D;
+  top: 0px;
+  left:0px;
+  max-width: 400px;
+
+
+}
+
+#profil
+{
+  position: relative;
+  height: 50px;
+  width:50px;
+  left: 0px;
+  background-color: black;
+
+
+}
+
+
+#top-right
+{
+  margin-left:  100px;
+  margin-top: -43px;
+  color: #CDCECE;
+  margin-right: 100px;
+
+
+}
+
+#bot-right
+{
+  background-color: gray;
+  width: 85px;
+  margin-top: 20px;
+  margin-left: 150px;
+  color: white;
+
+}
+
+
+
+#copyright
+{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25px;;
+  background-color: #FFE4BA;
+  opacity: 0.5;
+  text-align: center;
+  color: #A52A2A;
+
+}
+
+#copyright p
+{
+  padding: 0;
+  margin: 0;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+#canvas
+{
+  position: absolute;
+  top: 200px;
+  left:400px;
+}
