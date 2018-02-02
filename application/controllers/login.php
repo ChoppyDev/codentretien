@@ -19,7 +19,6 @@ class Login extends CI_Controller {
 		$this->load->helper(array('url','form'));
 		$this->load->model('login_database');
 		//Layout
-		$this->layout->add_css('global');
 		$this->layout->set_titre('Codentretien');
 		$this->layout->view('shared/connexion_form', $data);
 	}
