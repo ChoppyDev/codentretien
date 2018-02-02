@@ -16,7 +16,6 @@ class Home extends CI_Controller {
 
 		if(isset($this->session->userdata['logged_in'])){
 			$this->layout->view('home/index');
-			print_r($this->infos);
 		} else{
 			redirect('login'); // remplacer par page erreur permissions
 		}
