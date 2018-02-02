@@ -34,15 +34,15 @@ String.prototype.cutByPixelLength = function(actualLenght, length, endReplace)
   if(actualLenght <= length)
     return str;
 
-  let cl = actualLenght / this.length;
-  let indexToCut = parseInt(length / cl) - endReplace.length;
+  var cl = actualLenght / this.length;
+  var indexToCut = parseInt(length / cl) - endReplace.length;
   str = str.substring(0,indexToCut) + endReplace;
 
   return str;
 }
 
 Array.prototype.swap = function (x,y) {
-  let b = this[x];
+  var b = this[x];
   this[x] = this[y];
   this[y] = b;
   return this;

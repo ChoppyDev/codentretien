@@ -14,8 +14,6 @@
 		<?php endforeach ?>
 
       <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url()?>/assets/css/style.css">
-
-      <title>GAR-ES</title>
       <title><?php echo $titre; ?></title>
 	 	 <noscript>
 			<div id="noscript"> Cette page requiert l'activation de Javascript </div>
@@ -33,11 +31,11 @@
         <div id="bordure">
           <div id="menu">
             <a href="home"><div class="onglets"><p>ACCUEIL</p></div></a>
-            <a href="#"><div class="onglets"><p>GESTION BILLET</p></div></a>
+            <a href="#"><div class="onglets"><p>GESTION BILLETS</p></div></a>
             <a href="#"><div class="onglets"><p>GESTION DES AGENTS</p></div></a>
             <a href="administration"><div class="onglets"><p>GESTION UTILISATEURS</p></div></a>
             <a href="#"><div class="onglets"><p>HISTORIQUE</p></div></a>
-            <a href="#"><div class="onglets"><p>PARAMETRE</p></div></a>
+            <a href="#"><div class="onglets"><p>PARAMETRES</p></div></a>
             <a href="#"><div class="onglets"><p>AIDE</p></div></a>
           </div>
         </div> 

@@ -26,7 +26,7 @@ var TaskSystem = (function () {
     TaskSystem.prototype.update = function(input)// non full sorted array -> perf
     {
       var exchange = -1;
-      for( let i = this.__tasks.length - 1; i > -1 ; i-- )
+      for( var i = this.__tasks.length - 1; i > -1 ; i-- )
       {
         if(this.__userHaveTaskSelected == -1 || this.__userHaveTaskSelected == i)
           this.__tasks[i].update(input);
@@ -47,7 +47,7 @@ var TaskSystem = (function () {
 
     TaskSystem.prototype.render = function(context)
     {
-      for( let i = 0; i < this.__tasks.length; i++ )
+      for( var i = 0; i < this.__tasks.length; i++ )
       {
         if( i != this.__userHaveTaskSelected )
           this.__tasks[i].render(context);
