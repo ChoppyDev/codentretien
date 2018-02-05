@@ -26,6 +26,19 @@ var Converter = (function () {
     return Converter;
 }());
 Converter["__class"] = "Converter";
+
+String.prototype.cbplRest = function(actualLenght, length, endReplace)
+{
+  var str = this;
+
+  if(actualLenght <= length)
+    return str;
+
+  var cl = actualLenght / this.length;
+  var indexToCut = parseInt(length / cl) - endReplace.length;
+
+  return indexToCut * cl;
+}
                                             //int, int, string
 String.prototype.cutByPixelLength = function(actualLenght, length, endReplace)
 {

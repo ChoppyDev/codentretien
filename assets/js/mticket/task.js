@@ -14,6 +14,8 @@ var Task = (function (_super) {
         _this.__showContent   = null;
         _this.__lastMousePos  = null;
         _this.__lastTaskPos   = null;
+        _this.__changeSize    = null;
+        _this.__changeSize    = size;
         _this.__name          = name;
         _this.__details       = details;
         _this.__room          = room;
@@ -31,29 +33,36 @@ var Task = (function (_super) {
 
     Task.prototype.render = function (context)
     {
-        context.fillStyle = 'rgba(' + this.__color.r() +',' + this.__color.g() + ',' + this.__color.b() + ',' + this.__color.a() + ')';
-        context.fillRect(this.__position.x(), this.__position.y(), this.__size.x(), this.__size.y());
-        var color = this.__color.brighter(100);
-        context.fillStyle = 'rgba(' + color.r() +',' + color.g() + ',' + color.b() + ',' + color.a() + ')';
-        context.fillRect(this.__position.x()+10, this.__position.y()+3, this.__size.x()-20, this.__size.y()-6);
+        if(!this.__showContent)
+          this.__changeSize = this.__size;
 
-        context.fillStyle = 'rgb(20,20,20)';
-        context.font="20px Didact Gothic";
-        context.fillText(this.__name.cutByPixelLength(context.measureText(this.__name).width, this.__size.x(), "..."), this.__position.x()+10, this.__position.y() + 20);
+        var fillthiscolor = 'rgba(' + this.__color.r() +',' + this.__color.g() + ',' + this.__color.b() + ',' + this.__color.a() + ')';
+        var filltextcolor = 'rgb(20,20,20)';
+        var px = this.__position.x();
+        var py = this.__position.y();
+        var sx = this.__changeSize.x();
+        var sy = this.__changeSize.y();
+        var th = 20;
+        var tf = "px Didact Gothic";
+        var tp = th + tf;
 
         if(this.__showContent)
         {
+
+        }
+        else
+        {
+          //Draw background
+          context.fillStyle = fillthiscolor;
+          context.fillRect(px,py,sx,sy);
+
+          //Draw Room
+          context.fillStyle = filltextcolor;
+          context.font = tp;
+          context.fillText( this.__room, px + 2, py + sy / 2 + th / 3);
+
+          //Draw background title
           var color = this.__color.brighter(100);
-          context.fillStyle = 'rgba(' + color.r() +',' + color.g() + ',' + color.b() + ',' + color.a() + ')';
-          context.fillRect(this.__position.x(), this.__position.y() + this.__size.y(), this.__size.x(), this.__size.y() + context.textHeight(this.__details,this.__size.x() - 8, 20));
-
-          var color = this.__color.darker(100);
-          context.strokeStyle = 'rgba(' + color.r() +',' + color.g() + ',' + color.b() + ',' + color.a() + ')';
-          context.strokeRect(this.__position.x()-1, this.__position.y()-1, this.__size.x() + 2, this.__size.y()*2 + context.textHeight(this.__details,this.__size.x() - 8, 20) + 2);
-
-          context.fillStyle = 'rgb(20,20,20)';
-          context.font="20px Didact Gothic";
-          context.wrapText(this.__details, this.__position.x() + 4, this.__position.y() + this.__size.y() + 20, this.__size.x() - 8, 20);
         }
 
     };
@@ -75,7 +84,7 @@ var Task = (function (_super) {
         if( !this.__grabed )
         {
           var v = new Vector2f(this.__position);
-          v.add(this.__size);
+          v.add(this.__changeSize);
           if(input.position().isBetween(this.__position,v))
           {
             this.__grabed = true;
