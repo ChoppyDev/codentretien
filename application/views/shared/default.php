@@ -3,12 +3,10 @@
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset= <?php echo $charset; ?>"/>
 		<!-- Style import -->
-		<link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url()?>/assets/css/style.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url()?>assets/css/style.css">
 		<?php foreach ($css as $url): ?>
 				<link rel="stylesheet" type="text/css" media="screen" href='<?php echo $url ?>'/>
 		<?php endforeach; ?>
-		<!--<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:9090/codentretien/assets/css/global.css"> -->
-
 		<!-- Js import-->
 		<?php foreach ($js as $url):?>
 				<script type="text/javascript" src="<?php echo $url; ?>"></script>
@@ -50,8 +48,7 @@
             <a href="#"><div class="onglets"><p>PARAMETRES</p></div></a>
             <a href="#"><div class="onglets"><p>AIDE</p></div></a>
           </div>
-        </div> 
-        
+        </div>
 	        <!--<div id="information">
 	          <div id="left">
 	            <img id="profil" src="<?php// echo base_url()?>/assets/images/profile_picture.png" alt="login">

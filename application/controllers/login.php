@@ -61,7 +61,7 @@ class Login extends CI_Controller {
 						'lastname'=>$result[0]->user_lastName,
 						);
 					$this->session->set_userdata('logged_in', $session_data);
-					echo pre($session_data);
+					//echo pre($session_data);
 					redirect("home");
 				}
 			} else{

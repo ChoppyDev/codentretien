@@ -2,7 +2,7 @@
 <?php
 if (isset($this->session->userdata['logged_in'])) {
 
-header("location: http://localhost:9090/codentretien/login/login_process");
+header("location:".base_url()."login/login_process");
 }
 ?>
 <div id="login">
