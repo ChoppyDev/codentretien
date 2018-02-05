@@ -24,9 +24,8 @@ Class Read_Database extends CI_model{
 		$this->db->from('group');
 
 		$result = $this->db->get();
-
-		return $result->result();
 		
+		return $result->result();
 	}
 
 	public function get_permissions(){
