@@ -137,8 +137,8 @@ a:visited
 #canvas
 {
   position: absolute;
-  top: 200px;
-  left:400px;
+  top: 0px;
+  left:0px;
 }
 
 #content
