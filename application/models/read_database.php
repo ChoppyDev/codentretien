@@ -27,6 +27,15 @@ Class Read_Database extends CI_model{
 		
 		return $result->result();
 	}
+
+	public function get_permissions(){
+		$this->db->select("*");
+		$this->db->from('permissions');
+
+		$result = $this->db->get();
+
+		return $result->result();
+	}
 }
 
 ?>

@@ -49,20 +49,6 @@
             <a href="#"><div class="onglets"><p>AIDE</p></div></a>
           </div>
         </div>
-<<<<<<< HEAD
-=======
-	        <!--<div id="information">
-	          <div id="left">
-	            <img id="profil" src="<?php// echo base_url()?>/assets/images/profile_picture.png" alt="login">
-	          </div>
-	          <div id="top-right">
-	            <p><?php //echo $this->session->userdata['logged_in']['firstname']?> <?php// echo $this->session->userdata[//'logged_in']['lastname']." "; ?></p>
-	          </div>
-	          <div id="bot-right">
-	            <a href="<?php //echo base_url()?>login/logout"><p>Déconnexion</p></a>
-	          </div>
-	        </div> -->
->>>>>>> caf0e9febb151bf6a8ce5089572236012fb16252
   		<?php }?>
 
         <div id="content">
