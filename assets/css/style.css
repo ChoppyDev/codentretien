@@ -97,6 +97,7 @@ a:visited
   color : #320001;
 }
 
+
 #menu
 {
   margin-left: 10px;
@@ -137,8 +138,8 @@ a:visited
 #canvas
 {
   position: absolute;
-  top: 0px;
-  left:0px;
+  top: 200px;
+  left:400px;
 }
 
 #content
