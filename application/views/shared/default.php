@@ -38,7 +38,7 @@
         <div id="bordure">
           <div id="menu">
             <a href="<?php echo base_url() ?>home"><div class="onglets"><p>ACCUEIL</p></div></a>
-            <a href="#"><div class="onglets"><p>GESTION BILLETS</p></div></a>
+            <a href="<?php echo base_url() ?>ticketmanagement"><div class="onglets"><p>GESTION BILLETS</p></div></a>
             <a href="#"><div class="onglets"><p>GESTION DES AGENTS</p></div></a>
             <?php if($this->permission->user_as_permission($this->userID, 1)){?>
             <a href="<?php echo base_url()?>administration"><div class="onglets"><p>GESTION UTILISATEURS</p></div></a>

@@ -1,5 +1,17 @@
-<p> 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ac libero a nulla pellentesque rutrum. Vivamus ultricies, orci nec placerat pulvinar, orci elit pulvinar justo, eu imperdiet dolor mi nec ipsum. Sed dictum neque ac rhoncus blandit. Proin imperdiet sem ut ligula commodo sagittis. Vestibulum pulvinar sollicitudin tortor, a lobortis ex condimentum quis. Integer pulvinar sed ante at molestie. Etiam molestie bibendum consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec nunc ipsum, suscipit non massa nec, pharetra semper sem. Etiam porta ex a lacus condimentum faucibus. Ut imperdiet sem urna, in facilisis orci lacinia eget. Nam maximus, eros in venenatis feugiat, lorem turpis commodo nisi, id feugiat tellus nunc id eros. In nisi quam, faucibus id convallis at, blandit sit amet arcu.
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/mticket/jquery.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/mticket/jcanvas.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/mticket/input.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/mticket/color.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/mticket/core.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/mticket/vector2f.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/mticket/rectangle.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/mticket/status.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/mticket/task.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/mticket/area.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/mticket/system/taskSystem.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>/assets/js/mticket/manager_ticket.js"></script>
 
-</p>
+<canvas id="canvas" width="1000" height="600">
+
+</canvas>
