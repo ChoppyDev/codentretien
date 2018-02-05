@@ -1,0 +1,13 @@
+{
+	"rows":[
+		{"CustomerID":"BSBEV","CompanyName":"B's Beverages","Phone":"(171) 555-1212","PostalCode":"EC2 5NT","Country":"UK","City":"London"},
+		{"CustomerID":"CONSH","CompanyName":"Consolidated Holdings","Phone":"(171) 555-2282","PostalCode":"WX1 6LT","Country":"UK","City":"London"},
+		{"CustomerID":"EASTC","CompanyName":"Eastern Connection","Phone":"(171) 555-0297","PostalCode":"WX3 6FW","Country":"UK","City":"London"},
+		{"CustomerID":"FRANS","CompanyName":"Franchi S.p.A.","Phone":"011-4988260","PostalCode":"10100","Country":"Canada","City":"Toronto"},
+		{"CustomerID":"GOURL","CompanyName":"Gourmet Lanchonetes","Phone":"(11) 555-9482","PostalCode":"04876-786","Country":"USA","City":"Los Angeles"},
+		{"CustomerID":"GREAL","CompanyName":"Great Lakes Food Market","Phone":"(503) 555-7555","PostalCode":"97403","Country":"USA","City":"New York"},
+		{"CustomerID":"HILAA","CompanyName":"HILARI\u00d3N-Abastos","Phone":"(5) 555-1340","PostalCode":"5022","Country":"Canada","City":"Vancouver"},
+		{"CustomerID":"HUNGC","CompanyName":"Hungry Coyote Import Store","Phone":"(503) 555-6874","PostalCode":"97827","Country":"USA","City":"Elgin"},
+		{"CustomerID":"ISLAT","CompanyName":"Island Trading","Phone":"(198) 555-8888","PostalCode":"PO31 7PJ","Country":"UK","City":"Liverpool"}
+	]
+}
