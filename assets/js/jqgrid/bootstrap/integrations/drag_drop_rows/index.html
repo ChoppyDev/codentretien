@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!-- The jQuery library is a prerequisite for all jqSuite products -->
+    <script type="text/ecmascript" src="../../../js/jquery.min.js"></script> 
+    <script type="text/ecmascript" src="../../../js/jquery-ui.min.js"></script> 
+    <!-- We support more than 40 localizations -->
+    <script type="text/ecmascript" src="../../../js/trirand/i18n/grid.locale-en.js"></script>
+    <!-- This is the Javascript file of jqGrid -->   
+    <script type="text/ecmascript" src="../../../js/trirand/jquery.jqGrid.min.js"></script>
+    <!-- A link to a Boostrap  and jqGrid Bootstrap CSS siles-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
+    <link rel="stylesheet" type="text/css" media="screen" href="../../../css/trirand/ui.jqgrid-bootstrap.css" />
+	<script>
+		$.jgrid.defaults.width = 780;
+		$.jgrid.defaults.responsive = true;
+		$.jgrid.defaults.styleUI = 'Bootstrap';
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <meta charset="utf-8" />
+    <title>Drag/Drop Rows between jqGrids</title>
+</head>
+<body>
+<div style="margin-left:20px;">
+    <table id="jqGrid1"></table>
+    <div id="Pager1"></div>
+	<br>
+	<div> Try to drag rows from and to Grid1 and Grid2</div>
+	<br>
+    <table id="jqGrid2"></table>
+    <div id="Pager2"></div>
+</div>
+    <script type="text/javascript"> 
+    
+        $(document).ready(function () {
+			var datagrid1 = [ 
+				{id1:"11",name1:"test1",values1:'One'}, 
+				{id1:"12",name1:"test2",values1:'Two'}, 
+				{id1:"13",name1:"test3",values1:'Three'} 
+			], 
+			datagrid2 = [ 
+				{id2:"21",name2:"test21",values2:'One1'}, 
+				{id2:"22",name2:"test22",values2:'Two1'}, 
+				{id2:"23",name2:"test23",values2:'Three1'} 
+			];			
+			jQuery("#jqGrid1").jqGrid({ 
+				datatype: "local",
+				data: datagrid1,
+				width : 780,
+				height: 100, 
+				colModel: [
+					{ label: 'Id 1', name: 'id1', index: 'id', width: 100, key:true }, 
+					{ label: 'Name 1', name: 'name1', index: 'name', width: 100 }, 
+					{ label: 'Values 1', name: 'values1', index: 'values', width: 200 }
+				], 
+				caption: 'Grid 1', 
+				pager: '#Pager1' 
+			}); 
+			
+			jQuery("#jqGrid2").jqGrid({ 
+				datatype: "local",
+				data: datagrid2,
+				width: 780,
+				height: 100, 
+				colModel: [
+					{ label: 'ID 2', name: 'id2', index: 'id', width: 100, key: true }, 
+					{ label: 'Name 2', name: 'name2', index: 'name', width: 100 }, 
+					{ label: 'Values 2', name: 'values2', index: 'values', width: 200 }
+				], 
+				caption: 'Grid 2', 
+				pager: '#Pager2' 
+			}); 
+			
+			jQuery("#jqGrid1").jqGrid('gridDnD',{connectWith:'#jqGrid2'}); 
+			jQuery("#jqGrid2").jqGrid('gridDnD',{connectWith:'#jqGrid1'});
+        });
+    </script>
+
+    <!-- This code is related to code tabs -->
+    <br />
+    <span style="margin-left:18px; font-family: Tahoma">Click on the Tabs below the see the relevant code for the example:</span>
+    <br /><br />
+    <div id="codetabs" style="width:700px; height: 400px; font-size:65%;"></div>
+    
+    <script type="text/ecmascript" src="../../../js/prettify/prettify.js"></script>
+    <link rel="stylesheet" href="../../../css/prettify.css" />
+        <script type="text/ecmascript" src="../../../js/codetabs-b.js"></script> 
+    
+    <script type="text/javascript">
+
+        var tabData =
+            [
+                { name: "HTML", url: "index.html", lang: "lang-html" },
+				{ name: "Description", url: "description.html", lang: "lang-html" }
+            ];
+
+        codeTabs(tabData);
+
+    </script>
+    <!-- End of code related to code tabs -->
+</body>
+</html>

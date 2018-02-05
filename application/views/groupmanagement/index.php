@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <!--<link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url() ?>assets/js/jquery-ui.css" />
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/jquery.min.js" ></script>
@@ -18,3 +19,5 @@
   } );*/
 </script>
 <div id="groupDialog">cacacacacas</div>
+=======
+>>>>>>> parent of d618342... test

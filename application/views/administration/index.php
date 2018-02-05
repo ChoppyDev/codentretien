@@ -1,9 +1,8 @@
-<!--<link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url()?>assets/js/jqgrid/css/jquery-ui.css"/> -->
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url()?>assets/js/jqgrid/css/jquery-ui.css"/>
 <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url() ?>assets/js/jquery-ui.css" />
-<!--<script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/jquery.min.js" ></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/trirand/jquery.jqGrid.min.js" ></script> -->
-<!--<script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/jquery-ui.min.js" ></script>
-<!--<script type="text/javascript" src="<?php echo base_url() ?>assets/js/userTable.js"></script>-->
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/jquery.min.js" ></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/trirand/jquery.jqGrid.min.js" ></script> 
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/jquery-ui.min.js" ></script>
 <script type="text/javascript" src="<?php echo base_url() ?>assets/js/dialog_form.js"></script>
 
 

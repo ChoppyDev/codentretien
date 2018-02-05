@@ -1,0 +1,361 @@
+========================================
+## Version 5.2.1 (2017-05-01)
+========================================
+=========================
+### Additions and Updates
+=========================
+- Add a showSaveCancelButtons() method in inline editiong to enable save and cancel buttons
+- Add saveData parameter in saveState method, which enables/disables saving the data. Default true.
+- Add restoreData option in loadState method which enables/disables restoring the saved data state. Default true.
+- Removed a grid option altclass. Added definition for striped table in the styleUI object. The striped table is now build (option altRows : true) only when add a class to the main table. This add a speed improvements when loading the data. Removed the not needed code in delRowData and addRowdata
+- Add onBeforeExport event in exportToExcel method
+- Add parameter forceresize to resizeColumn methods
+- Added triggred event jqGridBeforeProcessing which is equivalent of beforeProcessing
+- Add triggered events jqGridLoadError = loadError and jqGridLoadBeforeSend = loadBeforeSend
+- Add triggered event jqGridPaging = onPaging
+- Remove global object jqGridUtils and add all the functions in $.jgrid object removing a need to have two global jqGrid objects.
+- Exclude more attributes not needed to be add in input element in createEl function
+- Add triggered event jqGridErrorCell = errorCell in cell editing
+- Add new property in colModel _exportcol_ which enables disables the export in the methods exportToPdf and ExportToExcel exportToCsv.
+- Add saveui and savetext parameters to the editRow method
+- Added missed triggered events in viewGridRow method see documentation
+- Adding missed triggred evenents in delGridRow see documentation
+- Added replaceStr event in exportToExcel parameters in order to control the formatting of the exported text.
+- Add onSubmitCell event in cell edit
+- Removing not used option delayOnLoad in subgrid
+- Adding the missing triggered events in treeGrid
+- Adding option multimail
+- Adding count parameter to summaryTpl -> {1}
+- Add option scrollMaxBuffer to prevent memory problems when using virtual scrolling in local mode using the mouse wheel
+
+=============
+### Bug Fixes
+=============
+- Fix: small fixes according to eslint
+- Fix: comparing with equal data types in getNodeParent
+- Selector fixes the addJSONData and addXMLData
+- Fix: Support autoencode grid option to prevent XSS in jqFilter
+- Fix restoreRow to restore all the data saved into the savedRow array and not only the editable. This fixes calling of depended formatter custom function. See [here](https://github.com/tonytomov/jqGrid/issues/819)
+- Fix: Unreadable content in MS Excel when open the generated excel file generated with exportToExcel method`
+- Fix: saveAs function in exportToExcel to work correct in IE11 (Access denied error fix)
+- Fix: set search option to false when we reset the seasrch in column menu
+- Fix: fixes in normalizeData function to read correct the unique name.
+- Fix setFrozenColumns when box-sizing=border-box is used.
+- Fix: add beforeProcessing event to every datatype.
+- Small fix in beforeRequest event. The triggered event and option event should be one after other.
+- Fix according to the documentation if datatype is function beforeRequest does not fire
+- Fix: More strict check in setColProp for the type object
+- Fix jqgroup class to have same height as jqgrow class.
+- Fix calling custom_element in search modules with the right html element.
+- Fix delGridRow view modal dialogue in case first time beforeInitData return false.
+- Fix: remove the parameter searchurl in filterToolbar it is never used
+- Fix: get correct label from colNames instead of colModel.label in buildColMenu
+- Fix: When exporting we should use the colNames and not colModel.label
+- Fix remove bad set counter for service fields: row numbers and multiselect.
+- Fix frozen columns when zooming.
+- Fix calling triggered event jqGridAddEditAfterComplete in editGridRow.
+- Fix add missed parameter postdata in jqGridAddEditBeforeCheckValues
+- Fix setGroupHeader method in case it is called 2 or more times with colspan : true
+- Fix export to excel allowing quotes in the values.
+- Fix Bootstrap css dispearing icons
+- Fix: colmenu search options operands replaced with groupOps common to all search modules
+- Fix columnChooser - setting height causes selection list not to overflow correct.
+- Fix sortable columns to perform sort when the column is sorted to its original position
+- Fix reading data in case key colModel option is set and repeatitems in jsonReader is true.
+- Fix passing parameters in editRow
+- Fix stop function in sortablColumns method to be executed within delay
+- Fix deselectAfterSort to not highlight the remaining rows
+- Fix exportToExcel method to order properly the columns. The bug originally come for the reason that object properties are ordered and do not follow natural insert order
+- Fix exportToPdf to order correctly the columns in case some of them have a number as name
+- Fix exportToCsv to order correct column names in header when they are numbers.
+- Fix timeoffset in parseDate function.
+- Fix it is possible to search when select has a multiple property in dialogue search
+- Fix toggleToolbar method when frozenColumns are set
+- Fix filterInput to use ! correct
+
+========================================
+Version 5.2.0 (November 21,2016)
+========================================
+IMPORTANT: This version require  to replace all the needed files when using jqGrid:
+jquery.jqGrid.min.js, ui.jqgrid-bootstrap.css or ui.jqgrid.css and the appropriate language file.
+
+======================
+Additions and Updates
+======================
+
+	Support to jQuery 3.x
+	Added a export to CSV, Excel (open excel format) and pdf. For excel we need additionally jsZip and for pdf pdfMake libs.
+	Add saveAs function in util module, which do a browser save dialog for saving diffrent data type.
+	Update Portugase translation file grid.locale-pt.js
+	Add a new event - validationCell which may occur (if defined) when a validation error. Parameters - element, error message, iRow and iCol. When restoreCellonFail is set to false now we focus the cell when info dialog is closed
+	Added method setSortIcon. the method changes the position of the sort icon at left or right. The first parameter is the column name or the position of the column in colModel starting from zero. The second parameter is left or right(or empty or nothing).
+	Update of lang files for the serch dilogs
+	Update for the language spanish file.
+	Update of Bulgarin, German and Russian lang files according to the new search text
+	Adding validationCell event custom message in inline edit. Parameters passed to this are the element, error message, row index and column index.
+	Update Chinese Translate for v5.1.1
+	Adding custom aggregate function in pivot grid. In the aggregates array the aggregator now can be a function.
+	Parameters passed to this function are: value, field name, data record
+	Making possible to run addLocalData as grid method. Added a parameter(boolean)  which set if we need all the data (and not paged one)
+=========
+Bug Fixes
+=========
+	Fixes in import module.
+	Fix cc variable in cell edit to be a jQuery object causing error. See https://github.com/tonytomov/jqGrid/issues/812
+	Fix pivot in case yDimension is not set
+	Fix getRowData when the second paraneter is not set
+	More tolerante checking of isEmpty function in formedit validations
+	Fix for beforedrop event in the gridDnD method.
+	Fix for avg function in pivot
+	Fix: Data in pivot should be array.
+	Fix cacheUrl to accept empty values in case in case they are defined in option value.
+	Fix getting the cell data in cell edit mode
+	Fix: Added missed translation text in serach dialogs for the button rules.
+	Fix get cell to return the right content of the ExpandColumn field when treeGrid is on
+	Fix for Bootstrap horizontall scroll bar when height auto/100%
+	Fixed misspelling of "inline-block"
+	Fix info dilog when error from the server - position the dialog ner to the cell and focus a field if restoronCellFail is false
+	Try to focus the field in inline edit when a validation error occur
+	Fix finding the position of the objec. We need the cuurent position of the screen.
+	Fix pivot initial sorting when set in grid options as sortname
+	Fix pager info for loaded records when adding new one and virtual scroll is enabled.
+	Formatting changes
+	Fix adding non empty id in editGridRow (fix is for treegrid)
+	Fix German locale toolbar search options
+
+
+========================================
+Version 5.1.1 (July 8, 2016)
+========================================
+IMPORTANT: This version require  to replace all the needed files when using jqGrid:
+jquery.jqGrid.min.js, ui.jqgrid-bootstrap.css or ui.jqgrid.css and the appropriate language file.
+
+=====================
+Additions and Updates
+=====================
+    SetLabel method accept now column name or index of the coulmn.
+    Remove the local _savedData parameter from editRow and replace it with
+    the global savedData (like savedRow) which now part of Grid parameter for easy access
+    Add support in loadState for Subgrid
+    Add support in loadState for Tree Grid
+    getFormData have the same ruled obtaining the values as in createData and syncSavedData
+    Update French localization
+    Added beforeSetTreeNode and afterSetTreeNode events (grid parameters) in setTreeNode method
+    Added method setLeaf, which visually change the icons and data (isLeaf) parameter
+    reloadNode method now support updating the current node Leaf status depending if there is a data or not
+    Added debug option in saveState method to generate dump grid file with options and data.
+    (very useful for test and support)
+    Added option editselected (default false) in form edit module which allow to edit only the selected rows in multi select mode
+    Set $.jgrid.useJSON by default true
+    In custom sort function we add the full sort objects as 4 and 5 parameter in order to overcome some Chrome unexpected sort behaviour
+    Add paremeter saveAfterSelect (default false) in inline navigator (inlineNav) to save the row if another is selected
+    RTL support for column menu. The column menu is positioned near to column icon
+====================
+Bug Fixes
+====================
+
+    Fix for search operators and search oper menu
+    Fix checking compareData function to work properly when checkOnUpdate and/or checkOnSubmit is on
+    Fix saveSatate to export correct the data
+    Fix savedData array in form editing to have fields only if they are found in template
+    Fix the position of column menu with actions
+    Fix column menu sort to work with multisort
+    Fix for inline saveRow method to show the validation UI dialog.
+    Fix for info_dialog syling
+    Fix using checkOnUpdate with dataUrl in edit options.
+    Fix binding click events in treeGrid after loadState is called. The _index should be refreshed in order to get right positions
+    Removing not needed code in grouping
+    Fixes in getRowData
+    Fix jqGridExport not to delete the additional tree Columns
+    Fix toppager css
+    Fix for frozen Columns in IE11
+    Fix check in our jsoon parse function
+    Fix for right border when bootstarp is used with alternate row collor
+    Fix for loadState to check selected checkboxes of selected rows when multiselect is set
+    Fix for cbox class to not be added two times
+    Fix for bootstrap border problems in diffrent grid elements
+    Fix prevent click for the disabled check boxes in multiselect mode in IE browsers
+    Fix jumping to the top of page when a colmenu is clicked
+    Fix multiselect when a checkbox is checked
+    Fix setFrozenColumns heigh inconsitencies when the height is not default and/or a rowspan is used
+    Fix detecting MS IE <=11. Note that MS Edge is not IE browser
+    Fix uniqueSearchFields in filter string
+    Fix for RTL scrollbar
+    Bootstrap CSS fix for RTL
+    Fix semicolon in base module.
+    Fix inlineNav when beforeAddRow and beforeEditRow return false not to show the save cancel buttons in inline navigator
+
+
+
+========================================
+Version 5.1.0 (March 3, 2016)
+========================================
+IMPORTANT: This version require  to replace all the needed files when using jqGrid:
+jquery.jqGrid.min.js, ui.jqgrid-bootstrap.css or ui.jqgrid.css and the appropriate language file.
+
+========================================
+Additions and Changes
+=========================================
+Add new event parameter in filterToolbar method - <b>onClearSearchValue</b> and corresponding <b>jqGridToolbarClearVal</b> .				To this event are passed the following parameters: html element, column index, searchoptions, default value 
+
+Added a options between. The option is valid only in filterToolbar method. To use this feature the values in search field should be separated with "...".
+Example - to parse values between 1 and 10 the following should be entered: 1...10 in the search field. 
+
+Added a possibility to use multi select in toolbar  searching. Any multiselect plugin can be used.
+For this purpose a new parameter is added in filterToolbar method - groupOpSelect to determine 
+the group operand when multi select is on Can be AND or OR. Default is AND 
+
+Update Japanese translation 
+
+Added new method refreshFilterToolbar This method only refresh the toolbar filter and does not use reload to reload data.
+It loads the values from filters parameter in postData  
+
+Updated Italian translation 
+Added option uniqueSearchFields (boolean - default false) in jqFilter respectively  in searchGrid  methods form searching which allow the searched  field to appear only once in the search list 
+Added search option searchOperMenu in colModel searchoptions property (valid only in filterToolbar method) which enable/disable the search operators menu for particular field in colModel. The option work with global searchOperator option 
+Added event isHasSubGrid in grid parameters. To the event is passed the row id. If defined it is executed on every row before the  subgrid is build. If the event return false the subgrid for that row is not builded. The plus icon disappear. 
+searchTree method now return only the result founds with its parents 
+
+Added sortable plugin not depended on jQuery UI lib. 
+Added grid option colMenu which if set to true will enable column menus on every grid colum header with different actions. 
+Added visual representation of colMenu for Bootstrap and jQuery UI. Added option colmenu in colModel to enable/disable the menu for particular column.
+The following actions are present in the menu - sorting, filtering, grouping, freeze, show/hide reorder columns 
+
+Add event parameter beforeExport in excelExport method to modify/add parameters in the export url. 
+Added options exporthidden and exportgrouping in excelExport (default false) for exporting colModel hidden property and grouping options. Useful in server side exporting like PHP ASP and etc 
+Add parameter reverse in getNodeAncestor method which if set to true will return the nodes in natural order - i.e first root , then first child and etc 
+Add parameter expanded in getNodeAncestor method which if set to true will return the nodes with expanded property set to true 
+Added simple filterInput method which allow with single value to filter on all fields in the grid. Works only when datatype is local. 
+Added new parameter in getNodeChildren method - currentview to get (walk) nodes from current view or whole local data 
+
+Bug Fixes
+===========================================
+Fix padding in toolbar search inputs 
+More precise calculation of totaltime - time to put the data in grid 
+Fix sort and search in treegrid. 
+
+========================================
+Version 5.0.2 (January 2016)
+========================================
+Additions and Changes
+=========================================
+    Support for jQuery versions 1.12.0 and 2.2.0
+    Add support for nullifempty in celledit.
+    Adding name parameter (cell which is changed) to the serializeCellData in editCell method.
+    Added license property in bower.json
+    Add support for radio buttons in GetFormData. This allow custom radio button elements to be parsed correct.
+    Added syncSavedDataFunction in form editing module.The purpose for this function is to synchronize the custom added elements with class .customelement, so that checkOnUpdate will work corrcet. Usefull for custom templates in the form.
+    Add possibility to define custom formatDisplayField in grouping in case hideFirstGroupColl is set to true.
+    Added Albanian translation
+
+Bug Fixes
+===========================================
+    Fix selecting row when cellEdit parameter is set to true
+    Fix in CSS input width elements in filterToolbar
+    Fix filterToolbar to allow using of dataEvents. Thanks to Manuel - See: https://github.com/tonytomov/jqGrid/issues/727
+    Fixes for pivot grid
+    Fix in CSS wrapping texts in IE 11
+    Fix in CSS subgrid row data border
+    Fix Equality set of width in dragEnd and setGroudHeaders. Thanks to iguana3
+    Fix for checkonUpdate checkOnSubmit
+
+
+==========================================
+Version 5.0.1 (Oct-2015)
+==========================================
+Additions and Changes
+===========================================
+    Updates in Bulgarian, German Russian and Italian language files
+    Additions in setRegional method in order to load big data.
+    Add restoreFromFilters parameter in toolbarSearch method to restore the state after searching and when save/load state is used
+    Adding keyevent parameter in editRow method (inline edit) to define a desired key event. Default 'keydown'. When used with boostrap typeahead use 'keyup' value of place of keydown.
+    Added sortname and sortorder in xDimension, so that grouping can be controlled.
+    Aded ignoreCase in pivot options in case this is needed in some special situations
+    Adding afterSetGrid event parameter in loadGridState to do some thing after the grid is loaded in searching and save/load state is used.
+    Added a common function $.jgrid.isGridInStorage
+    Added restoreCellonFail which determine if the cell should be set or restored on fail. Default true
+    Update Spanish Translation
+    Pivot avg fact added
+    Experimental: Position the validation error dialog next to the cell input element in cell edit
+
+Bug Fixes
+==========================================
+    Fix bootstrap theme to use table condesed in pager
+    Removing bad added comments in grid CSS
+    Fix rowTotals in PivotGrid
+    Fix restore the state of the grid when a custom buttons are added with navButtonAdd, navSeparatorAdd
+    Fix loadState method to restore the search strings in filterToolbar
+    Fix for jqDrag which jumps the window to a default position after draging. Now we use a tinyDragable plugin by Simon Steinberger
+    Fix Including frozenColumns in the restoring the grid state
+    Fix local sorting and multisorting to work correct with the indexes when datatype is local
+    Fix bug in navgrid wheh responsive parameter is not set and width does not match.
+    Fixes for navigator drop down menu - stopPropagation and click the right menu button in case of more than one grid in page
+    Grid should be unloaded in loadState method only when all conditions are meet
+    Fix language text (in language files) to be set correct in navButton menu
+    Prevent navgrid to be loaded when storeNavOptions is true, but navigator is not initially run
+    delRowData should reset the select row only if it is equal to the rowid parameter
+    Fix for columnChooser when show/hide selected columns. We need to use .is(?:selected?)
+    Fix reference to table body in addXMLData.
+    Replace indexOF with inArray (IE8 fix)
+
+
+========================================
+Version 5.0.0 (Aug-2015)
+========================================
+Additions and changes
+=====================
+Add native bootstrap support. 
+Added styleUI object class definition this way it is possible to impelemet jqGrid in any CSS framework
+Added option responsive where the grid automatically make some calculations
+Change keydown with keyup in inline edit when analyzing the enter key
+(This is a fix for Boostrap typeahead plugin)
+Adding the Reload node method in treeGrid - ...jqGrid("reloadNode", record);
+It is possible now to define all input types according to the html5
+Add focusField in form editing
+Changes in the css to fix and add new settings
+multisort  now support order of clicking.
+Support  of mousewheel on frozen columns
+Add resizeColumn method + small fix in dragMove
+Adding events when expanding/collapsing rows/nodes in treeGrid.
+the events are as follow:
+  beforeExpandTreeGridRow(rowid, record, childern);
+  afterExpandTreeGridRow(rowid, record, childern);
+  beforeCollapseTreeGridRow(rowid, record, childern);
+  afterCollapseTreeGridRow(rowid, record, childern);
+  beforeExpandTreeGridNode( id, record )
+  afterExpandTreeGridNode( id, record )
+Add event data population in dropdown - the name is jqGridAddEditAfterSelectUrlComplete
+Upgrade to the latest multiselect jQuery UI plugin
+Small speed optimization in addXMLData and addJSONData in case gridview is false.
+Added onUnSelectRow which is called only in resetSelection
+Added this in the onPaging in order to get the new value of the element before processing
+Make sure loading message is always visible - thanks to:  marek-saji  - see: https://github.com/tonytomov/jqGrid/pull/514
+Added new parameter className in groupingHeader to make a custom individual style of every group
+Automatically detect language if the loaded language file is only one
+
+Fixes
+=====
+ts.firstElementChild.innerHTML causes more problems that advantages. So drop support of this instead of the speed. 
+Fix a case when a multiselect with multikey is set and checkbox is clicked only. It shouild be not changed in case the multikey is not pressed
+Fix realoding a grid to certain page when a virtual scrolling is enabled.
+Fix ruleMenu in filter toolbar if the parent grid element has zindex
+Fix submit old input value after select field change in dialog filtering
+Fix in addRowdata when altRows and position == last
+Fix griResize in case of frozen columns
+Fix calculating the width in pager
+Fix for gridResize when caption is a vilable and button hide grid is clicked
+Fix the columnChosser - we must pass the width instead of tblwidth.
+Fix toppager count pager thanks to: windofny
+Fix multiselect addAll
+Fix rownumbers and check box columns to be set to frozen
+Fixing dependecy in bower.json
+Fix for frozen columns and multisort
+Small fix in multi sort when data type is local
+Remove moot `version` property from bower.json
+Fixes for focusField. 
+Fix Ukraine language code file to be set as ISO 639-1
+Small fix in class definition
+Fix multiple select in case of add record in form edit.
+Fix position of the select template in search dialog
+Fix saving the group headers when we call it mopre than once
+Fix Display correct the labels in pivot
