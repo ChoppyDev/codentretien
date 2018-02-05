@@ -1,0 +1,2 @@
+﻿This example shows how we can sort the grid by multiple colums using the  <strong>multiSort: true</strong> property. The grid will first sort by the initial columns and 
+then using additional columns to further sort the data.
