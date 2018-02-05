@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!-- The jQuery library is a prerequisite for all jqSuite products -->
+    <script type="text/ecmascript" src="../../../js/jquery.min.js"></script> 
+    <!-- We support more than 40 localizations -->
+    <script type="text/ecmascript" src="../../../js/trirand/i18n/grid.locale-en.js"></script>
+    <!-- This is the Javascript file of jqGrid -->   
+    <script type="text/ecmascript" src="../../../js/trirand/jquery.jqGrid.min.js"></script>
+    <!-- A link to a Boostrap  and jqGrid Bootstrap CSS siles-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
+    <link rel="stylesheet" type="text/css" media="screen" href="../../../css/trirand/ui.jqgrid-bootstrap.css" />
+	<script>
+		$.jgrid.defaults.width = 780;
+		$.jgrid.defaults.responsive = true;
+		$.jgrid.defaults.styleUI = 'Bootstrap';
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <meta charset="utf-8" />
+    <title>jqGrid Loading Data - Dialogs - Dependent DropDowns</title>
+</head>
+<body>
+<div style="margin-left:20px">
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#jqGrid").jqGrid({
+                url: 'data.json',
+                editurl: 'clientArray',
+                datatype: "json",
+                colModel: [
+                    {
+						label: 'Customer ID',
+                        name: 'CustomerID',
+                        width: 75,
+						key: true
+                    },
+                    {
+						label: 'Company Name',
+                        name: 'CompanyName',
+                        width: 140,
+                        editable: true // must set editable to true if you want to make the field editable
+                    },
+                    {
+						label : 'Phone',
+                        name: 'Phone',
+                        width: 100,
+                        editable: true
+                    },
+                    {
+						label: 'Postal Code',
+                        name: 'PostalCode',
+                        width: 80,
+                        editable: true
+                    },
+                    {
+                        name: 'Country',
+                        width: 200,
+                        editable: true,
+                        edittype: "select",
+                        editoptions: {
+                            value: "USA:USA;UK:UK;Canada:Canada"
+                        }
+                    },
+                    {
+                        name: 'City',
+                        width: 200,
+                        editable: true,
+                        edittype: "select",
+                        editoptions: {
+                            value: "Select a City"
+                        }
+                    }
+                ],
+				loadonce: true,
+				viewrecorde: true,
+                width: 780,
+                height: 200,
+                rowNum: 10,
+                pager: "#jqGridPager"
+            });
+
+            $('#jqGrid').navGrid('#jqGridPager',
+                // the buttons to appear on the toolbar of the grid
+                { edit: true, add: false, del: false, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
+                // options for the Edit Dialog
+                {
+                    editCaption: "The Edit Dialog",
+                    recreateForm: true,
+                    closeAfterEdit: true,
+					viewPagerButtons: false,
+                    afterShowForm: populateCities,
+                    errorTextFormat: function (data) {
+                        return 'Error: ' + data.responseText
+                    }
+                },
+                // options for the Add Dialog
+                {
+                    closeAfterAdd: true,
+                    recreateForm: true,
+                    errorTextFormat: function (data) {
+                        return 'Error: ' + data.responseText
+                    }
+                },
+                // options for the Delete Dailog
+                {
+                    errorTextFormat: function (data) {
+                        return 'Error: ' + data.responseText
+                    }
+                });
+
+            // This function gets called whenever an edit dialog is opened
+            function populateCities() {
+                // first of all update the city based on the country               
+                updateCityCallBack($("#Country").val(), true);
+                // then hook the change event of the country dropdown so that it updates cities all the time
+                $("#Country").bind("change", function (e) {
+                    updateCityCallBack($("#Country").val(), false);
+                });
+            }
+
+            function updateCityCallBack(country, setselected) {
+				var current = $("#jqGrid").jqGrid('getRowData',$("#jqGrid")[0].p.selrow).City;
+				$("#City")
+                     .html("<option value=''>Loading cities...</option>")
+                     .attr("disabled", "disabled");
+
+                $.ajax({
+                    url: country+".html",
+                    type: "GET",
+                    success: function (citiesHtml) {
+                        $("#City")
+                             .removeAttr("disabled")
+                             .html(citiesHtml);
+						if(setselected) {
+							$("#City").val( current );
+						}
+                    }
+                });
+            }
+
+        });
+
+    </script>
+
+    <!-- This code is related to code tabs -->
+    <br />
+    <span style="margin-left:18px; font-family: Tahoma">Click on the Tabs below the see the relevant code for the example:</span>
+    <br /><br />
+    <div id="codetabs" style="width:700px; height: 400px; font-size:65%;"></div>
+    <script type="text/ecmascript" src="../../../js/prettify/prettify.js"></script>
+    <link rel="stylesheet" href="../../../css/prettify.css" />
+        <script type="text/ecmascript" src="../../../js/codetabs-b.js"></script> 
+    
+    <script type="text/javascript">
+
+        var tabData =
+            [
+                { name: "HTML", url: "index.html", lang: "lang-html" },
+                { name: "Data", url: "data.json", lang: "lang-json" },
+				{ name: "Description", url: "description.html", lang: "lang-html" }
+            ];
+
+        codeTabs(tabData);
+
+    </script>
+    <!-- End of code related to code tabs -->
+</body>
+</html>
