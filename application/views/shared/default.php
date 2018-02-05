@@ -50,29 +50,12 @@
             <a href="#"><div class="onglets"><p>PARAMETRES</p></div></a>
             <a href="#"><div class="onglets"><p>AIDE</p></div></a>
           </div>
-        </div> 
-        
-	        <!--<div id="information">
-	          <div id="left">
-	            <img id="profil" src="<?php// echo base_url()?>/assets/images/profile_picture.png" alt="login">
-	          </div>
-	          <div id="top-right">
-	            <p><?php //echo $this->session->userdata['logged_in']['firstname']?> <?php// echo $this->session->userdata[//'logged_in']['lastname']." "; ?></p>
-	          </div>
-	          <div id="bot-right">
-	            <a href="<?php //echo base_url()?>login/logout"><p>Déconnexion</p></a>
-	          </div>
-	        </div> -->
+        </div>
   		<?php }?>
 
         <div id="content">
-			<?php echo $output;?>	
+			<?php echo $output;?>
 		</div>
        <div id="copyright">
          <p>MANITA - Maxence Chauvet - Nicolas KLEIN - Tayfun Yilmaz</p>
        </div>
-
-
-       <canvas id = "canvas" width="600" height="600">
-         <p>Veuillez activer le javaScript sur votre navigateur</p>
-       </canvas>
