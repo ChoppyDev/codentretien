@@ -43,7 +43,7 @@
             <?php if($this->permission->user_as_permission($this->userID, 1)){?>
             <a href="<?php echo base_url()?>administration"><div class="onglets"><p>GESTION UTILISATEURS</p></div></a>
             <?php } ?>
-            <a href="#"><div class="onglets"><p>GESTION GROUPES</p></div></a>
+            <a href="<?php echo base_url() ?>groupmanagement"><div class="onglets"><p>GESTION GROUPES</p></div></a>
             <a href="#"><div class="onglets"><p>HISTORIQUE</p></div></a>
             <a href="#"><div class="onglets"><p>PARAMETRES</p></div></a>
             <a href="#"><div class="onglets"><p>AIDE</p></div></a>
