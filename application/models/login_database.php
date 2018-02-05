@@ -27,8 +27,7 @@ Class Login_Database extends CI_model{
 		$query = $this->db->get();
 
 		$sql = $this->db->last_query();
-		echo($sql);
-
+		
 		if($query->num_rows() == 1){
 			return $query->result();
 		} else{
