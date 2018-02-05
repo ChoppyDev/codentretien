@@ -36,7 +36,7 @@ var Task = (function (_super) {
         if(!this.__showContent)
           this.__changeSize = this.__size;
 
-        var fillthiscolor = 'rgba(' + this.__color.r() +',' + this.__color.g() + ',' + this.__color.b() + ',' + this.__color.a() + ')';
+        var fillthiscolor = this.__color.toRGBA();
         var filltextcolor = 'rgb(20,20,20)';
         var px = this.__position.x();
         var py = this.__position.y();
@@ -63,6 +63,8 @@ var Task = (function (_super) {
 
           //Draw background title
           var color = this.__color.brighter(100);
+          context.fillStyle = color.toRGBA();
+          context.fillRect(px+2 + context.measureText(this.__room).width,py,sx - context.measureText(this.__room).width,sy);
         }
 
     };

@@ -24,7 +24,11 @@ var Color = (function () {
     {
         return new Color(this.__r - value, this.__g - value, this.__b - value, this.__a);
     };
-    //'rgba(' + this.__color.r() +',' + this.__color.g() + ',' + this.__color.b() + ',' + this.__color.a() + ')';
+
+    Color.prototype.toRGBA = function()
+    {
+      return 'rgba(' + this.__r +',' + this.__g + ',' + this.__b + ',' + this.__a + ')';
+    };
 
     Color.prototype.r = function ()     {return this.__r;};
     Color.prototype.setR = function (r) {this.__r = r;};
