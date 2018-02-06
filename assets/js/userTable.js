@@ -16,8 +16,12 @@ $(document).ready(function () {
       sortorder: "desc",
       caption:"Table Gestion Utilisateur",
       onSelectRow:function(id){
-        $( "#groupDialog" ).dialog("open",id);
-        $( "#groupDialog" ).dialog({ title:id});
+        $( "#groupDialog" ).dialog("open");
+        $( "#groupDialog" ).dialog({ 
+          title:"Modification - "+ jQuery("#userTable").jqGrid('getCell', id, "labelGroup"),
+          width:'auto',
+          modal: true,
+        });
       }
   });
   jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});

@@ -19,7 +19,7 @@
 </script>
 <div id="groupDialog">
 
-<label for="labelgroup">Nom du groupe</label>
+<label for="labelgroup">Nom du groupe: </label>
 <input name="labelgroup" type="text">
 </div>
 
