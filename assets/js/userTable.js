@@ -23,6 +23,11 @@ $(document).ready(function () {
           width:'auto',
           modal: true
         });
+        $.get("http://localhost:9090/codentretien/groupmanagement/permissionsByGroup?group="+jQuery("#userTable").jqGrid('getCell', id, "idGroup"),
+          function(data){
+
+            console.log(jQuery.parseJSON(data));
+        });
       }
   });
 });

@@ -36,6 +36,16 @@ Class Read_Database extends CI_model{
 
 		return $result->result();
 	}
+
+	public function permissionsGroupList($group){
+		$this->db->select("*");
+		$this->db->from('map_permissions');
+		$this->db->where('idGroup',$group);
+
+		$result = $this->db->get();
+
+		return $result->result();
+	}
 }
 
 ?>
