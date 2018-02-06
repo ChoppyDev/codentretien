@@ -17,5 +17,9 @@
     });
   } );
 </script>
-<div id="groupDialog">cacacacacas</div>
+<div id="groupDialog">
+
+<label for="labelgroup">Nom du groupe</label>
+<input name="labelgroup" type="text">
+</div>
 
