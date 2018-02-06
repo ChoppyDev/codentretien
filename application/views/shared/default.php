@@ -12,6 +12,9 @@
 				<script type="text/javascript" src="<?php echo $url; ?>"></script>
 		<?php endforeach ?>
 
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/js/styleFix.js"></script>
+
       <title><?php echo $titre; ?></title>
 	 	 <noscript>
 			<div id="noscript"> Cette page requiert l'activation de Javascript </div>
