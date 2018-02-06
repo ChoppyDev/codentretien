@@ -30,9 +30,8 @@ Converter["__class"] = "Converter";
 String.prototype.cbplRest = function(actualLenght, length, endReplace)
 {
   var str = this;
-
   if(actualLenght <= length)
-    return str;
+    return 0;
 
   var cl = actualLenght / this.length;
   var indexToCut = parseInt(length / cl) - endReplace.length;

@@ -2,6 +2,7 @@ var Task = (function (_super) {
     __extends(Task, _super);
     function Task(position, size, name, details, room, date, status, agent) {
         var _this = _super.call(this, position, size) || this;
+        //EXTERN
         _this.__name          = null;
         _this.__details       = null;
         _this.__room          = null;
@@ -9,13 +10,7 @@ var Task = (function (_super) {
         _this.__status        = null;
         _this.__agent         = null;
         _this.__color         = null;
-        _this.__grabed        = null;
-        _this.__moved         = null;
-        _this.__showContent   = null;
-        _this.__lastMousePos  = null;
-        _this.__lastTaskPos   = null;
-        _this.__changeSize    = null;
-        _this.__changeSize    = size;
+
         _this.__name          = name;
         _this.__details       = details;
         _this.__room          = room;
@@ -23,11 +18,24 @@ var Task = (function (_super) {
         _this.__status        = status;
         _this.__agent         = agent;
         _this.__color         = Converter.statusToColor(this.__status);
+
+        //INTERN
+        _this.__grabed        = null;
+        _this.__moved         = null;
+        _this.__showContent   = null;
+        _this.__lastMousePos  = null;
+        _this.__lastTaskPos   = null;
+        _this.__changeSize    = null;
+        _this.__prefixMadeBy  = null;
+
+        _this.__prefixMadeBy  = "De ";
+        _this.__changeSize    = size;
         _this.__grabed        = false;
         _this.__moved         = false;
         _this.__showContent   = false;
         _this.__lastMousePos  = new Vector2f(0,0);
         _this.__lastTaskPos   = new Vector2f(0,0);
+
         return _this;
     }
 
@@ -36,43 +44,92 @@ var Task = (function (_super) {
         if(!this.__showContent)
           this.__changeSize = this.__size;
 
-        var fillthiscolor = this.__color.toRGBA();
-        var filltextcolor = 'rgb(20,20,20)';
-        var px = this.__position.x();
-        var py = this.__position.y();
-        var sx = this.__changeSize.x();
-        var sy = this.__changeSize.y();
-        var th = 20;
-        var tf = "px Didact Gothic";
-        var tp = th + tf;
+        var textColor     = 'rgb(20,20,20)';
+        var contentColor  = "rgb(240,240,240)";
+        var px                = this.__position.x();
+        var py                = this.__position.y();
+        var sx                = this.__changeSize.x();
+        var sy                = this.__changeSize.y();
+        var th                = 20;
+        var tf                = "px Didact Gothic";
+        var tp                = th + tf;
 
         if(this.__showContent)
         {
+          var add = context.measureText(this.__name).width + context.measureText(this.__room).width + 10; // 10 = offset
+          if( add <= this.__size.x() )
+            add = this.__size.x();
 
+          this.__changeSize = new Vector2f(add, sy);
         }
         else
         {
-          //Draw background
-          context.fillStyle = fillthiscolor;
-          context.fillRect(px,py,sx,sy);
-
-          //Draw Room
-          context.fillStyle = filltextcolor;
-          context.font = tp;
-          context.fillText( this.__room, px + 2, py + sy / 2 + th / 3);
-
-          //Draw background title
-          var color = this.__color.brighter(100);
-          context.fillStyle = color.toRGBA();
-          context.fillRect(px+2 + context.measureText(this.__room).width,py,sx - context.measureText(this.__room).width,sy);
+          this.__changeSize = this.__size;
         }
 
+        //Draw background
+        context.fillStyle = this.__color.toRGBA();
+        context.fillRect(px,py,sx,sy);
+
+        //Draw Room
+        context.fillStyle = textColor;
+        context.font      = tp;
+        context.fillText( this.__room, px + 2, py + sy / 2 + th / 3);
+
+        //Draw background - title
+        context.fillStyle = this.__color.brighter(100).toRGBA();
+        context.fillRect(px+4 + context.measureText(this.__room).width,py + 2,sx - context.measureText(this.__room).width - 6,sy - 4);
+
+        //Draw Title
+        context.fillStyle = textColor;
+        context.font      = tp;
+        context.fillText( this.__name.cutByPixelLength(context.measureText(this.__name).width, sx - context.measureText(this.__room).width, "..."), px + 6 + context.measureText(this.__room).width, py + sy / 2 + th / 3)
+
+        if(!this.__showContent)
+          return;
+
+        // TOP
+        //Draw background
+        var dw = context.measureText(this.__date).width;
+        var offset = 5;
+        context.fillStyle = this.__color.toRGBA();
+        context.fillRect(px + sx / 2 - dw /2 - offset, py - th - 4, dw + 4 + offset*2, th + 4);
+
+        //Draw background - date
+        context.fillStyle = this.__color.brighter(100).toRGBA();
+        context.fillRect(px + sx / 2 - dw /2 + 2 - offset, py - th - 2, dw + offset*2, th + 2);
+
+        //Draw date
+        context.fillStyle = textColor;
+        context.font = tp;
+        context.fillText( this.__date, px + sx / 2 - dw / 2, py - th / 3);
+
+
+        // BOTTOM
+        //Draw background
+        context.shadowColor = this.__color.toRGBA();
+        context.shadowBlur = 20;
+        context.shadowOffsetY = 10;
+        context.fillStyle = this.__color.toRGBA();
+        context.fillRect(px,py + sy,sx,context.textHeight(this.__details,sx - 6,th) + th);
+        context.shadowBlur = 0;
+        context.shadowOffsetY = 0;
+
+        //Draw background - details
+        context.fillStyle = contentColor;
+        context.fillRect(px + 2,py + sy,sx - 4,context.textHeight(this.__details,sx - 6,th) - 2 + th);
+
+        //Draw details
+        context.fillStyle = textColor;
+        context.font = tp;
+        context.wrapText(this.__details, px + 4, py + sy + 4 + th, sx - 6, th);
     };
 
     Task.prototype.update = function(input)
     {
       if(this.__grabed)
       {
+        this.__lastPosition = this.__position;
         this.__position.setValues(input.position().x() - this.__lastMousePos.x(), input.position().y() - this.__lastMousePos.y());
         if( !this.__lastTaskPos.equals(this.__position) )
         {

@@ -38,7 +38,7 @@ var Area = (function (_super) {
         var tw = e.size().x();
         var th = e.size().y();
 
-        if(tx + tw/2 >= ax && tx + tw/2 <= ax + aw)
+        if((tx + tw/2 >= ax && tx + tw/2 <= ax + aw ) && !e.isGrabed())
           if(ty + th/2 >= ay && ty + th/2 <= ay + ah)
             e.setStatus(that.__status);
       });
