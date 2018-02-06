@@ -13,5 +13,10 @@ class Groupmanagement extends CI_Controller{
 	}
 
 	public function index(){
+		$this->layout->view("Groupmanagement/index");
+	}
+
+	public function groupList(){
+		echo json_encode($this->read_database->get_groups());
 	}
 }

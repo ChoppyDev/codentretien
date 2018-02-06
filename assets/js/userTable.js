@@ -1,9 +1,6 @@
 
 $(document).ready(function () {
   $("#userTable").jqGrid({
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
       url:'http://localhost:9090/codentretien/groupmanagement/groupList',
     datatype: "json",
       colNames:['id',"Nom du groupe"],
@@ -15,29 +12,13 @@ $(document).ready(function () {
       rowList:[10,20,30],
       pager: '#pager2',
       sortname: 'idGroup',
-=======
->>>>>>> edc2fae937c9b3187b06602f9c994b8ca5c3a121
-     	url:'http://localhost:9090/codentretien/administration/loadUsersData',
-  	datatype: "json",
-     	colNames:['id',"Nom d'utilisateur", 'Groupe','Prénom', 'Nom'],
-     	colModel:[
-     		{name:'user_id',index:'id', width:55},
-     		{name:'user_login',index:'user_login', width:90},
-     		{name:'labelGroup',index:'user_idGroup', width:80, align:"right"},
-        {name:'user_firstName',index:'user_firtname', width:100},
-        {name:'user_lastName',index:'user_lastname', width:100}		
-     	],
-     	rowNum:10,
-     	rowList:[10,20,30],
-     	pager: '#pager2',
-     	sortname: 'id',
-<<<<<<< HEAD
-=======
->>>>>>> parent of d618342... test
->>>>>>> edc2fae937c9b3187b06602f9c994b8ca5c3a121
       viewrecords: true,
       sortorder: "desc",
-      caption:"Table Gestin Utilisateur"
+      caption:"Table Gestion Utilisateur",
+      onSelectRow:function(id){
+        $( "#groupDialog" ).dialog("open",id);
+        $( "#groupDialog" ).dialog({ title:id});
+      }
   });
   jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});
 });
