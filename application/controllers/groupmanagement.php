@@ -7,6 +7,7 @@ class Groupmanagement extends CI_Controller{
 		parent::__construct();
 		$this->userID = 0;
 		$this->permissions = $this->read_database->get_permissions();
+		$this->load->model('group_database');
 		if(isset($this->session->userdata['logged_in'])){
 			$this->userID = $this->session->userdata['logged_in']['id'];
 		}
@@ -27,5 +28,15 @@ class Groupmanagement extends CI_Controller{
 	public function permissionsByGroup(){
 		$group = $_GET['group'];
 		echo json_encode($this->read_database->permissionsGroupList($group));
+	}
+
+	public function savePermissions(){
+		$idGroup = $_POST['idGroup'];
+		$labelGroup = $_POST['newlabelgroup'];
+		$permissions = $_POST['permissions'];
+
+		$this->group_database->updateGroupLabel($idGroup, 	$labelGroup);
+		$this->group_database->updatePermissions($idGroup, 	$permissions);
+
 	}
 }
