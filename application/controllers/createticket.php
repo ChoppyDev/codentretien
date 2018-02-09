@@ -12,20 +12,11 @@ class CreateTicket extends CI_Controller{
 		}
 	}
 
-	public function index(){
-		$this->layout->view("createticket/index");
-	}
-/**
-* Liste des groupes existants
-*/
-	public function groupList(){
-		echo json_encode($this->read_database->get_groups());
-	}
-/**
-* Renvoie les permissions du groupe selectionné
-*/
-	public function permissionsByGroup(){
-		$group = $_GET['group'];
-		echo json_encode($this->read_database->permissionsGroupList($group));
-	}
+  public function index(){
+			if($this->permission->user_as_permission($this->userID, 101)){
+				$this->layout->view('createticket/index');
+			}else{
+				echo 'accès refusé';
+			}
+		}
 }

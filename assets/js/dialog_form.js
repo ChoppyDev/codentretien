@@ -144,7 +144,7 @@ $( function() {
       title: 'Nouvel Utilisateur',
       modal: true,
       show: 'blind',
-      hide:'explode',
+      hide: 'fold',
       autoResize: true,
       height: 'auto',
       width: 'auto',
