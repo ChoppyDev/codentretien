@@ -1,7 +1,7 @@
 $( function() {
     var dialog, form,
- 
-     
+
+
       emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
       username = $( "#username" ),
       password = $( "#password" ),
@@ -13,13 +13,13 @@ $( function() {
       firstname = $("#firstName"),
       lastname = $("#lastName"),
       group = $("#groupList" ).val(),
-      allFields =  $([]).add(username).add(password).add(password_confirmation).add(email).add(birthdate).add(gender).add(numberphone).add(firstname).add(lastname).add(group)
+      allFields =  $([]).add(username).add(password).add(password_confirmation).add(email).add(birthdate).add(gender).add(numberphone).add(firstname).add(lastname).add(group),
       tips = $( ".validateTips" ),
       data = {username: $( "#username" ).val(), password: $("#password").val(), email: $("#email").val(), birthdate: $("#datepicker").val(),
       gender : $('input[name=gender]:checked').val(), numberphone: $("#numberPhone").val(), firstname: $("#firstName").val(),lastname: $("#lastName").val(),group: $("#groupList" ).val()}
 
 
-      
+
 
     /**
     * Function for updating error tips
@@ -54,7 +54,7 @@ $( function() {
     * Function CheckRegexp TODO: recommenter cette méthode
     * @param String the field you want to check
     * @param String the regex
-    * @param String n 
+    * @param String n
     */
     function checkRegexp( o, regexp, n ) {
       if ( !( regexp.test( o.val() ) ) ) {
@@ -65,16 +65,37 @@ $( function() {
         return true;
       }
     }
- 
+
     function addUser() {
       data = {username: $( "#username" ).val(), password: $("#password").val(), email: $("#email").val(), birthdate: $("#datepicker").val(),
       gender : $('input[name=gender]:checked').val(), numberphone: $("#numberPhone").val(), firstname: $("#firstName").val(),lastname: $("#lastName").val(),group: $("#groupList" ).val()};
       var valid = true;
       url = "http://localhost:9090/codentretien/administration/newUser"; //rendre dynamique
-      
+
 
       allFields.removeClass( "ui-state-error" );
- 
+
+
+      var output;
+        $.ajax({
+         type: 'POST',
+         url:  "http://localhost:9090/codentretien/administration/useralreadyexist",
+         data: {username: $("#username").val()},
+         dataType: 'json',
+         async: false,
+         success: function(data){
+           output = data;
+         },
+         error: function(data){
+          alert("[Création de compte] Une erreur est survenue, veuillez contacter un administrateur.");
+         }
+       });
+
+      valid = valid && !output;
+
+      if(!valid)
+        updateTips("Ce nom d'utilisateur n'est pas disponible");
+
       valid = valid && checkLength( username, "Nom d'utilisteur", 3, 32 );
       valid = valid && checkLength( password, "Mot de passe", 5, 16 );
       if(password.val() == password_confirmation.val()){
@@ -112,12 +133,12 @@ $( function() {
               alert("Erreur dans le requete ajax, veuillez contacter un admnistrateur");
               console.log(data);
               console.log(status);
-                },  
-            });     
+                },
+            });
       }
       return valid;
     }
- 
+
     dialog = $( "#newUserForm" ).dialog({
       autoOpen: false,
       title: 'Nouvel Utilisateur',
@@ -139,12 +160,12 @@ $( function() {
         allFields.removeClass( "ui-state-error" );
       }
     });
- 
+
     form = dialog.find( "form" ).on( "submit", function( event ) {
       event.preventDefault();
       addUser();
     });
- 
+
     $( "#create-user" ).button().on( "click", function() {
       dialog.dialog( "open" );
     });

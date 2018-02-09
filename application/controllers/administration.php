@@ -1,4 +1,4 @@
-<?php 
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Administration extends CI_Controller{
@@ -21,6 +21,10 @@ class Administration extends CI_Controller{
 			}
 		}
 
+	public function userAlreadyExist(){
+		echo json_encode($this->read_database->checkDouble($this->input->post('username')));
+	}
+
 	public function newUser(){
 		$data = array(
 				'user_login' 			=> 		$this->input->post('username'),
@@ -31,9 +35,9 @@ class Administration extends CI_Controller{
 				'user_gender'			=>		$this->input->post('gender'),
 				'user_numberphone'		=>		$this->input->post('numberphone'),
 				'user_firstname'		=>		$this->input->post('firstname'),
-				'user_lastname'			=>		$this->input->post('lastname')		
+				'user_lastname'			=>		$this->input->post('lastname')
 		);
-		
+
 		$result = $this->login_database->user_registration($data);
 		if($result == true){
 			echo json_encode($data);
@@ -48,7 +52,7 @@ class Administration extends CI_Controller{
 
 	public function getGroups(){
 		//print_r($this->groups);
-		
+
 	}
 }
 ?>

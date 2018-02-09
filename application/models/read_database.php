@@ -1,11 +1,11 @@
-<?php 
+<?php
 Class Read_Database extends CI_model{
 
 	public function read_Users_data(){
 		$this->db->select('*');
 		$this->db->from('users');
 		$result = $this->db->get();
-		echo json_encode($result->result());	
+		echo json_encode($result->result());
 	}
 
 	public function user_grid_data(){
@@ -16,7 +16,19 @@ Class Read_Database extends CI_model{
 		$result = $this->db->get();
 		$sql = $this->db->last_query();
 
-		echo json_encode($result->result());		
+		echo json_encode($result->result());
+	}
+
+	public function checkDouble($username){
+		$this->db->select("user_login");
+		$this->db->from("users");
+		$this->db->where("user_login", $username);
+
+		if($this->db->get()->result()){
+				return true;
+		}
+		return false;
+
 	}
 
 	public function get_groups(){
@@ -24,7 +36,7 @@ Class Read_Database extends CI_model{
 		$this->db->from('group');
 
 		$result = $this->db->get();
-		
+
 		return $result->result();
 	}
 
