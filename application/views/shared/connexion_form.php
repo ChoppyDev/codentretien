@@ -1,9 +1,6 @@
-<!--<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:9090/codentretien/assets/css/global.css"> -->
 <?php
-if (isset($this->session->userdata['logged_in'])) {
-
-header("location:".base_url()."login/login_process");
-}
+	if (isset($this->session->userdata['logged_in']))
+		header("location:".base_url()."login/login_process");
 ?>
 <div id="login">
 	<div id="error_login">
@@ -12,13 +9,19 @@ header("location:".base_url()."login/login_process");
 			echo $message;
 		?>
 	</div>
-	<?php echo form_open('login/login_process'); ?>
-     <label for="username">Nom d'utilsateur:</label>
-     <input type="text" size="20" id="username" name="username" placeholder="Nom d'utilisateur"/>
-     <br/>
-     <label for="password">Mot de passe:</label>
-     <input type="password" size="20" id="passowrd" name="password" placeholder="Mot de passe">
-     <br/>
-     <input type="submit" value="Login" name="submit"/>
-
+	<div id="form_container">
+		<h1 id="form_title">Connection</h1>
+		<?php echo form_open('login/login_process',array('class' => 'form')); ?>
+			<div class="form_item">
+				<input class="form_text_normal_style" type="text" size="30" id="username" name="username" placeholder="Nom d'utilisateur"/>
+			</div>
+			<div class="form_item">
+				<input class="form_text_normal_style" type="password" size="30" id="password" name="password" placeholder="Mot de passe">
+			</div>
+			</br></br></br>
+			<div id="form_submit">
+				<input id="form_submit" class="form_button_big_style" type="submit" value="Connection" name="submit"/>
+			</div>
+		<!-- Form close -->
+	</div>
 </div>

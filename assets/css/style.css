@@ -46,7 +46,8 @@ header
 {
     width:auto;
     height:98px;
-    margin-left: 500px;
+    margin-left: 50%;
+    transform: translate(-50%, 0%);
 }
 
 .liens
@@ -146,11 +147,10 @@ a:visited
   position: absolute;
   top:120px;
   left:230px;
-  margin-left: 10px;
   border: 1px solid rgb(230,230,230);
   background-color: rgb(240,240,240);
   z-index: 0;
-  width:80%;
+  width:50%;
 }
 
 #user_info
@@ -194,4 +194,154 @@ a
   margin-top: -10px;
   text-align: center;
   font-family: "Didact Gothic";
+}
+
+/*************************************************
+*****************   LOGIN STYLE  *****************
+*************************************************/
+
+
+
+/*************************************************
+*****************   FORM STYLE   *****************
+*************************************************/
+
+#form_container
+{
+  position: relative;
+  margin: 20px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
+  background-color: rgb(160,160,255);
+  height: 300px;
+}
+
+.form_item
+{
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#form_title
+{
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: -20px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgb(130,130,255);
+  color:white;
+}
+
+#form_submit
+{
+  position: relative;
+  text-align: center;
+}
+
+.form_text_small_style
+{
+  width: 10%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: rgb(238,238,255);
+  padding: 5px 5px 5px 5px;
+  font-family: "Didact Gothic";
+}
+.form_text_small_style:hover{background-color: white;}
+
+.form_text_normal_style
+{
+  width:40%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: rgb(238,238,255);
+  padding: 5px 5px 5px 5px;
+  font-family: "Didact Gothic";
+}
+.form_text_normal_style:hover{background-color: white;}
+
+.form_textarea_large_style
+{
+  width:90%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: #f8f8f8;
+  resize: none;
+  font-family: "Didact Gothic";
+}.form_textarea_large_style:hover{background-color: white;}
+
+textarea::-webkit-input-placeholder { /* WebKit browsers */
+  line-height: 1.5em;
+  text-align: center;
+  padding-top: 50px;
+}
+textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  line-height: 1.5em;
+  text-align: center;
+  padding-top: 50px;
+}
+textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+  line-height: 1.5em;
+  text-align: center;
+  padding-top: 50px;
+}
+textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
+  line-height: 1.5em;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.form_button_normal_style
+{
+  width:15%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: rgb(238,238,255);
+  padding: 5px 5px 5px 25px;
+  transition: width 0.3s, padding 0.3s;
+  font-size:16px;
+  font-weight: bold;
+  background-image: url('../images/icon_send.png');
+  background-size: 20px 20px;
+  background-position: 10px 50%;
+  background-repeat: no-repeat;
+  font-family: "Didact Gothic";
+}
+
+.form_button_normal_style:hover
+{
+  padding: 10px 10px 10px 10px;
+  width:30%;
+  background-color: rgb(255,255,255);
+}
+
+.form_button_big_style
+{
+  width:30%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: rgb(238,238,255);
+  padding: 5px 5px 5px 25px;
+  transition: width 0.3s, padding 0.3s;
+  font-size:16px;
+  font-weight: bold;
+  background-image: url('../images/icon_send.png');
+  background-size: 20px 20px;
+  background-position: 10px 50%;
+  background-repeat: no-repeat;
+  font-family: "Didact Gothic";
+}
+
+.form_button_big_style:hover
+{
+  padding: 10px 10px 10px 10px;
+  width:45%;
+  background-color: rgb(255,255,255);
 }
