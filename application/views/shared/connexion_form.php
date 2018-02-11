@@ -10,7 +10,7 @@
 		?>
 	</div>
 	<div id="form_container">
-		<h1 id="form_title">Connection</h1>
+		<h1 id="form_title">Authentification</h1>
 		<?php echo form_open('login/login_process',array('class' => 'form')); ?>
 			<div class="form_item">
 				<input class="form_text_normal_style" type="text" size="30" id="username" name="username" placeholder="Nom d'utilisateur"/>
@@ -20,7 +20,7 @@
 			</div>
 			</br></br></br>
 			<div id="form_submit">
-				<input id="form_submit" class="form_button_big_style" type="submit" value="Connection" name="submit"/>
+				<input id="form_submit" class="form_button_big_style" type="submit" value="Connexion" name="submit"/>
 			</div>
 		<!-- Form close -->
 	</div>
