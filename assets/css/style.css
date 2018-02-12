@@ -29,7 +29,7 @@ header
   /*background-color: rgb(160,160,255);*/
   background-image: url('../images/header.png');
   background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-size: 100% 100px;
   z-index: 3;
 }
 
