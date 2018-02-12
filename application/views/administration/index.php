@@ -20,13 +20,11 @@
 	  } );
   </script>
 
-<!--<table id="userTable"></table> -->
 <button id="create-user">Créer un nouvel utilisateur</button>
 <div id="list2"> </div>
-<div id="newUserForm">
+<div id="form_container">
 <p class="validateTips">Tous les champs sont requis</p>
 	<form>
-		<fieldset>
 			<label for="Username">Nom d'utilisteur:</label>
 			<input type="text" name="Username" id="username">
 			<br>
@@ -63,6 +61,5 @@
 	  				<option value="<?php echo $this->groups[$i]->idGroup?>"><?php echo $this->groups[$i]->labelGroup ?> </option>
 	  		<?php } ?>
 	  		</select>
-		</fieldset>
 	</form>
 </div>

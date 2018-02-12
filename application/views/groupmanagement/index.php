@@ -18,11 +18,43 @@
    dialog = $( "#groupDialog" ).dialog({
     	autoOpen: false,
     	modal: true,
-    	title: "Noveau Groupe"
     });
   });
   $( "#create-group" ).button().on( "click", function() {
-      dialog.dialog( "open" );
+  		$("#labelgroup").val('');
+  		dialog.dialog("open");
+      	dialog.dialog({
+      	title: "Nouveau groupe",
+      	buttons: {
+      		"Créer": function(){
+      			permList = [];
+      			url = "http://localhost:9090/codentretien/groupmanagement/creategroup";
+              	$('input[type=checkbox]').each(function(){
+                	if(this.checked){
+                  	permList.push($(this).attr('name'));
+                	}
+              	});
+              	console.log(permList);
+              	data = {labelGroup: $('#labelgroup').val(), permissions: permList};
+              	$.ajax({
+              		type: 'POST',
+              		url: url,
+              		data: data,
+              		success: function(){
+              			$("#groupDialog").dialog("close");
+              			$('#userTable').trigger( "reloadGrid" );
+              		},
+              		error: function(data, msg){
+              			alert("Une erreur est survenue, veuillez contacter un administrateur");
+              		}
+              	});
+
+      		},
+      		"Annuler": function(){
+      			$(this).dialog("close");
+      		}
+      	}
+      });  
     });
 </script>
 

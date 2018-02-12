@@ -139,7 +139,7 @@ $( function() {
       return valid;
     }
 
-    dialog = $( "#newUserForm" ).dialog({
+    dialog = $( "#form_container" ).dialog({
       autoOpen: false,
       title: 'Nouvel Utilisateur',
       modal: true,

@@ -19,6 +19,17 @@ Class Group_database extends CI_model{
 			$this->db->insert('map_permissions', $data);
 		}
 	}
+
+	public function createGroup($labelGroup, $permissions){
+		$data = array( 'labelGroup' => $labelGroup);
+		$this->db->insert('group', $data);
+		$idGroup = $this->db->insert_id();
+		foreach ($permissions as $id => $idPerm) {
+			$perms = array(	'idGroup' 		=> $idGroup	,
+							'idPermission' 	=> 	$idPerm);
+			$this->db->insert('map_permissions', $perms);
+		}
+	}
 } 
 
 ?>

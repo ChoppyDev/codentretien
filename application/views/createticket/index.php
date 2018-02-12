@@ -3,7 +3,11 @@
 	<form id="createticket" class="form"  method="post" action="#">
 		<div class="form_item">
       <input class="form_text_normal_style" type="text" name="ticket_title" placeholder="Titre..."/>
-      <input class="form_text_small_style" type="text" name="ticket_room" placeholder="Salle..."/>
+      <select class="form_text_small_style" id="roomsList">
+        <?php for($i = 0; $i < count($this->rooms); $i++){ ?>
+            <option value="<?php echo $this->rooms[$i]->room_id ?>"><?php echo $this->rooms[$i]->room_label ?> </option>
+        <?php } ?>
+      </select>
     </div>
     <div class="form_item">
       <textarea class="form_textarea_large_style" name="tickte_description" placeholder="Votre description..." rows="8" cols="45"></textarea>

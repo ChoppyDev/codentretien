@@ -27,13 +27,13 @@ Class Read_Database extends CI_model{
 		if($this->db->get()->result()){
 				return true;
 		}
-		return false;
-
+		return false; 
 	}
 
 	public function get_groups(){
 		$this->db->select('*');
 		$this->db->from('group');
+		$this->db->order_by('idGroup', 'ASC');
 
 		$result = $this->db->get();
 
@@ -56,6 +56,15 @@ Class Read_Database extends CI_model{
 
 		$result = $this->db->get();
 
+		return $result->result();
+	}
+
+	public function get_rooms(){
+		$this->db->select('*');
+		$this->db->from('room');
+
+		$result = $this->db->get();
+		
 		return $result->result();
 	}
 }

@@ -16,12 +16,17 @@ class Groupmanagement extends CI_Controller{
 	public function index(){
 		$this->layout->view("Groupmanagement/index");
 	}
+/** ===========================================
+*	== 			AJAX Functions       		==
+*==============================================
+*/
 /**
 * Liste des groupes existants
 */
 	public function groupList(){
 		echo json_encode($this->read_database->get_groups());
 	}
+
 /**
 * Renvoie les permissions du groupe selectionné
 */
@@ -35,8 +40,14 @@ class Groupmanagement extends CI_Controller{
 		$labelGroup = $_POST['newlabelgroup'];
 		$permissions = $_POST['permissions'];
 
-		$this->group_database->updateGroupLabel($idGroup, 	$labelGroup);
-		$this->group_database->updatePermissions($idGroup, 	$permissions);
+		$this->group_database->updateGroupLabel(	$idGroup, 	$labelGroup);
+		$this->group_database->updatePermissions(	$idGroup, 	$permissions);
+	}
 
+	public function createGroup(){
+		$labelGroup = $_POST['labelGroup'];
+		$permissions = $_POST['permissions'];
+
+		$this->group_database->createGroup($labelGroup, $permissions);
 	}
 }

@@ -11,7 +11,7 @@
 	</div>
 	<div id="form_container">
 		<h1 id="form_title">Authentification</h1>
-		<?php echo form_open('login/login_process',array('class' => 'form')); ?>
+		<?php echo form_open('login/login_process'); ?>
 			<div class="form_item">
 				<input class="form_text_normal_style" type="text" size="30" id="username" name="username" placeholder="Nom d'utilisateur"/>
 			</div>

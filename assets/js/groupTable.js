@@ -32,12 +32,9 @@ $(document).ready(function () {
                   permList.push($(this).attr('name'));
                 }
               });
-              
               data = {idGroup: jQuery("#userTable").jqGrid('getCell', id, "idGroup"), 
                      newlabelgroup: $('#labelgroup').val(), permissions: permList};
               url = 'http://localhost:9090/codentretien/groupmanagement/savePermissions';
-               console.log(JSON.stringify(data));
-               console.log(data);
               $.ajax({
                 type: 'POST',
                 url: url,
@@ -51,13 +48,14 @@ $(document).ready(function () {
             },
             "Annuler": function(){
               $( this ).dialog( "close" );
+              $(this).dialog("option", "title", "");
+
               $('input:checkbox').removeAttr('checked');
 
             }
           },
           close: function(){
             $('input:checkbox').removeAttr('checked');
-            //$(this).find('form')[0].reset();
             }
         });
         // Get permissions for the group and check the checkboxes
@@ -73,3 +71,4 @@ $(document).ready(function () {
       }
   });
 });
+ 
