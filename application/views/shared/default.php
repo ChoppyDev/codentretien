@@ -25,7 +25,7 @@
 
         <header>
           <div id ="titre">
-            <img class="image" src="<?php echo base_url()?>/assets/images/gestion-administration.png" alt="logo">
+            <img id="header_img" src="<?php echo base_url()?>/assets/images/header.png" alt="logo"> <h1 id="header_title"> MANITA </h1>
           </div>
 <?php if(isset($this->session->userdata['logged_in'])){ ?>
        <div id="user_info">

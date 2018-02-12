@@ -42,10 +42,10 @@ header
 
 }
 
-.image
+#header_img
 {
-    width:auto;
-    height:98px;
+    width:100%;
+    height:100px;
     margin-left: 50%;
     transform: translate(-50%, 0%);
 }
