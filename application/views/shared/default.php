@@ -30,7 +30,7 @@
 <?php if(isset($this->session->userdata['logged_in'])){ ?>
        <div id="user_info">
         <div id="user">
-          <a href="#"><p id="user_hello"><img id="user_profil" src="<?php echo base_url()?>/assets/images/user_icon.png" alt="login"> <?php echo $this->session->userdata['logged_in']['firstname']?> <?php echo $this->session->userdata['logged_in']['lastname']." "; ?></p></a>
+          <a href="<?php echo base_url()?>userinformation"><p id="user_hello"><img id="user_profil" src="<?php echo base_url()?>/assets/images/user_icon.png" alt="login"> <?php echo $this->session->userdata['logged_in']['firstname']?> <?php echo $this->session->userdata['logged_in']['lastname']." "; ?></p></a>
         </div>
         <div id="logout">
           <a href="<?php echo base_url() ?>/login/logout"> <p> Se déconnecter </p> </a>
