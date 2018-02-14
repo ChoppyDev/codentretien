@@ -1,13 +1,12 @@
-
 $(document).ready(function () {
  
-  $("#userTable").jqGrid({
+  $("#groupTable").jqGrid({
       url:'http://localhost:9090/codentretien/groupmanagement/groupList',
     datatype: "json",
       colNames:['id',"Nom du groupe"],
       colModel:[
-        {name:'idGroup',index:'id', width:55},
-        {name:'labelGroup',index:'user_login', width:90},
+        {name:'idGroup',index:'idGroup', width:55},
+        {name:'labelGroup',index:'labelGroup', width:90},
       ],
       rowNum:10,
       rowList:[10,20,30],
@@ -15,7 +14,7 @@ $(document).ready(function () {
       sortname: 'idGroup',
       viewrecords: true,
       sortorder: "desc",
-      caption:"Table Gestion Utilisateur",
+      caption:"Table Gestion Groupes",
       onSelectRow:function(id){
         $("#groupDialog").dialog("open");
         $("#labelgroup").val(jQuery("#userTable").jqGrid('getCell', id, "labelGroup"));

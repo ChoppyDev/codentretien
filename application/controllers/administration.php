@@ -8,6 +8,7 @@ class Administration extends CI_Controller{
 		$this->groups = $this->read_database->get_groups();
 		$this->userID = 0;
 		$this->load->model('login_database');
+		//$this->layout->add_js('userTable');
 		if(isset($this->session->userdata['logged_in'])){
 			$this->userID = $this->session->userdata['logged_in']['id'];
 		}
@@ -48,11 +49,6 @@ class Administration extends CI_Controller{
 
 	public function loadUsersData(){
 		$this->read_database->user_grid_data();
-	}
-
-	public function getGroups(){
-		//print_r($this->groups);
-
 	}
 }
 ?>
