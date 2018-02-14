@@ -19,7 +19,7 @@ class CreateTicket extends CI_Controller{
 				$this->layout->view('createticket/index');
 				
 			}else{
-				echo 'accès refusé';
+				$this->layout->view('shared/permission_denied');
 			}
 		}
 }

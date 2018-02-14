@@ -17,7 +17,7 @@ class Administration extends CI_Controller{
 			if($this->permission->user_as_permission($this->userID, 1)){
 				$this->layout->view('administration/index');
 			}else{
-				echo 'accès refusé';
+				$this->layout->view('shared/permission_denied');
 			}
 		}
 
