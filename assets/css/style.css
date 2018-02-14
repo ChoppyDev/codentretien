@@ -38,7 +38,7 @@ header
   position: absolute;
   background-color: rgb(200,200,200);
   top: 100px;
-  height: auto;
+  height: 100%;
   min-width: 210px;
   bottom:25px;
   border-right: 1px solid #d4d4d4;
@@ -202,6 +202,52 @@ a
   text-align: center;
   font-family: "Didact Gothic";
 }
+
+/*************************************************
+*****************  TABLE STYLE   *****************
+*************************************************/
+
+#table
+{
+  font-family: "Didact Gothic";
+  position: relative;
+  width:95%;
+  left:50%;
+  transform: translate(-50%,0%);
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-collapse: collapse;
+  border: 1px solid rgba(200,200,200,1);
+}
+
+#table, .table_tr, .table_td
+{
+   border-bottom: 1px solid rgba(200,200,200,1);
+}
+
+.table_interval
+{
+  background-color: rgb(230,230,255);
+}
+
+.table_days{
+  background-color: rgb(130,130,255);
+}
+
+.table_hours{
+  background-color: rgb(180,180,255);
+}
+
+.table_tr
+{
+
+}
+
+.table_td{
+  height: 60px;
+}
+
 
 /*************************************************
 *****************   FORM STYLE   *****************
