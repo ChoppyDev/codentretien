@@ -9,7 +9,7 @@ Class Read_Database extends CI_model{
 	}
 
 	public function user_grid_data(){
-		$this->db->select('user_id, user_login, group.labelGroup, user_firstName, user_lastName');
+		$this->db->select('user_id, user_login, user_firstName, user_lastName, group.labelGroup, user_email');
 		$this->db->from('users');
 		$this->db->join('group','group.idGroup = users.user_idGroup');
 

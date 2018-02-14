@@ -12,7 +12,7 @@
 <!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/jquery-ui.min.js"></script>
 <button id="create-group"> Créer un nouveau groupe</button>
-<table id="userTable"></table>
+<table id="groupTable"></table>
 <script> 
   $( function() {
    dialog = $( "#groupDialog" ).dialog({

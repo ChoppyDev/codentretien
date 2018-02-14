@@ -16,6 +16,8 @@ class Groupmanagement extends CI_Controller{
 	public function index(){
 		$this->layout->view("Groupmanagement/index");
 	}
+
+	
 /** ===========================================
 *	== 			AJAX Functions       		==
 *==============================================
