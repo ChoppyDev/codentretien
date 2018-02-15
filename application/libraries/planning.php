@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Planning {
+class Planning { // only graphics
 
   private $data;
   private $sizeX;
@@ -42,7 +42,9 @@ class Planning {
         if($x == 0 && $y != 0)
           echo "<td class='table_td table_hours'>".$this->hours[$y]."</td>";
         else if( $x % 2 == 0 && $y != 0)
-          echo "<td class='table_td table_interval'>".$this->data[$y][$x]."</td>";
+          echo "<td class='table_td table_interval'><div class=\"planning_data\">".$this->data[$y][$x]."</div></td>";
+        else if( $y != 0)
+          echo "<td class='table_td'><div class=\"planning_data\">".$this->data[$y][$x]."</div></td>";
         else
           echo "<td class='table_td'>".$this->data[$y][$x]."</td>";
       }
