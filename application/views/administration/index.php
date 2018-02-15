@@ -11,7 +11,7 @@
 
 
 
- 
+
 
 <button id="create-user">Créer un nouvel utilisateur</button>
 <table id= "userTable"></table>
@@ -92,4 +92,3 @@
   </script>
 
 </div>
-

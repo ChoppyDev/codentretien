@@ -28,6 +28,7 @@ class Planning { // only graphics
   }
 
   public function generate(){
+    //  $test = "<div class=\"popup\" onclick=\"showTask()\">data<span class=\"popuptext\" id=\"myPopup\">data_full</span></div>";
 
     echo "<table id='table'>";
     for( $y = 0; $y < $this->sizeY; $y++ )
