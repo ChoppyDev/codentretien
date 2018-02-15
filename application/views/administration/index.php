@@ -1,13 +1,13 @@
-<link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url()?>assets/js/jqgrid/css/jquery-ui.css"/>
+
 <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url() ?>assets/js/jquery-ui.css" />
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/ui.jqgrid.min.css" />
 
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/jquery.min.js" ></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/trirand/jquery.jqGrid.min.js" ></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/jquery-ui.min.js" ></script>
 <script type="text/javascript" src="<?php echo base_url() ?>assets/js/dialog_form.js"></script>
-<script type="text/javascript" src="<?php echo base_url() ?>assets/js/userTable.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/userTable.js"></script>
+
 
 
 
@@ -15,7 +15,7 @@
 
 <button id="create-user">Créer un nouvel utilisateur</button>
 <table id= "userTable"></table>
-<div id="list2"> </div>
+<div id="pager2"> </div>
 <div id="form_container">
   <h1 id="form_title">ajouter un utilisateur</h1>
   <p class="validateTips">Tous les champs sont requis</p>
@@ -76,6 +76,7 @@
           </div>
         </div>
   	</form>
+  <!-- Date Picker-->
   <script>
     $( function() {
         $( "#datepicker" ).datepicker({
