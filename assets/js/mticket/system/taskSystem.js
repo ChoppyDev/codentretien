@@ -3,10 +3,15 @@ var TaskSystem = (function () {
     {
         this.__userHaveTaskSelected = null;
         this.__tasks                = null;
+        this.__savedTasks           = null;
         this.__canvasSize           = null;
         this.__canvasSize           = canvasSize;
         this.__tasks                = tasks;
         this.__userHaveTaskSelected = -1;
+        this.__lostFocus            = false;
+        var that = this;
+
+        $(document).ready(function(){$(window).one("focus", function(){that.manageFocus();});});
     }
 
     ////////DEBUG////////
@@ -25,8 +30,16 @@ var TaskSystem = (function () {
       this.__tasks.push(task);
     };
 
+    TaskSystem.prototype.manageFocus = function()
+    {
+      window.location.reload();
+    };
+
     TaskSystem.prototype.update = function(input)// non full sorted array -> perf
     {
+      if(this.__lostFocus)
+        return;
+
       var exchange = -1;
       for( var i = this.__tasks.length - 1; i > -1 ; i-- )
       {
@@ -59,6 +72,9 @@ var TaskSystem = (function () {
 
     TaskSystem.prototype.render = function(context)
     {
+      if(this.__lostFocus)
+        return;
+
       for( var i = 0; i < this.__tasks.length; i++ )
       {
         if( i != this.__userHaveTaskSelected )
