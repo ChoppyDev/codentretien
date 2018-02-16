@@ -30,6 +30,14 @@ Class Group_database extends CI_model{
 			$this->db->insert('map_permissions', $perms);
 		}
 	}
+
+	public function updateUserGroup($idUser, $idGroup){
+		$this->db->set('user_idGroup', $idGroup);
+		$this->db->where('user_id', $idUser);
+		$this->db->update('users');
+
+		//echo $this->db->last_query();
+	}
 } 
 
 ?>

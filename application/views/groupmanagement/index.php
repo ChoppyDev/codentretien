@@ -40,7 +40,7 @@
               		data: data,
               		success: function(){
               			$("#groupDialog").dialog("close");
-              			$('#userTable').trigger( "reloadGrid" );
+              			$('#groupTable').trigger( "reloadGrid" );
               		},
               		error: function(data, msg){
               			alert("Une erreur est survenue, veuillez contacter un administrateur");

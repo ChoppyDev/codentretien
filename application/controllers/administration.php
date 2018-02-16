@@ -8,6 +8,7 @@ class Administration extends CI_Controller{
 		$this->groups = $this->read_database->get_groups();
 		$this->userID = 0;
 		$this->load->model('login_database');
+		$this->load->model('group_database');
 		//$this->layout->add_js('userTable');
 		if(isset($this->session->userdata['logged_in'])){
 			$this->userID = $this->session->userdata['logged_in']['id'];
@@ -49,6 +50,21 @@ class Administration extends CI_Controller{
 
 	public function loadUsersData(){
 		$this->read_database->user_grid_data();
+	}
+/**
+* ====================================
+* ===          AJAX methods        ===
+* ====================================
+*/
+	public function userinfos(){
+		$idUser = $_GET['idUser'];
+		$this->read_database->get_user_infos($idUser);
+	}
+
+	public function setUserGroup(){
+		$idUser = $_POST['idUser'];
+		$idGroup = $_POST['idGroup'];
+		$this->group_database->updateUserGroup($idUser, $idGroup);
 	}
 }
 ?>

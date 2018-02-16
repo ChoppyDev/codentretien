@@ -17,9 +17,10 @@ $(document).ready(function () {
       caption:"Table Gestion Groupes",
       onSelectRow:function(id){
         $("#groupDialog").dialog("open");
-        $("#labelgroup").val(jQuery("#userTable").jqGrid('getCell', id, "labelGroup"));
+        $("#labelgroup").val(jQuery("#groupTable").jqGrid('getCell', id, "labelGroup"));
+        console.log(jQuery("#groupTable").jqGrid('getCell', id, "labelGroup"));
         $("#groupDialog").dialog({ 
-          title:"Modification - "+ jQuery("#userTable").jqGrid('getCell', id, "labelGroup"),
+          title:"Modification - "+ jQuery("#groupTable").jqGrid('getCell', id, "labelGroup"),
           width:'auto',
           height: 'auto',
           resizable: false,
@@ -31,7 +32,7 @@ $(document).ready(function () {
                   permList.push($(this).attr('name'));
                 }
               });
-              data = {idGroup: jQuery("#userTable").jqGrid('getCell', id, "idGroup"), 
+              data = {idGroup: jQuery("#groupTable").jqGrid('getCell', id, "idGroup"), 
                      newlabelgroup: $('#labelgroup').val(), permissions: permList};
               url = 'http://localhost:9090/codentretien/groupmanagement/savePermissions';
               $.ajax({
@@ -40,7 +41,7 @@ $(document).ready(function () {
                 data: data,
                 success: function(){
                    $("#groupDialog").dialog("close");
-                   $('#userTable').trigger( "reloadGrid" );
+                   $('#groupTable').trigger( "reloadGrid" );
                 }
                });
 
@@ -58,7 +59,7 @@ $(document).ready(function () {
             }
         });
         // Get permissions for the group and check the checkboxes
-        $.get("http://localhost:9090/codentretien/groupmanagement/permissionsByGroup?group=" + jQuery("#userTable").jqGrid('getCell', id, "idGroup"),
+        $.get("http://localhost:9090/codentretien/groupmanagement/permissionsByGroup?group=" + jQuery("#groupTable").jqGrid('getCell', id, "idGroup"),
           function(data){
             map = jQuery.parseJSON(data); //parsing String Data to JSON
             $.each(map, function(id, perms){ 

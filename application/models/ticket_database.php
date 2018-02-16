@@ -9,7 +9,8 @@ Class ticket_database extends CI_model{
 		$this->db->join("users","users.user_id = ticket.user_id");
 		$result = $this->db->get();
 
-		echo json_encode($result->result());
+		//echo json_encode($result->result());
+		return $result->result();
 	}
 }
 ?>

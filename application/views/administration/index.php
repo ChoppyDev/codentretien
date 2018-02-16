@@ -16,7 +16,7 @@
 <button id="create-user">Créer un nouvel utilisateur</button>
 <table id= "userTable"></table>
 <div id="pager2"> </div>
-<div id="form_container">
+<div id="form_container" hidden>
   <h1 id="form_title">ajouter un utilisateur</h1>
   <p class="validateTips">Tous les champs sont requis</p>
   	<form>
@@ -76,6 +76,40 @@
           </div>
         </div>
   	</form>
+    <div id="edit_form">
+      <table style="text-align: left">
+          <tr>
+            <th>Prénom:</th>
+            <th><p id="info_firstName">Chargement...</p></th>
+          </tr>
+          <tr>
+            <th>Nom:</th>
+            <th><p id="info_lastName">Chargement...</p></th>
+          </tr>
+          <tr>
+            <th>Adresse mail:</th>
+            <th><p id="info_email">Chargement...</p></th>
+          </tr>
+          <tr>
+            <th>Date de Naissance:</th>
+            <th><p id="info_birthday">Chargement...</p></th>
+          </tr>
+          <tr>
+            <th>Numéro de télephone:</th>
+            <th><p id="info_numberphone">Chargement...</p></th>
+          </tr>
+          <tr>
+            <th>Date de création du compte:</th>
+            <th><p id="info_createdOn">Chargement...</p></th>
+          </tr>
+      </table>
+      <label for="edit_groupList">Groupe:</label>
+      <select id="edit_groupList">
+          <?php for($i = 0; $i < count($this->groups); $i++){ ?>
+              <option value="<?php echo $this->groups[$i]->idGroup?>"><?php echo $this->groups[$i]->labelGroup ?> </option>
+          <?php } ?>
+      </select>
+    </div>
   <!-- Date Picker-->
   <script>
     $( function() {
@@ -88,7 +122,6 @@
           monthNamesShort:["Janvier", "Février", "Mars", "Avril", 'Mai', "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"],
           dayNamesMin: [ "Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa" ]
         });
-      } );
+      });
   </script>
-
 </div>

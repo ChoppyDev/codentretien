@@ -19,8 +19,45 @@ $(document).ready(function () {
         viewrecords: true,
         sortorder: "desc",
         caption:"Table Gestion Utilisateur",
+        onSelectRow: function(id){
+          idUser = $('#userTable').jqGrid('getCell', id, 'user_id');
+          url = "http://localhost:9090/codentretien/administration/setusergroup";
+
+          $.get('http://localhost:9090/codentretien/administration/userinfos?idUser=' + jQuery("#userTable").jqGrid('getCell', id, 'user_id'),
+            function(data){
+              dataparse = jQuery.parseJSON(data);
+              $("#edit_groupList").val(dataparse[0]['user_idGroup']);
+              $('#info_firstName').text(dataparse[0]['user_firstName']);
+              $('#info_lastName').text(dataparse[0]['user_lastName']);
+              $('#info_email').text(dataparse[0]['user_email']);
+              $('#info_birthday').text(dataparse[0]['user_birthday']);
+              $('#info_numberphone').text(dataparse[0]['user_numberphone']);
+              $('#info_createdOn').text(dataparse[0]['user_createdOn']);   
+            }
+          );
+          $("#edit_form").dialog({
+              autoOpen: false,
+              title: "Editer un Utilisateur",
+              resizable: true,
+              buttons:{
+                "Enregistrer": function(){
+                  data = {idUser: idUser , idGroup: $('#edit_groupList').val()};
+                  $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: data,
+                    success: function(){
+                      $('#edit_form').dialog("close");
+                      $('#userTable').trigger("reloadGrid");
+                    }
+                  });
+                },
+              },
+            });
+          $("#edit_form").dialog("open");
+        }
     });
     jQuery("#userTable").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});
-
+    
 });
  

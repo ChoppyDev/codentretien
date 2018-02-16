@@ -67,6 +67,21 @@ Class Read_Database extends CI_model{
 		
 		return $result->result();
 	}
+
+/**
+* Get group from specific user
+* @param int idUser
+* @todo Le transformer en "get users infos"
+*/
+	public function get_user_infos($idUser){
+		$this->db->select('user_idGroup, user_login, user_email, user_birthday, user_numberphone, user_firstName, user_lastName, user_createdOn');
+		$this->db->from('users');
+		$this->db->where('user_id', $idUser);
+
+		$result = $this->db->get();
+
+		echo json_encode($result->result());
+	}
 }
 
 ?>
