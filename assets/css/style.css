@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 @font-face{
     font-family : "menu";
@@ -73,8 +74,8 @@ header
   margin-top: -3px;
   margin-bottom: -3px;
   transition: padding 0.5s, background-color 0.5s;
-  font-family: "menu";
-  font-size: 14px;
+  font-family: "Roboto";
+  font-size: 16px;
 }
 
 .onglets p
@@ -208,6 +209,7 @@ a
 /*************************************************
 *****************  TABLE STYLE   *****************
 *************************************************/
+
 .popup {
     position: relative;
     display: inline-block;
@@ -217,10 +219,11 @@ a
 /* The actual popup (appears on top) */
 .popup .popuptext {
     visibility: hidden;
-    width: 160px;
+    width: 500px;
     height: 300px;
-    background-color: #555;
-    color: #fff;
+    background-color: rgb(235,235,235);
+    color: rgb(30,30,30);
+    border: 1px solid rgb(100,100,100);
     text-align: center;
     border-radius: 6px;
     padding: 8px 0;
@@ -228,7 +231,19 @@ a
     z-index: 1;
     bottom: 125%;
     left: 50%;
-    margin-left: -80px;
+    margin-left: -250px;
+}
+
+.popuptext .room
+{
+  margin-top: -9px;
+  margin-left: 0px;
+  padding:3px 3px 3px 3px;
+  border-right: 1px solid rgb(100,100,100);;
+  border-bottom: 1px solid rgb(100,100,100);;
+  float: left;
+  color:red;
+  top:0px;
 }
 
 /* Popup arrow */
@@ -397,6 +412,7 @@ z-index: 5;
   margin-top: -20px;
   text-align: center;
   text-transform: uppercase;
+  font-family: "Roboto";
   background-color: rgb(130,130,255);
   color:white;
 }

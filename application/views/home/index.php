@@ -1,7 +1,8 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/planning/planning.js"></script>
 <?php
 
-    $test = "<div class=\"popup\" onclick=\"showTask()\">data<span class=\"popuptext\" id=\"myPopup\">data_full</span></div>";
+    $test = "<div class=\"popup\" onclick=\"showTask()\">data<span class=\"popuptext\" id=\"myPopup\">
+    <p class=\"room\">C114</p></span></div>";
 
     $data = array(
       array("--","--","--","--","--","--","--","--"),
