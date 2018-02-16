@@ -76,7 +76,23 @@
           </div>
         </div>
   	</form>
-    <div id="edit_form">
+  <!-- Date Picker-->
+  <script>
+    $( function() {
+        $( "#datepicker" ).datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: 'yy-mm-dd',
+          yearRange: "c-100:c",
+          monthNames: ["Janvier", "Février", "Mars", "Avril", 'Mai', "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"],
+          monthNamesShort:["Janvier", "Février", "Mars", "Avril", 'Mai', "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"],
+          dayNamesMin: [ "Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa" ]
+        });
+      });
+  </script>
+</div>
+
+ <div id="edit_form" hidden>
       <table style="text-align: left">
           <tr>
             <th>Prénom:</th>
@@ -110,18 +126,3 @@
           <?php } ?>
       </select>
     </div>
-  <!-- Date Picker-->
-  <script>
-    $( function() {
-        $( "#datepicker" ).datepicker({
-          changeMonth: true,
-          changeYear: true,
-          dateFormat: 'yy-mm-dd',
-          yearRange: "c-100:c",
-          monthNames: ["Janvier", "Février", "Mars", "Avril", 'Mai', "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"],
-          monthNamesShort:["Janvier", "Février", "Mars", "Avril", 'Mai', "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"],
-          dayNamesMin: [ "Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa" ]
-        });
-      });
-  </script>
-</div>

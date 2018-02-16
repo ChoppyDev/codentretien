@@ -38,7 +38,10 @@ $(document).ready(function () {
           $("#edit_form").dialog({
               autoOpen: false,
               title: "Editer un Utilisateur",
-              resizable: true,
+              modal: true,
+              width: 'auto',
+              hide: 'fold',
+              show: 'fold',
               buttons:{
                 "Enregistrer": function(){
                   data = {idUser: idUser , idGroup: $('#edit_groupList').val()};
@@ -52,12 +55,14 @@ $(document).ready(function () {
                     }
                   });
                 },
+                "Annuler": function(){
+                  $('#edit_form').dialog("close");
+                },
               },
             });
           $("#edit_form").dialog("open");
         }
     });
-    jQuery("#userTable").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});
-    
+    jQuery("#userTable").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});   
 });
  
