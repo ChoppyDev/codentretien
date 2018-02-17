@@ -12,6 +12,7 @@ Class Read_Database extends CI_model{
 		$this->db->select('user_id, user_login, user_firstName, user_lastName, group.labelGroup, user_email');
 		$this->db->from('users');
 		$this->db->join('group','group.idGroup = users.user_idGroup');
+		$this->db->order_by('user_id', 'ASC');
 
 		$result = $this->db->get();
 		$sql = $this->db->last_query();
@@ -71,10 +72,10 @@ Class Read_Database extends CI_model{
 /**
 * Get group from specific user
 * @param int idUser
-* @todo Le transformer en "get users infos"
+* @param bool minimized		return minimized data if == TRUE
 */
-	public function get_user_infos($idUser){
-		$this->db->select('user_idGroup, user_login, user_email, user_birthday, user_numberphone, user_firstName, user_lastName, user_createdOn');
+	public function get_user_infos($idUser, $minimized){
+		$this->db->select(($minimized == TRUE) ? 'user_idGroup, user_login, user_email, user_birthday, user_numberphone, user_firstName, user_lastName, user_createdOn' : '*');
 		$this->db->from('users');
 		$this->db->where('user_id', $idUser);
 

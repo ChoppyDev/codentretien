@@ -6,7 +6,6 @@ class Settings extends CI_Controller{
 			parent::__construct();
 			$this->groups = $this->read_database->get_groups();
 			$this->userID = 0;
-			$this->load->model("ticket_database");
 			if(isset($this->session->userdata['logged_in'])){
 				$this->userID = $this->session->userdata['logged_in']['id'];
 			}
@@ -14,13 +13,15 @@ class Settings extends CI_Controller{
 
 	public function index(){
 		$this->layout->view("settings/index");
-
-
-
 	}
 
-	public function ticketReadData(){
-		$this->ticket_database->read_ticket_info();
+	public function editInfos(){
+		$this->layout->view('settings/editInfos');
+	}
+
+	public function getUserInfos(){
+		$this->read_database->get_user_infos($this->userID,FALSE);
+
 	}
 
 }

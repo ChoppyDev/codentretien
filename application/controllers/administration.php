@@ -58,7 +58,7 @@ class Administration extends CI_Controller{
 */
 	public function userinfos(){
 		$idUser = $_GET['idUser'];
-		$this->read_database->get_user_infos($idUser);
+		$this->read_database->get_user_infos($idUser,TRUE);
 	}
 
 	public function setUserGroup(){

@@ -15,8 +15,8 @@ $( function() {
       group = $("#groupList" ).val(),
       allFields =  $([]).add(username).add(password).add(password_confirmation).add(email).add(birthdate).add(gender).add(numberphone).add(firstname).add(lastname).add(group),
       tips = $( ".validateTips" ),
-      data = {username: $( "#username" ).val(), password: $("#password").val(), email: $("#email").val(), birthdate: $("#datepicker").val(),
-      gender : $('input[name=gender]:checked').val(), numberphone: $("#numberPhone").val(), firstname: $("#firstName").val(),lastname: $("#lastName").val(),group: $("#groupList" ).val()}
+      data = {username: username.val(), password: password.val(), email: email.val(), birthdate: birthdate.val(),
+      gender : gender, numberphone: numberphone.val(), firstname: firstname.val(),lastname: lastname.val(), group: group}
 
 
 
@@ -115,7 +115,7 @@ $( function() {
 
       valid = valid && checkRegexp( username, /^[a-z]([0-9a-z_\s])+$/i, "Votre Nom d'utilisateur doit commencer par une lettre et peut contenir des nombres, underscores et lettres" );
       valid = valid && checkRegexp( password, /^([0-9A-Za-z_\s])+$/, "Le mot de passe doit contenir uniquement des  : a-z 0-9" );
-      valid = valid && checkRegexp( email, emailRegex, "Email invalide! Exemple" );
+      valid = valid && checkRegexp( email, emailRegex, "Email invalide! Exemple: administrateur@manita.fr" );
       valid = valid && checkRegexp( numberphone, /^([0-9])+$/, "Votre numéro de téléphone doit comporter que des nombres");
       valid = valid && checkRegexp( firstname, /^([a-zA-Z])+$/, "Votre prénom ne doit contenir que des lettres");
       valid = valid && checkRegexp( lastname, /^([a-zA-Z])+$/, "Votre nom ne doit contenir que des lettres");
