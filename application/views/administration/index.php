@@ -47,9 +47,23 @@
           <div class="form_item_left">
       			<label for="gender">Sexe</label>
       			<br>
-      			  <input name="gender" type="radio" id="gender1" value="1"> <?php for($i=0;$i<60;$i++)echo "&nbsp;";?>Masculin	<br>
-      	  		<input  name="gender" type="radio" id="gender2" value="2"> <?php for($i=0;$i<60;$i++)echo "&nbsp;";?>Féminin	<br>
-      	  		<input  name="gender" type="radio" id="gender3" value="3"> <?php for($i=0;$i<60;$i++)echo "&nbsp;";?>Autre
+            <div class="control-group">
+                <label class="control control-radio">
+                    Masculin
+                        <input type="radio" id="gender1" value="1" name="radio" checked="checked" />
+                    <div class="control_indicator"></div>
+                </label>
+                <label class="control control-radio">
+                    Féminin
+                        <input type="radio" id="gender2" value="2" name="radio" />
+                    <div class="control_indicator"></div>
+                </label>
+                <label class="control control-radio">
+                    Autre
+                        <input type="radio" id="gender3" value="3" name="radio" />
+                    <div class="control_indicator"></div>
+                </label>
+            </div>
             </div>
             <div class="form_item_left">
       	  		<label for="numberPhone">Numéro de Téléphone</label>
