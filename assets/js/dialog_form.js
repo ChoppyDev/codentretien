@@ -127,7 +127,7 @@ $( function() {
             dataType: 'json',
             success: function(data){
               alert("Compte créé");
-               dialog.dialog("close");
+              dialog.dialog("close");
                },
             error: function(data, status){
               alert("Erreur dans le requete ajax, veuillez contacter un admnistrateur");

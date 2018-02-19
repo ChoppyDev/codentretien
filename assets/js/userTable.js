@@ -49,7 +49,7 @@ $(document).ready(function () {
                     type: 'POST',
                     url: url,
                     data: data,
-                    success: function(){
+                    success: function(){ 
                       $('#edit_form').dialog("close");
                       $('#userTable').trigger("reloadGrid");
                     }

@@ -37,6 +37,7 @@ Class Group_database extends CI_model{
 		$this->db->update('users');
 
 		//echo $this->db->last_query();
+
 	}
 } 
 

@@ -1,16 +1,19 @@
 $(function(){
 	button = false;
+  valid = true;
 	tips = $('.validateTips');
 	emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 	username = $('#edit-username');
 	newPassword = $('#edit-newPassword');
+  newPasswordConfirm = $('#edit-newPasswordConfirmation');
 	firstName = $('#edit-firstName');
 	lastName = $('#edit-lastName');
 	email = $('#edit-email');
 	numberphone = $('#edit-numberphone');
-	data = { username: username.val(), newPassword: newPassword.val(), firstName: firstName.val(), lastName: lastName.val(), email: email.val()};
+	
+  url = 'http://localhost:9090/codentretien/';
 
-	$.get('http://localhost:9090/codentretien/settings/getUserInfos',
+	$.get( url + "settings/getUserInfos",
 		function(data){
 			dataparse = jQuery.parseJSON(data);
 			$('#edit-username').val(dataparse[0]['user_login']);
@@ -26,6 +29,7 @@ $(function(){
 	$('#edit-button').click(function(){
 		if(button == false) {
 			$("input").prop('disabled', false);
+      $("#edit-username").prop('disabled', true);
 			$('#edit-button').text("Annuler");
 			button = true;
 		}else{
@@ -57,7 +61,7 @@ $(function(){
     function checkLength( o, n, min, max ) {
       if ( o.val().length > max || o.val().length < min ) {
         o.addClass( "ui-state-error" );
-        updateTips( "La longueur du " + n + " doit être entre " +
+        updateTips( "La longueur de votre " + n + " doit être entre " +
           min + " et " + max + "." );
         return false;
       } else {
@@ -80,31 +84,63 @@ $(function(){
         return true;
       }
     }
-    function usernameAlreadyExists(){
-    	var output;
-        $.ajax({
-         type: 'POST',
-         url:  "http://localhost:9090/codentretien/administration/useralreadyexist",
-         data: {username: $("#edit-username").val()},
-         dataType: 'json',
-         async: false,
-         success: function(data){
-           output = data;
-         },
-         error: function(data){
-          alert("[Edition du compte] Une erreur est survenue, veuillez contacter un administrateur.");
-         }
-       });
-        if(output == true){
-        	updateTips("Le nom d'utilisateur "+ $("#edit-username").val() + " est déjà pris");
-        }
-        return output;
+    /**
+    * Function passwordMatch
+    *
+    */
+    function passwordMatch(newpass, newconfirm){
+      if(newpass.val() == newconfirm.val()){
+        return true;
+      }
+      newpass.addClass("ui-state-error");
+      newconfirm.addClass("ui-state-error");
+      updateTips("Les mots de passe ne correspondent pas");
+      return false;
     }
+
+    function passwordEmpty(newpass, newconfirm){
+      if(newpass.val() == "" && newconfirm.val() == ""){
+        return true;
+      }
+      return checkRegexp( newpass, /^([0-9A-Za-z_\s])+$/, "Le mot de passe doit contenir uniquement des  : a-z 0-9" );
+
+    }
+    
     function editUser(){
-    	valid = true;
-    	valid = 
-        console.log(valid);
+      data = {newPassword: newPassword.val(), firstName: firstName.val(), lastName: lastName.val(), email: email.val(), numberphone: numberphone.val()};
+    	
+      valid = valid && passwordMatch(newPassword, newPasswordConfirm);
+
+      valid = valid && checkLength(firstName, "Prénom", 1, 50);
+      valid = valid && checkLength(lastName, "Nom", 1, 50);
+      valid = valid && checkLength(email, "email", 6, 64);
+      valid = valid && checkLength(numberphone, "numéro de téléphone", 4, 20);
+
+      valid = valid && passwordEmpty(newPassword, newPasswordConfirm); // si les deux champs sont vides, on ne modifie pas le password
+      valid = valid && checkRegexp( firstName, /^([a-zA-Z])+$/, "Votre prénom ne doit contenir que des lettres");
+      valid = valid && checkRegexp( lastName, /^([a-zA-Z])+$/, "Votre nom ne doit contenir que des lettres");
+      valid = valid && checkRegexp( email, emailRegex, "Email invalide! Exemple: administrateur@manita.fr" );
+      valid = valid && checkRegexp( numberphone, /^([0-9])+$/, "Votre numéro de téléphone doit comporter que des nombres");
+      console.log(data);
+
+      if(valid){
+        $.ajax({
+          type: 'POST',
+          url: 'http://localhost:9090/codentretien/settings/updateInfos',
+          data: data,
+          success: function(){
+            updateTips("Vos paramètres ont étés modifiés");
+            $("input").prop('disabled', true);
+
+          },
+          error: function(data){
+            console.log(data.status);
+            alert('non');
+          }
+        })
+      }
     }
+
 
     $('#edit-save').click(function(){
     	editUser();
