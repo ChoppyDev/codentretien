@@ -12,9 +12,9 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/mticket/manager_ticket.js"></script>
 
 <canvas id="canvas" width="1000" height="600">
-  <p>This is fallback content
-    for users of assistive technologies
-    or of browsers that don't have
-    full support for the Canvas API.
+  <p>
+
+    // Change...
+    
   </p>
 </canvas>

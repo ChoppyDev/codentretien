@@ -17,9 +17,10 @@ class CreateTicket extends CI_Controller{
   public function index(){
 			if($this->permission->user_as_permission($this->userID, 101)){
 				$this->layout->view('createticket/index');
-				
+
 			}else{
 				$this->layout->view('shared/permission_denied');
 			}
 		}
 }
+?>
