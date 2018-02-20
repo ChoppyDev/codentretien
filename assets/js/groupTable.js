@@ -5,8 +5,8 @@ $(document).ready(function () {
     datatype: "json",
       colNames:['id',"Nom du groupe"],
       colModel:[
-        {name:'idGroup',index:'idGroup', width:55},
-        {name:'labelGroup',index:'labelGroup', width:90},
+        {name:'idGroup',      index:'idGroup',      width:55,   template: "integerStr"},
+        {name:'labelGroup',   index:'labelGroup',   width:90},
       ],
       rowNum:10,
       rowList:[10,20,30],
@@ -14,6 +14,10 @@ $(document).ready(function () {
       sortname: 'idGroup',
       viewrecords: true,
       sortorder: "desc",
+      loadonce: true,
+      pager : '#gridpager',
+      width: 200,
+      height: "auto",
       caption:"Table Gestion Groupes",
       onSelectRow:function(id){
         $("#groupDialog").dialog("open");

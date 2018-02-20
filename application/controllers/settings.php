@@ -26,20 +26,12 @@ class Settings extends CI_Controller{
 
 	public function updateInfos(){
 		$data = array(
-			//'newPassword' => $_POST['newPassword'],
 			'user_firstName' => $_POST['firstName'],
 			'user_lastName' => $_POST['lastName'],
 			'user_email' => $_POST['email'],
 			'user_numberPhone' => $_POST['numberphone']
 			);
 
-		/*$data = array(
-			//'newPassword' => $_POST['newPassword'],
-			'user_firstName'=> 'bite',
-			'user_lastName' =>'fdsfdsd',
-			'user_email' => 'bbfgdfg',
-			'user_numberPhone' => 'bafdfsd'
-			);*/
 		if($_POST['newPassword'] != ""){
 			$data['user_password'] = $_POST['newPassword'];
 		}
