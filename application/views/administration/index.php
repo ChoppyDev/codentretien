@@ -50,17 +50,17 @@
             <div class="control-group">
                 <label class="control control-radio">
                     Masculin
-                        <input type="radio" id="gender1" value="1" name="radio" checked="checked" />
+                        <input type="radio" id="gender1" value="1" name="gender" checked="checked" />
                     <div class="control_indicator"></div>
                 </label>
                 <label class="control control-radio">
                     Féminin
-                        <input type="radio" id="gender2" value="2" name="radio" />
+                        <input type="radio" id="gender2" value="2" name="gender" />
                     <div class="control_indicator"></div>
                 </label>
                 <label class="control control-radio">
                     Autre
-                        <input type="radio" id="gender3" value="3" name="radio" />
+                        <input type="radio" id="gender3" value="3" name="gender" />
                     <div class="control_indicator"></div>
                 </label>
             </div>
