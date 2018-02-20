@@ -80,6 +80,26 @@ Array.prototype.swap = function (x,y) {
   return this;
 }
 
+Array.prototype.search = function(element)
+{
+  for( var i = 0; i < this.length; i++ )
+  {
+    if( this[i] == element )
+      return true;
+  }
+  return false;
+}
+
+Array.prototype.searchIndex = function(element)
+{
+  for( var i = 0; i < this.length; i++ )
+  {
+    if( this[i] == element )
+      return i;
+  }
+  return -1;
+}
+
 CanvasRenderingContext2D.prototype.textHeight = function (text, maxWidth, lineHeight) {
 
     var lines = text.split("\n");

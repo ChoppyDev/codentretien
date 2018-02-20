@@ -5,9 +5,11 @@ var Area = (function (_super) {
         _this.__name    = null;
         _this.__color   = null;
         _this.__status  = null;
+        _this.__tasksIn = null;
         _this.__name    = name;
         _this.__color   = color;
         _this.__status  = status;
+        _this.__tasksIn = new Array();
         return _this;
     }
 
@@ -31,7 +33,9 @@ var Area = (function (_super) {
     Area.prototype.detect = function(tasks)
     {
       var that = this;
-      tasks.forEach(function(e){
+      
+      tasks.forEach(function(e)
+      {
         var ax = that.__position.x();
         var ay = that.__position.y();
         var aw = that.__size.x();
@@ -45,14 +49,27 @@ var Area = (function (_super) {
         {
           if(ty + th/2 >= ay && ty + th/2 <= ay + ah)
           {
-            that.save(e);
+            if(!that.__tasksIn.search(e.id()))
+              that.save(e);
           }
+          else
+          {
+            if(that.__tasksIn.search(e.id()))
+              that.__tasksIn.splice(that.__tasksIn.searchIndex(e.id()), 1);
+          }
+        }
+        else
+        {
+          if(that.__tasksIn.search(e.id()))
+            that.__tasksIn.splice(that.__tasksIn.searchIndex(e.id()), 1);
         }
       });
     };
 
     Area.prototype.save = function(task)
     {
+      this.__tasksIn.push(task.id());
+
       var data = {id:task.id(), state:task.status()};
       var url = "http://localhost:9090/codentretien/ticketmanagement/editState";
       var that = this;

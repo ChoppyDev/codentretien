@@ -171,14 +171,14 @@ var Task = (function (_super) {
       this.__color = Converter.statusToColor(this.__status);
     }
 
-    Task.prototype.name = function ()     {return this.__name;};
-    Task.prototype.details = function ()  {return this.__details;};
-    Task.prototype.room = function ()     {return this.__room;};
-    Task.prototype.date = function ()     {return this.__date;};
-    Task.prototype.status = function ()   {return this.__status;};
-    Task.prototype.agent = function ()    {return this.__agent;};
+    Task.prototype.name     = function()  {return this.__name;};
+    Task.prototype.details  = function()  {return this.__details;};
+    Task.prototype.room     = function()  {return this.__room;};
+    Task.prototype.date     = function()  {return this.__date;};
+    Task.prototype.status   = function()  {return this.__status;};
+    Task.prototype.agent    = function()  {return this.__agent;};
     Task.prototype.isGrabed = function()  {return this.__grabed;};
-    Task.prototype.id = function()        {return this.__id;};
+    Task.prototype.id       = function()  {return this.__id;};
 
     Task.prototype.setStatus = function(status){this.__status = status;this._intern_update();};
 
