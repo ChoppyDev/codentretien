@@ -69,10 +69,9 @@ var Area = (function (_super) {
     Area.prototype.save = function(task)
     {
       this.__tasksIn.push(task.id());
-
-      var data = {id:task.id(), state:task.status()};
-      var url = "http://localhost:9090/codentretien/ticketmanagement/editState";
-      var that = this;
+      var data  = {id:parseInt(task.id()), state:parseInt(this.__status)};
+      var url   = "http://localhost:9090/codentretien/ticketmanagement/editState";
+      var that  = this;
 
       $.ajax({
         type:'POST',

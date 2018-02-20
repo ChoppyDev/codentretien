@@ -26,7 +26,6 @@ class TicketManagement extends CI_Controller{
 	public function editState(){
 		$id = $_POST['id'];
 		$state = $_POST['state'];
-
 		$this->ticket_database->edit_state($id,$state);
 
 	}
