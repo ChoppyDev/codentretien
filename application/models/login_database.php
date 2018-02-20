@@ -49,7 +49,7 @@ Class Login_Database extends CI_model{
 		$this->db->where('user_id', $userID);
 		$this->db->update('users');
 
-		echo $this->db->last_query();
+		//echo $this->db->last_query();
 	}
 }
 

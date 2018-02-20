@@ -5,12 +5,14 @@
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/jquery.min.js" ></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/jquery-ui.min.js" ></script>   
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery.jqgrid.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/trirand/grid.locale-fr.js" ></script>
 
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/groupTable.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jqgrid/js/jquery-ui.min.js"></script>
 
 <button id="create-group"> Créer un nouveau groupe</button>
 <table id="groupTable"></table>
+<div id="gridpager"></div>
 <script> 
   $( function() {
    dialog = $( "#groupDialog" ).dialog({
