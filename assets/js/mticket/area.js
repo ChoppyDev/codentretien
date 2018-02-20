@@ -13,16 +13,19 @@ var Area = (function (_super) {
 
     Area.prototype.render = function (context)
     {
-        context.fillStyle = 'rgba(' + this.__color.r() +',' + this.__color.g() + ',' + this.__color.b() + ',' + this.__color.a() + ')';
+        context.fillStyle = this.__color.toRGBA();
         context.fillRect(this.__position.x(), this.__position.y(), this.__size.x(), this.__size.y());
+
+        context.fillStyle = this.__color.brighter(100).toRGBA();
+        context.fillRect(this.__position.x() + 2, this.__position.y() + 2, this.__size.x() - 4, this.__size.y() - 4);
+
+        context.fillStyle = this.__color.brighter(50).toRGBA();
+        context.fillRect(this.__position.x() + 2, this.__position.y() + 2, this.__size.x() - 4, 22);
+
         context.fillStyle = 'rgb(20, 20, 20)';
         context.font="20px Didact Gothic";
-        context.fillText(this.__name, this.__position.x() + this.__size.x() / 2 - context.measureText(this.__name).width / 2, this.__position.y());
+        context.fillText(this.__name, this.__position.x() + this.__size.x() / 2 - context.measureText(this.__name).width / 2, this.__position.y() + 20);
 
-        var color = this.__color;
-        color = color.brighter(100);
-        context.fillStyle = 'rgba(' + color.r() +',' + color.g() + ',' + color.b() + ',' + color.a() + ')';
-        context.fillRect(this.__position.x() + 4, this.__position.y() + 4, this.__size.x() - 8, this.__size.y() - 8);
     };
 
     Area.prototype.detect = function(tasks)

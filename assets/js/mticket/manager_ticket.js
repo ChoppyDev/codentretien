@@ -4,6 +4,7 @@ $( document ).ready(function() {
 
 var main = function()
 {
+
   var canvasName = 'canvas';
   var canvas = document.getElementById(canvasName);
   if (canvas.getContext)
