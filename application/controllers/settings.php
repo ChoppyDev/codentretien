@@ -21,7 +21,7 @@ class Settings extends CI_Controller{
 	}
 
 	public function getUserInfos(){
-		$this->read_database->get_user_infos($this->userID,FALSE);
+		$this->read_database->get_user_infos($this->userID, FALSE);
 	}
 
 	public function updateInfos(){

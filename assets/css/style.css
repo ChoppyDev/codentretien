@@ -660,3 +660,7 @@ select
   border-radius: 2px;
   background-color: rgb(238,238,255);
 }
+/*************************
+***** JQGRID CUSTOM ******
+****************************/
+.ui-jqgrid tr.jqgrow td {font-size:14px}s
