@@ -9,11 +9,7 @@
       <input type="text" id ="edit-username" disabled />
     </div>
     <div class="form_item_left">
-      <label for="edit-oldPassword">Ancien mot de passe: </label>
-      <input type="password" id ="edit-oldPassword" disabled />
-    </div>
-    <div class="form_item_left">
-      <label for="edit-newPassword">Nouveau mot de passe: </label>
+      <label for="edit-newPassword">Nouveau mot de passe* : </label>
       <input type="password" id ="edit-newPassword" disabled />
     </div>
     <div class="form_item_left">
@@ -41,6 +37,8 @@
     </div>
   </div>
   <p>Compte créé le:</p><p id="createdOn"></p>
+
+  <p>* laisser vide si vous ne voulez pas modifier le mot de passe</p>
 
   <button id="edit-button" class="form_button_small_style">Editer</button>
   <button id="edit-save" class="form_button_normal_style">Sauvegarder</button><!--submit-->

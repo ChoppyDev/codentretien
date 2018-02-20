@@ -43,6 +43,14 @@ Class Login_Database extends CI_model{
 			return false;
 		}
 	}
+
+	public function user_update_infos($userID, $data){
+		$this->db->set($data);
+		$this->db->where('user_id', $userID);
+		$this->db->update('users');
+
+		echo $this->db->last_query();
+	}
 }
 
 ?>
