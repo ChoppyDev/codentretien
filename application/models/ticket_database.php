@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 Class ticket_database extends CI_model{
 
@@ -9,8 +9,15 @@ Class ticket_database extends CI_model{
 		$this->db->join("users","users.user_id = ticket.user_id");
 		$result = $this->db->get();
 
-		//echo json_encode($result->result());
-		return $result->result();
+		echo json_encode($result->result());
+		//return $result->result();
 	}
+
+	public function edit_state( $id, $state ){
+		$this->db->set("status_id", $state);
+		$this->db->where("ticket_id", $id);
+		$this->db->update("ticket");
+	}
+
 }
 ?>

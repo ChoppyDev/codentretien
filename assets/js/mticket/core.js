@@ -23,6 +23,26 @@ var Converter = (function () {
                 return new Color(188, 184, 169, 1.0);
         }
     };
+
+    Converter.rawStatusToStatus = function(rawData)
+    {
+      switch((rawData))
+      {
+        case 0:
+          return Status.NEW;
+        case 1:
+          return Status.ACCEPTED;
+        case 2:
+          return Status.DENIED;
+        case 3:
+          return Status.UNTREATED;
+        case 4:
+          return Status.UNDEFINED;
+        default:
+          return Status.UNDEFINED;
+      }
+    };
+
     return Converter;
 }());
 Converter["__class"] = "Converter";

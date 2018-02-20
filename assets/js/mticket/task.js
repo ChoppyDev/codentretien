@@ -1,6 +1,6 @@
 var Task = (function (_super) {
     __extends(Task, _super);
-    function Task(position, size, name, details, room, date, status, agent) {
+    function Task(id, position, size, name, details, room, date, status, agent) {
         var _this = _super.call(this, position, size) || this;
         //EXTERN
         _this.__name          = null;
@@ -10,6 +10,7 @@ var Task = (function (_super) {
         _this.__status        = null;
         _this.__agent         = null;
         _this.__color         = null;
+        _this.__id            = null;
 
         _this.__name          = name;
         _this.__details       = details;
@@ -18,6 +19,7 @@ var Task = (function (_super) {
         _this.__status        = status;
         _this.__agent         = agent;
         _this.__color         = Converter.statusToColor(this.__status);
+        _this.__id            = id;
 
         //INTERN
         _this.__grabed        = null;
@@ -176,6 +178,7 @@ var Task = (function (_super) {
     Task.prototype.status = function ()   {return this.__status;};
     Task.prototype.agent = function ()    {return this.__agent;};
     Task.prototype.isGrabed = function()  {return this.__grabed;};
+    Task.prototype.id = function()        {return this.__id;};
 
     Task.prototype.setStatus = function(status){this.__status = status;this._intern_update();};
 

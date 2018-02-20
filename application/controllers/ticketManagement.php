@@ -23,6 +23,14 @@ class TicketManagement extends CI_Controller{
 		$this->ticket_database->read_ticket_info();
 	}
 
+	public function editState(){
+		$id = $_POST['id'];
+		$state = $_POST['state'];
+
+		$this->ticket_database->edit_state($id,$state);
+
+	}
+
 }
 
 ?>

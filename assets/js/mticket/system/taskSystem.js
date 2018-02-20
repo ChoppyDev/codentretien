@@ -9,6 +9,16 @@ var TaskSystem = (function () {
         this.__tasks                = tasks;
         this.__userHaveTaskSelected = -1;
         this.__lostFocus            = false;
+        this.__task__px             = null;
+        this.__task__py             = null;
+        this.__task__ey             = null;
+        this.__task__sx             = null;
+        this.__task__sy             = null;
+        this.__task__px             = 50;
+        this.__task__py             = 20;
+        this.__task__ey             = 40;
+        this.__task__sx             = 300;
+        this.__task__sy             = 30;
         var that = this;
 
         $(document).ready(function(){$(window).one("focus", function(){that.manageFocus();});});
@@ -32,6 +42,7 @@ var TaskSystem = (function () {
 
     TaskSystem.prototype.add = function(task)
     {
+      task.position().setValues(this.__task__px, this.__task__py += this.__task__ey);
       this.__tasks.push(task);
     };
 

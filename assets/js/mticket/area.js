@@ -42,8 +42,27 @@ var Area = (function (_super) {
         var th = e.size().y();
 
         if((tx + tw/2 >= ax && tx + tw/2 <= ax + aw ) && !e.isGrabed())
+        {
           if(ty + th/2 >= ay && ty + th/2 <= ay + ah)
-            e.setStatus(that.__status);
+          {
+            that.save(e);
+          }
+        }
+      });
+    };
+
+    Area.prototype.save = function(task)
+    {
+      var data = {id:task.id(), state:task.status()};
+      var url = "http://localhost:9090/codentretien/ticketmanagement/editState";
+      var that = this;
+
+      $.ajax({
+        type:'POST',
+        data:data,
+        url:url,
+        success : function()  {task.setStatus(that.__status);},
+        error   : function()  {}
       });
     };
 
