@@ -18,7 +18,7 @@ var Area = (function (_super) {
         context.fillStyle = this.__color.toRGBA();
         context.fillRect(this.__position.x(), this.__position.y(), this.__size.x(), this.__size.y());
 
-        context.fillStyle = this.__color.brighter(100).toRGBA();
+        context.fillStyle = this.__color.brighter(150).toRGBA();
         context.fillRect(this.__position.x() + 2, this.__position.y() + 2, this.__size.x() - 4, this.__size.y() - 4);
 
         context.fillStyle = this.__color.brighter(50).toRGBA();
@@ -33,7 +33,7 @@ var Area = (function (_super) {
     Area.prototype.detect = function(tasks)
     {
       var that = this;
-      
+
       tasks.forEach(function(e)
       {
         var ax = that.__position.x();
