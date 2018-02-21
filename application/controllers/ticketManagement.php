@@ -7,6 +7,7 @@ class TicketManagement extends CI_Controller{
 			$this->groups = $this->read_database->get_groups();
 			$this->userID = 0;
 			$this->load->model("ticket_database");
+			$this->load->helper('date');
 			if(isset($this->session->userdata['logged_in'])){
 				$this->userID = $this->session->userdata['logged_in']['id'];
 			}
@@ -29,7 +30,6 @@ class TicketManagement extends CI_Controller{
 		$this->ticket_database->edit_state($id,$state);
 
 	}
-
 }
 
 ?>
