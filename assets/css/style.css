@@ -660,3 +660,13 @@ select
   border-radius: 2px;
   background-color: rgb(238,238,255);
 }
+/*************************
+***** JQGRID CUSTOM ******
+****************************/
+.ui-jqgrid tr.jqgrow td {font-size:14px}
+
+th.ui-th-column div{
+    white-space:normal !important;
+    height:auto !important;
+    padding:2px;
+}
