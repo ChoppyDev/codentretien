@@ -7,6 +7,7 @@ Class ticket_database extends CI_model{
 		$this->db->from("ticket");
 		$this->db->join("room", "room.room_id = ticket.room_id");
 		$this->db->join("users","users.user_id = ticket.user_id");
+		$this->db->where("status_id != 1 AND status_id != 2");
 		$result = $this->db->get();
 
 		echo json_encode($result->result());
@@ -14,7 +15,12 @@ Class ticket_database extends CI_model{
 	}
 
 	public function edit_state( $id, $state ){
-		$this->db->set("status_id", $state);
+		$datestring = mdate('%Y-%m-%d', time());;
+		$data = array(
+				'status_id' => $state,
+				'ticket_editDate' => $datestring
+			);
+		$this->db->set($data);
 		$this->db->where("ticket_id", $id);
 		$this->db->update("ticket");
 	}
