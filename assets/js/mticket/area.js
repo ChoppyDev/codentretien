@@ -68,8 +68,14 @@ var Area = (function (_super) {
 
     Area.prototype.save = function(task)
     {
+      var rsl = null;
+      if(this.__status == Status.DENIED)
+      {
+        rsl = prompt("Veuillez expliquer le refus de ce ticket");
+      }
+
       this.__tasksIn.push(task.id());
-      var data  = {id:parseInt(task.id()), state:parseInt(this.__status)};
+      var data  = {id:parseInt(task.id()), state:parseInt(this.__status), reason:rsl};
       var url   = "http://localhost:9090/codentretien/ticketmanagement/editState";
       var that  = this;
 
