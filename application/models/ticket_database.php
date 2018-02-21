@@ -25,5 +25,27 @@ Class ticket_database extends CI_model{
 		$this->db->update("ticket");
 	}
 
+	/******** $type ********
+	*  0 - Professeur
+	*  1 - Agent
+	*	 2 - Reunion
+	****************/
+
+	public function publish( $userID, $title, $room, $desc, $type)
+	{
+		$datestring = mdate('%Y-%m-%d', time());;
+		$data = array(
+			'ticket_description' => $desc,
+			'ticket_creation'	=> $datestring,
+			'ticket_title' => $title,
+			'room_id' => $room,
+			'user_id' => $userID,
+			'status_id' => 0,
+			'ticket_type' => $type
+		);
+		$this->db->set($data);
+		$this->db->insert("ticket");
+	}
+
 }
 ?>
