@@ -22,5 +22,12 @@ class CreateTicket extends CI_Controller{
 				$this->layout->view('shared/permission_denied');
 			}
 		}
+
+	public function createTicket()
+	{
+		$title 		= htmlspecialchars($_POST["ticket_title"]);
+		$room 		= htmlspecialchars($_POST["ticket_room"]);
+		$details 	= htmlspecialchars($_POST["ticket_details"]);
+	}
 }
 ?>
