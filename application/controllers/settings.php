@@ -18,6 +18,8 @@ class Settings extends CI_Controller{
 
 	public function editInfos(){
 		$this->layout->view('settings/editInfos');
+
+		print_r( $this->session->userdata['logged_in']);
 	}
 
 	public function getUserInfos(){
@@ -31,6 +33,8 @@ class Settings extends CI_Controller{
 			'user_email' => $_POST['email'],
 			'user_numberPhone' => $_POST['numberphone']
 			);
+
+		$this->session->set_userdata('logged_in', array_replace($this->session->userdata['logged_in'], array('firstname' => $_POST['firstName'], 'lastname' => $_POST['lastName'])));
 
 		if($_POST['newPassword'] != ""){
 			$data['user_password'] = $_POST['newPassword'];

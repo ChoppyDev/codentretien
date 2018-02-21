@@ -663,4 +663,10 @@ select
 /*************************
 ***** JQGRID CUSTOM ******
 ****************************/
-.ui-jqgrid tr.jqgrow td {font-size:14px}s
+.ui-jqgrid tr.jqgrow td {font-size:14px}
+
+th.ui-th-column div{
+    white-space:normal !important;
+    height:auto !important;
+    padding:2px;
+}

@@ -17,10 +17,10 @@ $(document).ready(function () {
         rowList:[10,20,30],
         sortname: 'user_id',
         viewrecords: true,
-        sortorder: "desc",
+        sortorder: "asc",
         pager : '#gridpager',
         height: "auto",
-        width:"auto",
+        width: "auto",
         loadonce: true,
 
         caption:"Table Gestion Utilisateur",

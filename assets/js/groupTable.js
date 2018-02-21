@@ -13,7 +13,7 @@ $(document).ready(function () {
       pager: '#pager2',
       sortname: 'idGroup',
       viewrecords: true,
-      sortorder: "desc",
+      sortorder: "asc",
       loadonce: true,
       pager : '#gridpager',
       width: 200,
