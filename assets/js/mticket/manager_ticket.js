@@ -20,7 +20,7 @@ $( document ).ready(function() {
 
         data.forEach(function(t)
         {
-          ts.add( new Task(t["ticket_id"], new Vector2f(0,0), new Vector2f(300,30), t["ticket_title"], t["ticket_description"], t["room_label"], t["ticket_creation"], Converter.rawStatusToStatus(parseInt(t["status_id"])), t["user_firstName"] + t["user_lastName"]));
+          ts.add( new Task(t["ticket_id"], new Vector2f(0,0), new Vector2f(300,30), t["ticket_title"], t["ticket_description"], t["room_label"], t["ticket_creation"], Converter.rawStatusToStatus(parseInt(t["status_id"])), t["user_firstName"] + " " + t["user_lastName"]));
         });
       });
 

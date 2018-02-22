@@ -11,10 +11,10 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/mticket/system/taskSystem.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/mticket/manager_ticket.js"></script>
 
-<canvas id="canvas" width="1000" height="600">
+<canvas id="canvas" width="1000" height="1000">
   <p>
 
     // Change...
-    
+
   </p>
 </canvas>

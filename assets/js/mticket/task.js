@@ -108,23 +108,38 @@ var Task = (function (_super) {
 
 
         // BOTTOM
+
         //Draw background
         context.shadowColor = this.__color.toRGBA();
         context.shadowBlur = 20;
         context.shadowOffsetY = 10;
         context.fillStyle = this.__color.toRGBA();
-        context.fillRect(px,py + sy,sx,context.textHeight(this.__details,sx - 6,th) + th);
+        context.fillRect(px,py + sy,sx,context.textHeight(this.__details,sx - 6,th) + th*2);
         context.shadowBlur = 0;
         context.shadowOffsetY = 0;
 
         //Draw background - details
         context.fillStyle = contentColor;
-        context.fillRect(px + 2,py + sy,sx - 4,context.textHeight(this.__details,sx - 6,th) - 2 + th);
+        context.fillRect(px + 2,py + sy,sx - 4,context.textHeight(this.__details,sx - 6,th) - 2 + th*2);
+
+        //Draw background - author
+        var offset = 10;
+        context.fillStyle = this.__color.brighter(100).toRGBA();
+        context.fillRect(px + 2,py + sy,sx - 4,th + offset/2);
+
+        context.fillStyle = this.__color.toRGBA();
+        context.fillRect(px + 2,py + sy + th + offset/2,sx - 4,2);
+
+        //Draw author
+
+        context.fillStyle = textColor;
+        context.font = tp;
+        context.fillText(this.__prefixMadeBy+this.__agent, px + 2, py + 20*2 + offset);
 
         //Draw details
         context.fillStyle = textColor;
         context.font = tp;
-        context.wrapText(this.__details, px + 4, py + sy + 4 + th, sx - 6, th);
+        context.wrapText(this.__details, px + 4, py + sy + 4 + th *2, sx - 6, th);
     };
 
     Task.prototype.update = function(input)
