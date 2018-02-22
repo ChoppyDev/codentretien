@@ -42,18 +42,17 @@
           <div id="menu">
             <a href="<?php echo base_url() ?>home"><div class="onglets"><p>Accueil</p></div></a>
             <?php if($this->permission->user_as_permission($this->userID, 101)){?>
-            <a href="<?php echo base_url() ?>roomPlanning"><div class="onglets"><p>Planning salle</p></div></a>
               <a href="<?php echo base_url() ?>createticket"><div class="onglets"><p>Faire une demande</p></div></a>
             <?php } ?>
-            <a href="<?php echo base_url() ?>ticketmanagement"><div class="onglets"><p>Gestion billets</p></div></a>
+            <a href="<?php echo base_url() ?>ticketmanagement"><div class="onglets"><p>Gestion des billets</p></div></a>
             <a href="<?php echo base_url() ?>agentmanagement"><div class="onglets"><p>Gestion des agents</p></div></a>
             <?php if($this->permission->user_as_permission($this->userID, 1)){?>
-              <a href="<?php echo base_url()?>administration"><div class="onglets"><p>Gestion utilisateurs</p></div></a>
+              <a href="<?php echo base_url()?>administration"><div class="onglets"><p>Gestion des utilisateurs</p></div></a>
             <?php } ?>
-            <a href="<?php echo base_url()?>groupmanagement"><div class="onglets"><p>Gestion groupes</p></div></a>
+            <a href="<?php echo base_url()?>groupmanagement"><div class="onglets"><p>Gestion des groupes</p></div></a>
             <a href="<?php echo base_url()?>planningfree"><div class="onglets"><p>Emploi du temps</p></div></a>
             <a href="<?php echo base_url() ?>history"><div class="onglets"><p>Historique</p></div></a>
-            <a href="<?php echo base_url() ?>settings"><div class="onglets"><p>Paramétres</p></div></a>
+            <a href="<?php echo base_url() ?>settings"><div class="onglets"><p>Paramètres</p></div></a>
             <a href="<?php echo base_url() ?>help"><div class="onglets"><p>Aide</p></div></a>
           </div>
         </div>
