@@ -14,12 +14,17 @@ Class ticket_database extends CI_model{
 		//return $result->result();
 	}
 
-	public function edit_state( $id, $state ){
+	public function edit_state( $id, $state, $reason ){
+
 		$datestring = mdate('%Y-%m-%d', time());;
 		$data = array(
 				'status_id' => $state,
 				'ticket_editDate' => $datestring
 			);
+
+		if( isset($reason) )
+			$data['ticket_deniedReason'] = $reason;
+
 		$this->db->set($data);
 		$this->db->where("ticket_id", $id);
 		$this->db->update("ticket");

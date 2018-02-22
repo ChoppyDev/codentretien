@@ -9,6 +9,7 @@ class CreateTicket extends CI_Controller{
 		$this->rooms = $this->read_database->get_rooms();
 		$this->permissions = $this->read_database->get_permissions();
 		$this->load->model("ticket_database");
+		$this->load->helper('date');
 		$this->layout->set_titre("MANITA - Création de ticket");
 		if(isset($this->session->userdata['logged_in'])){
 			$this->userID = $this->session->userdata['logged_in']['id'];
@@ -24,13 +25,15 @@ class CreateTicket extends CI_Controller{
 			}
 		}
 
-	public function publishTicket()
+	public function publishTicket() /// flashdata
 	{
 		$title 		= htmlspecialchars($this->input->post("ticket_title"));
 		$room 		= htmlspecialchars($this->input->post("ticket_room"));
 		$desc 		= htmlspecialchars($this->input->post("ticket_description"));
 
 		$this->ticket_database->publish($this->userID,$title,$room,$desc,0);
+
+		redirect("home");
 	}
 }
 ?>
