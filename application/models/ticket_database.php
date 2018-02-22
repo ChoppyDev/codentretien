@@ -51,6 +51,20 @@ Class ticket_database extends CI_model{
 		$this->db->set($data);
 		$this->db->insert("ticket");
 	}
+	/**
+	* $all 	bool 	Si vrai, selectionne tous les tickets
+	*/
+	public function readAllTickets($all, $ticketID = 0){
+		$this->db->select("*");
+		$this->db->from('ticket');
+		$this->db->join('users','users.user_id = ticket.user_id');
+		if($all != TRUE)
+			$this->db->where('ticket_id', $ticketID);
+
+		$result = $this->db->get();
+
+		echo json_encode($result->result());
+	}
 
 }
 ?>
