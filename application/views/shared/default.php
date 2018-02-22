@@ -62,5 +62,5 @@
 			<?php echo $output;?>
 		</div>
        <div id="copyright">
-         <p>MANITA - Maxence Chauvet - Nicolas KLEIN - Tayfun Yilmaz</p>
+         <p>MANITA - <span class="color_red">Ma</span>xence Chauvet - <span class="color_red">Ni</span>colas KLEIN - <span class="color_red">Ta</span>yfun Yilmaz</p>
        </div>

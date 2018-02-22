@@ -210,6 +210,21 @@ a
 *****************  TABLE STYLE   *****************
 *************************************************/
 
+.color_red
+{
+  color:red;
+}
+
+.color_green
+{
+  color:green;
+}
+
+.color_blue
+{
+  color:blue;
+}
+
 .popup {
     margin-top: -1px;
     width:100%;
