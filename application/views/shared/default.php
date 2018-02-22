@@ -42,6 +42,7 @@
           <div id="menu">
             <a href="<?php echo base_url() ?>home"><div class="onglets"><p>Accueil</p></div></a>
             <?php if($this->permission->user_as_permission($this->userID, 101)){?>
+            <a href="<?php echo base_url() ?>roomPlanning"><div class="onglets"><p>Planning salle</p></div></a>
               <a href="<?php echo base_url() ?>createticket"><div class="onglets"><p>Faire une demande</p></div></a>
             <?php } ?>
             <a href="<?php echo base_url() ?>ticketmanagement"><div class="onglets"><p>Gestion billets</p></div></a>
