@@ -62,5 +62,9 @@
 			<?php echo $output;?>
 		</div>
        <div id="copyright">
+<<<<<<< HEAD
          <p><span class="color_black">MA</span><span class="color_maroon">NI</span><span class="color_red">TA</span> 5.0 - <span class="color_black">MA</span>XENCE CHAUVET - <span class="color_maroon">NI</span>COLAS KLEIN - <span class="color_red">TA</span>YFUN YILMAZ</p>
+=======
+         <p>MANITA - <span class="color_red">Ma</span>xence Chauvet - <span class="color_red">Ni</span>colas KLEIN - <span class="color_red">Ta</span>yfun Yilmaz</p>
+>>>>>>> 3faf6bbe31b9855928147840062a406d93658b4c
        </div>
