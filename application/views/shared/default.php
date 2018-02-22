@@ -26,7 +26,7 @@
 
         <header>
           <div id ="titre">
-            <h1 id="header_title"> MANITA </h1>
+            <h1 id="header_title"> MANITA 5.0 </h1>
           </div>
 <?php if(isset($this->session->userdata['logged_in'])){ ?>
        <div id="user_info">
@@ -62,5 +62,5 @@
 			<?php echo $output;?>
 		</div>
        <div id="copyright">
-         <p>MANITA - Maxence Chauvet - Nicolas KLEIN - Tayfun Yilmaz</p>
+         <p><span class="color_black">MA</span><span class="color_maroon">NI</span><span class="color_red">TA</span> 5.0 - <span class="color_black">MA</span>XENCE CHAUVET - <span class="color_maroon">NI</span>COLAS KLEIN - <span class="color_red">TA</span>YFUN YILMAZ</p>
        </div>

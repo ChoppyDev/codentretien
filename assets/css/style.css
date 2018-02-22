@@ -106,6 +106,18 @@ a:visited
   color : #320001;
 }
 
+.color_red {
+  color : red;
+}
+
+.color_maroon{
+  color: maroon;
+}
+
+.color_black  {
+  color: black;
+}
+
 #menu
 {
   margin-left: 10px;
@@ -159,7 +171,9 @@ a:visited
   background-color: rgb(240,240,240);
   z-index: 0;
   width:50%;
+
 }
+
 
 #user_info
 {
