@@ -50,6 +50,7 @@
               <a href="<?php echo base_url()?>administration"><div class="onglets"><p>Gestion utilisateurs</p></div></a>
             <?php } ?>
             <a href="<?php echo base_url()?>groupmanagement"><div class="onglets"><p>Gestion groupes</p></div></a>
+            <a href="<?php echo base_url()?>planningfree"><div class="onglets"><p>Emploi du temps</p></div></a>
             <a href="<?php echo base_url() ?>history"><div class="onglets"><p>Historique</p></div></a>
             <a href="<?php echo base_url() ?>settings"><div class="onglets"><p>Paramétres</p></div></a>
             <a href="<?php echo base_url() ?>help"><div class="onglets"><p>Aide</p></div></a>

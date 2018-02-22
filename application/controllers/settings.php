@@ -22,6 +22,12 @@ class Settings extends CI_Controller{
 		print_r( $this->session->userdata['logged_in']);
 	}
 
+	public function editPlanning(){
+		$this->layout->view('settings/editPlanning');
+		
+		print_r( $this->session->userdata['logged_in']);
+	}
+
 	public function getUserInfos(){
 		$this->read_database->get_user_infos($this->userID, FALSE);
 	}
