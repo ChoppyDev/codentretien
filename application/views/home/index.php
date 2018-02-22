@@ -2,7 +2,7 @@
 <?php
 
     $test = "<div class=\"popup\" onclick=\"showTask()\">data<span class=\"popuptext\" id=\"myPopup\">
-    <p class=\"room\">C114</p></span></div>";
+    <p class=\"room\">C114</p><p class=\"author\">Auteur</p></span></div>";
 
     $data = array(
       array("--","--","--","--","--","--","--","--"),

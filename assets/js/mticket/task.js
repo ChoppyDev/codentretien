@@ -173,6 +173,7 @@ var Task = (function (_super) {
       {
         if(!this.__moved && this.__grabed )
         {
+          this.setStatus(Status.UNTREATED);
           this.__showContent = this.__showContent ? false : true;
         }
 
