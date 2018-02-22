@@ -54,12 +54,14 @@ Class ticket_database extends CI_model{
 	/**
 	* $all 	bool 	Si vrai, selectionne tous les tickets
 	*/
-	public function readAllTickets($all, $ticketID = 0){
+	public function readTickets($all, $ticketID = 0){
 		$this->db->select("*");
 		$this->db->from('ticket');
 		$this->db->join('users','users.user_id = ticket.user_id');
-		if($all != TRUE)
+		$this->db->join('status', 'status.status_id = ticket.status_id');
+				if($all != TRUE)
 			$this->db->where('ticket_id', $ticketID);
+		$this->db->order_by('ticket_id','DESC');
 
 		$result = $this->db->get();
 

@@ -10,3 +10,29 @@
 <script type="text/javascript" src="<?php echo base_url() ?>assets/js/historyTable.js"></script>
 
 <table id= "historyTable"></table>
+<div id="pagerHistory"></div>
+<div id="ticket-dialog" > 
+	<table>
+		<tr>
+			<td>Titre:</td>
+			<td id= "ticket-title">tatatatatata</td>
+		</tr>
+		<tr>
+			<td>Description:</td>
+			<td><textarea id="ticket-description" disabled></textarea></td>
+		</tr>
+		<tr>
+			<td>Auteur: </td>
+			<td id="ticket-creator"></td>
+		</tr>
+		<tr>
+			<td>Date de creation: </td>
+			<td id="ticket-createdOn"></td>
+		</tr>
+		<tr>
+			<td>Statut:</td>
+			<td id="ticket-status"></td>
+		</tr>
+	</table>
+</div>
+
