@@ -10,7 +10,6 @@ $(document).ready(function () {
       ],
       rowNum:10,
       rowList:[10,20,30],
-      pager: '#pager2',
       sortname: 'idGroup',
       viewrecords: true,
       sortorder: "asc",
@@ -22,7 +21,6 @@ $(document).ready(function () {
       onSelectRow:function(id){
         $("#groupDialog").dialog("open");
         $("#labelgroup").val(jQuery("#groupTable").jqGrid('getCell', id, "labelGroup"));
-        console.log(jQuery("#groupTable").jqGrid('getCell', id, "labelGroup"));
         $("#groupDialog").dialog({ 
           title:"Modification - "+ jQuery("#groupTable").jqGrid('getCell', id, "labelGroup"),
           width:'auto',
@@ -53,13 +51,11 @@ $(document).ready(function () {
             "Annuler": function(){
               $( this ).dialog( "close" );
               $(this).dialog("option", "title", "");
-
               $('input:checkbox').removeAttr('checked');
-
             }
           },
-          close: function(){
-            $('input:checkbox').removeAttr('checked');
+            close: function(){
+              $('input:checkbox').removeAttr('checked');
             }
         });
         // Get permissions for the group and check the checkboxes

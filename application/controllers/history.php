@@ -16,10 +16,14 @@ class History extends CI_Controller{
 	}
 
 	public function getTicketsGrid(){
-		$this->ticket_database->readAllTickets(TRUE);
+		$this->ticket_database->readTickets(TRUE);
 	}
 
-	
+	public function getTicketDetail(){
+		$ticketID = $_GET['ticketID'];
+
+		$this->ticket_database->readTickets(FALSE, $ticketID);
+	}
 }
 
 ?>
